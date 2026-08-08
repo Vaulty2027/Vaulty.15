@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudes_compras.css">
+    <title>Vaulty+ - Compras</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+
+</head>
+<body>
+
+  <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+  <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    
+
+    <!-- HERO — imagen de fondo con titulo a la izquierda -->
+    <section class="compras-section">
+       <img src="img/fraudes-compras.png" class="compras-image" alt="Fraudes en compras">
+       <div class="compras-overlay"></div>
+       <div class="compras-content">
+            <!-- BOTÓN DE REGRESO -->
+          <div class="volver-container">
+            <a href="finanzas_fraudes.html" class="btn-volver">
+                <span class="flecha" aria-hidden="true">←</span>
+                <span data-es="Volver a fraudes" data-en="Back to frauds">Volver a fraudes</span>
+            </a>
+          </div>
+
+           <h1>
+             <span data-es="Fraudes" data-en="Shopping">Fraudes</span>
+             <span class="accent"
+                  data-es="en compras"
+                  data-en="Fraud">
+                  en compras
+             </span>
+           </h1>
+            <p data-es="Conoce cómo identificar estafas en compras por internet y protege tu dinero al comprar productos o servicios."
+             data-en="Learn how to identify online shopping scams and protect your money when purchasing products or services online.">
+             Conoce cómo identificar estafas en compras por internet y protege tu dinero al comprar productos o servicios.
+            </p>
+        </div>
+    </section>
+
+    <!-- QUE SON Y FORMAS COMUNES -->
+      <section class="compras-section2">
+        <div class="cards-compras">
+            <div class="card">
+                <h3 data-es="¿Qué son?" data-en="What Are They?">¿Qué son?</h3>
+                <p data-es="Son estafas realizadas mediante tiendas falsas o vendedores fraudulentos que ofrecen productos inexistentes o que nunca entregan."
+                    data-en="They are scams carried out through fake online stores or fraudulent sellers who advertise products that do not exist or never deliver the items after payment.">
+                    Son estafas realizadas mediante tiendas falsas o vendedores fraudulentos que ofrecen productos inexistentes o que nunca entregan.
+                </p>
+            </div>
+            <div class="card">
+                <h3 data-es="Formas comunes" data-en="Common Methods">Formas comunes</h3>
+                <div class="formas-lista">
+               <ul>
+                   <li data-es="Tiendas en línea falsas" data-en="Fake Online Stores">Tiendas en línea falsas</li>
+                   <li data-es="Productos a precios irreales." data-en="Products Offered at Unrealistically Low Prices.">Productos a precios irreales.</li>
+                   <li data-es="Solicitud de pagos por adelantado" data-en="Requests for Upfront Payment">Solicitud de pagos por adelantado</li>
+                   <li data-es="Ventas falsas en redes sociales" data-en="Fake Sales on Social Media">Ventas falsas en redes sociales</li>
+              </ul>
+          </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÑALES DE ALERTA -->
+    <section class="alertas-section">
+        <img src="img/señales-compras.png" alt="Fondo señales de alerta" class="alerta-bg-img">
+        <div class="alerta-overlay"></div>
+        <div class="alerta-container">
+
+          <div class="alerta-bloque">
+              <h2 class="alerta-titulo-icono">
+                  <span data-es="Señales de alerta" data-en="Warning Signs">Señales de alerta</span>
+              </h2>
+              <div class="alerta-card">
+                  <ul>
+                      <li data-es="Precios demasiados bajos." data-en="Prices That Are Too Good to Be True.">Precios demasiados bajos.</li>
+                      <li data-es="Falta de información de contacto." data-en="Lack of Contact Information.">Falta de información de contacto.</li>
+                      <li data-es="Solo aceptan transferencias." data-en="They Only Accept Bank Transfers.">Solo aceptan transferencias.</li>
+                      <li data-es="Opiniones inexistentes o falsas." data-en="Missing or Fake Customer Reviews.">Opiniones inexistentes o falsas.</li>
+                  </ul>
+              </div>
+          </div>
+
+          <div class="alerta-divisor" aria-hidden="true"></div>
+
+          <div class="alerta-bloque">
+              <h2 class="alerta-titulo-icono">
+                  <span data-es="Cómo protegerte" data-en="How to Protect Yourself">Cómo protegerte</span>
+              </h2>
+              <div class="alerta-card">
+                  <ul>
+                      <li data-es="Compra en sitios confiables." data-en="Buy from trusted websites.">Compra en sitios confiables.</li>
+                      <li data-es="Revisa opiniones de otros compradores." data-en="Check other buyers' reviews.">Revisa opiniones de otros compradores.</li>
+                      <li data-es="Utiliza métodos de pago seguros." data-en="Use secure payment methods.">Utiliza métodos de pago seguros.</li>
+                  </ul>
+              </div>
+          </div>
+
+        </div>
+   </section>
+
+    <!-- ============================================
+         BLOQUES INFORMATIVOS AMPLIADOS
+         ============================================ -->
+
+    <!-- 1. ¿Cómo operan los estafadores? — oscuro, icono a la derecha -->
+    <section class="info-section dark">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="¿Cómo operan los estafadores?" data-en="How do scammers operate?">¿Cómo operan los estafadores?</h2>
+                <div class="info-card card-white">
+                    <ul>
+                        <li data-es="Crean páginas idénticas a tiendas reales." data-en="They create pages identical to real stores.">Crean páginas idénticas a tiendas reales.</li>
+                        <li data-es="Envían enlaces falsos por SMS, correo o WhatsApp." data-en="They send fake links by text message, email, or WhatsApp.">Envían enlaces falsos por SMS, correo o WhatsApp.</li>
+                        <li data-es="Ofrecen descuentos imposibles." data-en="They offer discounts that are too good to be true.">Ofrecen descuentos imposibles.</li>
+                        <li data-es="Solicitan pagos por adelantado." data-en="They request payment in advance.">Solicitan pagos por adelantado.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="56" fill="#1f4f8f"/>
+                    <path d="M60 26c-16 0-27 12-27 27v9c-7 3-11 9-11 17v18c0 3 2 5 5 5h66c3 0 5-2 5-5V79c0-8-4-14-11-17v-9c0-15-11-27-27-27z" fill="#2d6fc7"/>
+                    <circle cx="60" cy="55" r="15" fill="#e8b382"/>
+                    <path d="M45 52c0-9 7-16 15-16s15 7 15 16" fill="none" stroke="#1f4f8f" stroke-width="4" stroke-linecap="round"/>
+                    <rect x="42" y="78" width="36" height="26" rx="4" fill="#173d6b"/>
+                    <rect x="47" y="83" width="26" height="16" rx="2" fill="#5ec9e0"/>
+                    <circle cx="60" cy="91" r="3" fill="#173d6b"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Antes de comprar verifica — claro, icono a la izquierda -->
+    <section class="info-section light">
+        <div class="info-row icon-left">
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="12" y="46" width="18" height="34" rx="6" fill="#2d6fc7"/>
+                    <path d="M30 54h20c14 0 34 6 44 12 5 3 5 10 0 12-12 5-30 8-42 8H40" fill="#f3c98f"/>
+                    <path d="M30 66h30c4 0 6 4 2 6-4 2-16 2-20 2" fill="none" stroke="#c98f52" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="88" cy="30" r="24" fill="#3ac569"/>
+                    <path d="M77 30l8 8 16-16" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="info-text">
+                <h2 data-es="Antes de comprar verifica:" data-en="Before you buy, check:">Antes de comprar verifica:</h2>
+                <div class="info-card card-orange">
+                    <ul>
+                        <li data-es="Que la página tenga HTTPS." data-en="That the site uses HTTPS.">Que la página tenga HTTPS.</li>
+                        <li data-es="Datos de contacto reales." data-en="Real contact information.">Datos de contacto reales.</li>
+                        <li data-es="Políticas de devolución." data-en="Return policies.">Políticas de devolución.</li>
+                        <li data-es="Opiniones recientes de otros compradores." data-en="Recent reviews from other buyers.">Opiniones recientes de otros compradores.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Métodos de pago seguros — oscuro, icono a la derecha -->
+    <section class="info-section dark">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="Métodos de pago seguros" data-en="Safe payment methods">Métodos de pago seguros</h2>
+                <div class="info-card card-white">
+                    <ul>
+                        <li data-es="Tarjeta de crédito." data-en="Credit card.">Tarjeta de crédito.</li>
+                        <li data-es="Plataformas de pago reconocidas." data-en="Well-known payment platforms.">Plataformas de pago reconocidas.</li>
+                        <li data-es="Pago contra entrega cuando sea posible." data-en="Cash on delivery when possible.">Pago contra entrega cuando sea posible.</li>
+                        <li data-es="Evita transferencias a desconocidos." data-en="Avoid bank transfers to strangers.">Evita transferencias a desconocidos.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="20" y="46" width="66" height="44" rx="8" fill="#e8b382" transform="rotate(-6 53 68)"/>
+                    <rect x="34" y="34" width="66" height="44" rx="8" fill="#f7d59e" stroke="#d4a574" stroke-width="2"/>
+                    <rect x="34" y="34" width="66" height="12" fill="#1a2332"/>
+                    <rect x="42" y="58" width="18" height="12" rx="2" fill="#d4a574"/>
+                    <rect x="42" y="72" width="42" height="4" rx="2" fill="#ffffff"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Consejos rápidos — claro, icono a la derecha -->
+    <section class="info-section light">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="Consejos rápidos" data-en="Quick tips">Consejos rápidos</h2>
+                <div class="info-card card-orange">
+                    <ul>
+                        <li data-es="No compartas códigos OTP." data-en="Never share OTP codes.">No compartas códigos OTP.</li>
+                        <li data-es="Verifica el dominio del sitio." data-en="Check the site's domain.">Verifica el dominio del sitio.</li>
+                        <li data-es="Desconfía de ofertas demasiado buenas." data-en="Be wary of deals that seem too good.">Desconfía de ofertas demasiado buenas.</li>
+                        <li data-es="Mantén actualizado tu dispositivo." data-en="Keep your device up to date.">Mantén actualizado tu dispositivo.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="55" cy="50" rx="30" ry="20" fill="#f3c98f"/>
+                    <ellipse cx="55" cy="62" rx="30" ry="20" fill="#e8b382"/>
+                    <ellipse cx="55" cy="74" rx="30" ry="20" fill="#d4a574"/>
+                    <path d="M84 44l14 10-14 10 4-10z" fill="#f7d54e" stroke="#d4a574" stroke-width="1"/>
+                    <path d="M12 88c6-6 14-8 20-6" fill="none" stroke="#2d6fc7" stroke-width="6" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. ¿Dónde ocurren? — oscuro, icono junto al título, tarjeta ancha -->
+    <section class="info-section dark">
+        <div class="info-title-row">
+            <h2 data-es="¿Dónde ocurren?" data-en="Where do they happen?">¿Dónde ocurren?</h2>
+            <span class="icono-circulo icono-globo" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="#1a2332" stroke-width="2.5"/><ellipse cx="20" cy="20" rx="7" ry="16" fill="none" stroke="#1a2332" stroke-width="2.5"/><line x1="4" y1="20" x2="36" y2="20" stroke="#1a2332" stroke-width="2.5"/><line x1="7" y1="12" x2="33" y2="12" stroke="#1a2332" stroke-width="2"/><line x1="7" y1="28" x2="33" y2="28" stroke="#1a2332" stroke-width="2"/></svg>
+            </span>
+        </div>
+        <div class="info-card card-white full">
+            <ul>
+                <li data-es="Tiendas en línea falsas." data-en="Fake online stores.">Tiendas en línea falsas.</li>
+                <li data-es="Redes sociales." data-en="Social media.">Redes sociales.</li>
+                <li data-es="Marketplaces." data-en="Online marketplaces.">Marketplaces.</li>
+                <li data-es="Aplicaciones de mensajería." data-en="Messaging apps.">Aplicaciones de mensajería.</li>
+                <li data-es="Correos electrónicos fraudulentos." data-en="Fraudulent emails.">Correos electrónicos fraudulentos.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 6. Información que nunca debes compartir — claro, icono a la derecha -->
+    <section class="info-section light">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="Información que nunca debes compartir" data-en="Information you should never share">Información que nunca debes compartir</h2>
+                <div class="info-card card-orange">
+                    <ul>
+                        <li data-es="Contraseñas." data-en="Passwords.">Contraseñas.</li>
+                        <li data-es="Código CVV de la tarjeta." data-en="Your card's CVV code.">Código CVV de la tarjeta.</li>
+                        <li data-es="Código PIN." data-en="PIN code.">Código PIN.</li>
+                        <li data-es="Códigos OTP enviados por el banco." data-en="OTP codes sent by your bank.">Códigos OTP enviados por el banco.</li>
+                        <li data-es="Datos bancarios completos." data-en="Full banking details.">Datos bancarios completos.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="32" y="52" width="56" height="46" rx="8" fill="#f7d54e" stroke="#173d6b" stroke-width="3"/>
+                    <path d="M42 52v-14c0-10 8-18 18-18s18 8 18 18v14" fill="none" stroke="#173d6b" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="60" cy="72" r="7" fill="#173d6b"/>
+                    <rect x="57" y="76" width="6" height="14" rx="3" fill="#173d6b"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Después de realizar una compra — oscuro, icono a la derecha -->
+    <section class="info-section dark">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="Después de realizar una compra" data-en="After making a purchase">Después de realizar una compra</h2>
+                <div class="info-card card-white">
+                    <ul>
+                        <li data-es="Guarda el comprobante." data-en="Keep your receipt.">Guarda el comprobante.</li>
+                        <li data-es="Revisa tu estado de cuenta." data-en="Check your account statement.">Revisa tu estado de cuenta.</li>
+                        <li data-es="Haz seguimiento del envío." data-en="Track your shipment.">Haz seguimiento del envío.</li>
+                        <li data-es="Reporta cualquier cargo sospechoso." data-en="Report any suspicious charges.">Reporta cualquier cargo sospechoso.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M28 42l32-14 32 14v14l-32 14-32-14z" fill="#e8b382"/>
+                    <path d="M28 42v34l32 14v-34z" fill="#c98f52"/>
+                    <path d="M92 42v34l-32 14v-34z" fill="#f3c98f"/>
+                    <rect x="52" y="52" width="16" height="20" rx="2" fill="#ffffff"/>
+                    <path d="M44 20l16 22M76 20L60 42" stroke="#173d6b" stroke-width="5" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Sitios web seguros — claro, icono a la izquierda -->
+    <section class="info-section light">
+        <div class="info-row icon-left">
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="14" y="24" width="92" height="60" rx="6" fill="#8fa4b3"/>
+                    <rect x="20" y="30" width="80" height="42" rx="2" fill="#5ec9e0"/>
+                    <path d="M60 34a20 20 0 1 0 .1 0z" fill="none" stroke="#173d6b" stroke-width="3"/>
+                    <path d="M40 51h40M60 31v40M46 38a22 22 0 0 0 0 26M74 38a22 22 0 0 1 0 26" fill="none" stroke="#173d6b" stroke-width="2"/>
+                    <rect x="46" y="84" width="28" height="10" fill="#8fa4b3"/>
+                    <path d="M84 60l14 10-14 10 4-10z" fill="#e05a4e"/>
+                </svg>
+            </div>
+            <div class="info-text">
+                <h2 data-es="Sitios web seguros" data-en="Secure websites">Sitios web seguros</h2>
+                <div class="info-card card-orange">
+                    <ul>
+                        <li data-es="URL correcta y sin errores." data-en="A correct URL with no typos.">URL correcta y sin errores.</li>
+                        <li data-es="Candado de seguridad (HTTPS)." data-en="A security padlock (HTTPS).">Candado de seguridad (HTTPS).</li>
+                        <li data-es="Información legal del negocio." data-en="The business's legal information.">Información legal del negocio.</li>
+                        <li data-es="Política de privacidad visible." data-en="A visible privacy policy.">Política de privacidad visible.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Impacto del fraude — oscuro, icono junto al título -->
+    <section class="info-section dark">
+        <div class="info-title-row">
+            <h2 data-es="Impacto del fraude" data-en="Impact of fraud">Impacto del fraude</h2>
+            <span class="icono-circulo icono-grafico" aria-hidden="true">
+                <svg viewBox="0 0 40 40"><rect x="10" y="20" width="5" height="12" rx="1.5" fill="#1a2332"/><rect x="18" y="14" width="5" height="18" rx="1.5" fill="#1a2332"/><rect x="26" y="8" width="5" height="24" rx="1.5" fill="#1a2332"/></svg>
+            </span>
+        </div>
+        <div class="info-card card-white full">
+            <ul>
+                <li data-es="Pérdida de dinero." data-en="Loss of money.">Pérdida de dinero.</li>
+                <li data-es="Robo de información personal." data-en="Theft of personal information.">Robo de información personal.</li>
+                <li data-es="Uso no autorizado de tarjetas." data-en="Unauthorized use of cards.">Uso no autorizado de tarjetas.</li>
+                <li data-es="Robo de identidad." data-en="Identity theft.">Robo de identidad.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- 10. Cómo reconocer una oferta falsa — claro, icono a la derecha -->
+    <section class="info-section light">
+        <div class="info-row icon-right">
+            <div class="info-text">
+                <h2 data-es="Cómo reconocer una oferta falsa" data-en="How to spot a fake offer">Cómo reconocer una oferta falsa</h2>
+                <div class="info-card card-orange">
+                    <ul>
+                        <li data-es="Precio demasiado bajo." data-en="A price that's too low.">Precio demasiado bajo.</li>
+                        <li data-es="Errores de ortografía." data-en="Spelling mistakes.">Errores de ortografía.</li>
+                        <li data-es="Poca información del vendedor." data-en="Little information about the seller.">Poca información del vendedor.</li>
+                        <li data-es="Comentarios repetidos o falsos." data-en="Repeated or fake reviews.">Comentarios repetidos o falsos.</li>
+                        <li data-es="Presión para comprar rápidamente." data-en="Pressure to buy quickly.">Presión para comprar rápidamente.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="52" cy="52" r="28" fill="none" stroke="#1a2332" stroke-width="8"/>
+                    <line x1="72" y1="72" x2="98" y2="98" stroke="#1a2332" stroke-width="10" stroke-linecap="round"/>
+                    <circle cx="52" cy="52" r="20" fill="#f7d59e"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Derechos del consumidor — oscuro, icono a la izquierda -->
+    <section class="info-section dark">
+        <div class="info-row icon-left">
+            <div class="info-icon" aria-hidden="true">
+                <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="45" cy="60" r="42" fill="#e8b382"/>
+                    <rect x="30" y="30" width="34" height="46" rx="4" fill="#ffffff"/>
+                    <rect x="46" y="24" width="34" height="46" rx="4" fill="#ffffff" stroke="#d4a574" stroke-width="2"/>
+                    <line x1="53" y1="34" x2="73" y2="34" stroke="#1a2332" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="53" y1="42" x2="73" y2="42" stroke="#1a2332" stroke-width="3" stroke-linecap="round"/>
+                    <line x1="53" y1="50" x2="66" y2="50" stroke="#1a2332" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="info-text">
+                <h2 data-es="Derechos del consumidor" data-en="Consumer rights">Derechos del consumidor</h2>
+                <div class="info-card card-muted">
+                    <ul>
+                        <li data-es="Solicitar reembolso cuando corresponda." data-en="Request a refund when applicable.">Solicitar reembolso cuando corresponda.</li>
+                        <li data-es="Presentar reclamaciones." data-en="File complaints.">Presentar reclamaciones.</li>
+                        <li data-es="Conservar comprobantes de compra." data-en="Keep proof of purchase.">Conservar comprobantes de compra.</li>
+                        <li data-es="Reportar comercios fraudulentos." data-en="Report fraudulent businesses.">Reportar comercios fraudulentos.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="fraudes_compras.js"></script>
+
+
+
+</body>
+</html>

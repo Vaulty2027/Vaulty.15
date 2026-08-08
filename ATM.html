@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ATM.css">
+    <title>Vaulty+ - ATM</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+  <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html"  data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+   
+
+    <!-- HERO -->
+    <section class="hero-atm">
+       <img src="img/atm.png" alt="ATM" class="atm-img">
+       <div class="atm-overlay"></div>
+       <div class="atm-content">
+          <h1>
+              <span data-es="ATM en" data-en="ATM in">ATM en</span>
+              <span class="accent" data-es="Panamá" data-en="Panama">Panamá</span>
+          </h1>
+          <p data-es="Conoce dónde están ubicados los cajeros automáticos (ATM) en Panamá y encuentra el más cercano de forma rápida y segura."
+             data-en="Locate ATMs across Panama and quickly find the nearest one with ease and confidence.">
+              Conoce dónde están ubicados los cajeros automáticos (ATM) en Panamá y encuentra el más cercano de forma rápida y segura.
+          </p>
+          <button class="btn">
+             <a href="mapa-ATM.html" target="_blank" rel="noopener noreferrer" data-es="Ubica tu ATM →" data-en="Locate your ATM →">Ubica tu ATM →</a>
+          </button>
+      </div>
+    </section>
+
+    <!--QUE ES ATM -->
+    <section class="que-es-atm">
+        <div class="que-es-atm-content">
+            <div class="que-es-atm-text">
+                <h1 data-es="¿Qué es un ATM?" data-en="What is an ATM?">¿Qué es un ATM?</h1>
+                <p data-es="Un ATM (Cajero Automático) es un dispositivo electrónico que permite a los clientes realizar operaciones bancarias como retiros de efectivo, consultas de saldo, depósitos, transferencias y pagos de manera rápida, segura y disponible las 24 horas del día, sin necesidad de acudir a una sucursal bancaria." 
+                   data-en="An Automated Teller Machine (ATM) is an electronic banking device that enables customers to perform financial transactions such as cash withdrawals, balance inquiries, deposits, funds transfers, and bill payments quickly, securely, and 24 hours a day, without the need to visit a bank branch.">
+                    Un ATM (Cajero Automático) es un dispositivo electrónico que permite a los clientes realizar operaciones bancarias como retiros de efectivo, consultas de saldo, depósitos, transferencias y pagos de manera rápida, segura y disponible las 24 horas del día, sin necesidad de acudir a una sucursal bancaria.
+                </p>
+
+                <h3 data-es="Permite principalmente: " data-en="Its primary functions include:">Permite principalmente: </h3>
+                <p data-es="Permite principalmente retirar efectivo y realizar operaciones bancarias básicas de forma rápida, segura y sin acudir a una sucursal."
+                 data-en="It primarily enables users to withdraw cash and perform basic banking transactions quickly, securely, and without visiting a bank branch.">
+                    Permite principalmente retirar efectivo y realizar operaciones bancarias básicas de forma rápida, segura y sin acudir a una sucursal.
+                </p>
+            </div>
+
+            <div class="que-es-atm-img">
+                <img src="img/atm.png" alt="Detalle de un ATM">
+            </div>
+        </div>
+    </section>
+
+    <!--SERVICIOS DISPONIBLES -->
+    <section class="servicios-disponibles">
+        <div class="servicios-disponibles-content">
+            <h2>
+                <span data-es="Servicios disponibles" data-en="Available services">Servicios disponibles</span>
+            </h2>
+
+            <div class="servicios-grid">
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/billete.png" alt="billetes">
+                    </div>
+                    <p data-es="Retiro de efectivo" data-en="Cash withdrawal">Retiro de efectivo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/dinero.png" alt="bolsa dinero">
+                    </div>
+                    <p data-es="Consulta de saldo" data-en="Balance inquiry">Consulta de saldo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/banco.png" alt="banco">
+                    </div>
+                    <p data-es="Depósitos en efectivo" data-en="Cash deposits">Depósitos en efectivo</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/transferir.png" alt="transferencias">
+                    </div>
+                    <p data-es="Transferencias entre cuentas" data-en="Transfers between accounts">Transferencias entre cuentas</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/tarjetas-de-credito.png" alt="tarjeta">
+                    </div>
+                    <p data-es="Pago de tarjetas de crédito y préstamos" data-en="Credit card and loan payments">Pago de tarjetas de crédito y préstamos</p>
+                </div>
+                <div class="servicio-card">
+                    <div class="icon-servicio">
+                        <img src="iconos/factura.png" alt="factura">
+                    </div>
+                    <p data-es="Pago de servicios" data-en="Bill payments">Pago de servicios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--CONSEJO DE SEGURIDAD -->
+    <section class="consejos-seguridad">
+        <div class="consejos-seguridad-content">
+            <h2>
+                <span class="icon-placeholder" aria-hidden="true"></span>
+                <span data-es="Consejo de seguridad" data-en="Security Tip">Consejo de seguridad</span>
+            </h2>
+            <ul>
+                <li>
+                    <span class="consejo-titulo" data-es="Cubre el teclado al ingresar tu PIN:" data-en="Cover the keypad when entering your PIN:">Cubre el teclado al ingresar tu PIN:</span>
+                    <span data-es="Coloca tu mano sobre el teclado mientras escribes tu PIN para evitar que otras personas o cámaras ocultas puedan verlo." data-en="Place your hand over the keypad while typing your PIN to prevent others from seeing it.">Coloca tu mano sobre el teclado mientras escribes tu PIN para evitar que otras personas o cámaras ocultas puedan verlo.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Revisa el cajero antes de usarlo:" data-en="Inspect the ATM before using it:">Revisa el cajero antes de usarlo:</span>
+                    <span data-es="Observa si el lector de tarjetas, el teclado o la pantalla presentan piezas extrañas o manipuladas. Si notas algo inusual, no utilices ese ATM." data-en="Check the ATM for any unusual parts or tampering before using it.">Observa si el lector de tarjetas, el teclado o la pantalla presentan piezas extrañas o manipuladas. Si notas algo inusual, no utilices ese ATM.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Utiliza cajeros en lugares seguros:" data-en="Use ATMs in safe locations:">Utiliza cajeros en lugares seguros:</span>
+                    <span data-es="Prefiere cajeros ubicados dentro de bancos, centros comerciales o áreas bien iluminadas y con vigilancia." data-en="Choose ATMs located in well-lit areas with good visibility.">Prefiere cajeros ubicados dentro de bancos, centros comerciales o áreas bien iluminadas y con vigilancia.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="No aceptes ayuda de desconocidos:" data-en="Do not accept assistance from strangers:">No aceptes ayuda de desconocidos:</span>
+                    <span data-es="Si tienes algún problema con el cajero, comunícate directamente con tu banco en lugar de aceptar ayuda de personas que estén cerca." data-en="If you encounter issues with the ATM, contact your bank directly instead of accepting help from nearby strangers.">Si tienes algún problema con el cajero, comunícate directamente con tu banco en lugar de aceptar ayuda de personas que estén cerca.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Guarda tu dinero y tu tarjeta antes de retirarte:" data-en="Keep your money and card secure before leaving:">Guarda tu dinero y tu tarjeta antes de retirarte:</span>
+                    <span data-es="Después de completar la operación, guarda el efectivo, la tarjeta y el comprobante antes de alejarte del cajero." data-en="After completing the transaction, keep your cash, card, and receipt before leaving the ATM.">Después de completar la operación, guarda el efectivo, la tarjeta y el comprobante antes de alejarte del cajero.</span>
+                </li>
+                <li>
+                    <span class="consejo-titulo" data-es="Reporta cualquier actividad sospechosa:" data-en="Report any suspicious activity:">Reporta cualquier actividad sospechosa:</span>
+                    <span data-es="Si detectas transacciones que no realizaste o el cajero retiene tu tarjeta, informa de inmediato a tu banco para proteger tu cuenta." data-en="If you notice unauthorized transactions or if the ATM retains your card, report it to your bank immediately to protect your account.">Si detectas transacciones que no realizaste o el cajero retiene tu tarjeta, informa de inmediato a tu banco para proteger tu cuenta.</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!--TIPOS DE ATM -->
+    <section class="tipos-atm">
+        <div class="tipos-atm-content">
+            <h2 data-es="Tipos de ATM" data-en="Types of ATMs">Tipos de ATM</h2>
+            <p data-es="En Panamá, los cajeros automáticos (ATM) se clasifican principalmente en tres tipos según sus funciones operativas y el tipo de transacciones que permiten:" 
+              data-en="In Panama, Automated Teller Machines (ATMs) are mainly classified into three types based on their operational functions and the types of transactions they allow:">
+             En Panamá, los cajeros automáticos (ATM) se clasifican principalmente en tres tipos según sus funciones operativas y el tipo de transacciones que permiten:           
+          </p> 
+          <ul>
+            <li>
+                <span class="tipo-titulo" data-es="ATM Básicos o Tradicionales:" data-en="Basic or Traditional ATMs:">ATM Básicos o Tradicionales:</span>
+                <span data-es="Diseñados únicamente para retiros de efectivo, consultas de saldo, cambios de PIN y, en algunos casos, pago de servicios o recargas telefónicas." data-en="Designed solely for cash withdrawals, balance inquiries, PIN changes, and in some cases, bill payments or mobile top-ups.">Diseñados únicamente para retiros de efectivo, consultas de saldo, cambios de PIN y, en algunos casos, pago de servicios o recargas telefónicas.</span>
+            </li>
+
+            <li>
+                <span class="tipo-titulo" data-es="ATM Multifuncionales (Full o Depositadores):" data-en="Multi-function ATMs:">ATM Multifuncionales (Full o Depositadores):</span>
+                <span data-es="Máquinas 24/7 que aceptan depósitos en efectivo (en tiempo real) y cheques, además de permitir el pago de tarjetas de crédito y préstamos." data-en="Machines that accept cash deposits (in real-time) and checks, and also allow credit card payments and loans.">Máquinas 24/7 que aceptan depósitos en efectivo (en tiempo real) y cheques, además de permitir el pago de tarjetas de crédito y préstamos.</span>
+            </li>
+
+            <li>
+                <span class="tipo-titulo" data-es="ATM Inteligentes con Retiro sin Tarjeta:" data-en="Smart ATMs with Cardless Withdrawal:">ATM Inteligentes con Retiro sin Tarjeta:</span>
+                <span data-es="Cajeros adaptados para entregar efectivo escaneando un código QR desde la aplicación móvil del banco o ingresando un token de seguridad generado previamente." data-en="Teller machines adapted to dispense cash by scanning a QR code from the bank's mobile application or entering a security token generated previously.">Cajeros adaptados para entregar efectivo escaneando un código QR desde la aplicación móvil del banco o ingresando un token de seguridad generado previamente.</span>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+    <!--PRINCIPALES BANCOS EN PANAMA -->
+    <section class="bancos-panama">
+        <div class="bancos-panama-content">
+            <h2 data-es="Principales bancos en Panamá y su disponibilidad" data-en="Main banks in Panama and their availability">Principales bancos en Panamá y su disponibilidad</h2>
+            <ul>
+                <li>
+                    <span class="banco-nombre" data-es="BAC Credomatic:" data-en="BAC Credomatic:">BAC Credomatic:</span>
+                    <span data-es="Cuentan con los llamados ATM Full (o superhéroes bancarios) que permiten depósitos en efectivo y pagos de tarjetas las 24 horas."
+                          data-en="They have the so-called Full ATMs that allow cash deposits and card payments 24 hours a day.">
+                        Cuentan con los llamados ATM Full (o superhéroes bancarios) que permiten depósitos en efectivo y pagos de tarjetas las 24 horas.
+                    </span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Banco General:" data-en="Banco General:">Banco General:</span>
+                    <span data-es="Disponen de cajeros para retiros, pagos de servicios, recargas y depósitos de dinero en ubicaciones estratégicas y sucursales."
+                          data-en="They have ATMs for withdrawals, bill payments, top-ups, and cash deposits at strategic locations and branches.">
+                        Disponen de cajeros para retiros, pagos de servicios, recargas y depósitos de dinero en ubicaciones estratégicas y sucursales.
+                    </span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Caja de Ahorros:" data-en="Caja de Ahorros:">Caja de Ahorros:</span>
+                    <span data-es="Cuentan con una red de cajeros multifuncionales que permiten depositar efectivo de forma inmediata a cualquier hora sin necesidad de hacer fila."
+                          data-en="They have a network of multi-function ATMs that allow instant cash deposits at any time without waiting in line.">
+                        Cuentan con una red de cajeros multifuncionales que permiten depositar efectivo de forma inmediata a cualquier hora sin necesidad de hacer fila.
+                    </span>
+                </li>
+                <li>
+                    <span class="banco-nombre" data-es="Banco Nacional de Panamá (BNP):" data-en="Banco Nacional de Panamá (BNP):">Banco Nacional de Panamá (BNP):</span>
+                    <span data-es="Ofrecen cajeros tradicionales y han expandido su red a nivel nacional con cajeros que permiten realizar depósitos en efectivo en puntos clave."
+                          data-en="They offer traditional ATMs and have expanded their network nationwide with ATMs that allow cash deposits at key points.">
+                        Ofrecen cajeros tradicionales y han expandido su red a nivel nacional con cajeros que permiten realizar depósitos en efectivo en puntos clave.
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!--PREGUNTAS FRECUENTES -->
+    <section class="faq-section">
+        <div class="faq-content">
+            <h2>
+                <span class="icon-placeholder" aria-hidden="true"></span>
+                <span data-es="Preguntas frecuentes (FAQ)" data-en="Frequently Asked Questions (FAQ)">Preguntas frecuentes (FAQ)</span>
+            </h2>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Qué hago si el ATM retiene mi tarjeta?" data-en="What should I do if the ATM keeps my card?">¿Qué hago si el ATM retiene mi tarjeta?</button>
+                <div class="faq-answer">
+                    <p data-es="Si el cajero retiene tu tarjeta, no intentes recuperarla por tu cuenta. Comunícate inmediatamente con tu banco para bloquearla o solicitar su devolución." data-en="If the ATM keeps your card, do not try to retrieve it yourself. Contact your bank immediately to block it or request its return.">Si el cajero retiene tu tarjeta, no intentes recuperarla por tu cuenta. Comunícate inmediatamente con tu banco para bloquearla o solicitar su devolución.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Qué hacer si olvidé mi PIN?" data-en="What should I do if I forgot my PIN?">¿Qué hacer si olvidé mi PIN?</button>
+                <div class="faq-answer">
+                    <p data-es="Por motivos de seguridad, debes solicitar el cambio o recuperación de tu PIN a través de los canales oficiales de tu banco, como la sucursal, banca en línea o la aplicación móvil." data-en="For security reasons, you must request a PIN change or recovery through your bank's official channels, such as a branch, online banking, or the mobile app.">Por motivos de seguridad, debes solicitar el cambio o recuperación de tu PIN a través de los canales oficiales de tu banco, como la sucursal, banca en línea o la aplicación móvil.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Puedo usar un ATM de otro banco?" data-en="Can I use an ATM from another bank?">¿Puedo usar un ATM de otro banco?</button>
+                <div class="faq-answer">
+                    <p data-es="Sí. Puedes utilizar cajeros automáticos de otras entidades bancarias, aunque es posible que se aplique una comisión según las políticas de tu banco." data-en="Yes. You can use ATMs from other banks, although a fee may apply depending on your bank's policies.">Sí. Puedes utilizar cajeros automáticos de otras entidades bancarias, aunque es posible que se aplique una comisión según las políticas de tu banco.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Es seguro usar un ATM por la noche?" data-en="Is it safe to use an ATM at night?">¿Es seguro usar un ATM por la noche?</button>
+                <div class="faq-answer">
+                    <p data-es="Sí, siempre que el cajero esté ubicado en un lugar bien iluminado, con vigilancia y sigas las recomendaciones de seguridad." data-en="Yes, as long as the ATM is located in a well-lit area with security and you follow safety recommendations.">Sí, siempre que el cajero esté ubicado en un lugar bien iluminado, con vigilancia y sigas las recomendaciones de seguridad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Cuál es el monto máximo de retiro?" data-en="What is the maximum withdrawal amount?">¿Cuál es el monto máximo de retiro?</button>
+                <div class="faq-answer">
+                    <p data-es="El monto máximo de retiro depende del banco, del tipo de cuenta y de los límites establecidos para tu tarjeta. Consulta con tu entidad bancaria para conocer el límite diario." data-en="The maximum withdrawal amount depends on the bank, account type, and the limits set for your card. Check with your bank to find out your daily limit.">El monto máximo de retiro depende del banco, del tipo de cuenta y de los límites establecidos para tu tarjeta. Consulta con tu entidad bancaria para conocer el límite diario.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Qué hago si el ATM no entrega el dinero?" data-en="What should I do if the ATM doesn't dispense money?">¿Qué hago si el ATM no entrega el dinero?</button>
+                <div class="faq-answer">
+                    <p data-es="Conserva el comprobante, si lo recibiste, y reporta el incidente de inmediato a tu banco. La entidad verificará la transacción y realizará la gestión correspondiente." data-en="Keep the receipt if you received one, and report the incident to your bank immediately. The bank will verify the transaction and take the appropriate action.">Conserva el comprobante, si lo recibiste, y reporta el incidente de inmediato a tu banco. La entidad verificará la transacción y realizará la gestión correspondiente.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" data-es="¿Qué debo hacer si pierdo mi tarjeta?" data-en="What should I do if I lose my card?">¿Qué debo hacer si pierdo mi tarjeta?</button>
+                <div class="faq-answer">
+                    <p data-es="Bloquéala inmediatamente desde la aplicación de tu banco o llamando al servicio de atención al cliente para evitar un uso no autorizado." data-en="Block it immediately through your bank's app or by calling customer service to prevent unauthorized use.">Bloquéala inmediatamente desde la aplicación de tu banco o llamando al servicio de atención al cliente para evitar un uso no autorizado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--VIDEO TUTORIAL -->
+    <section class="faq-video">
+        <div class="faq-video-content">
+            <h3>
+                <span class="accent" data-es="Video:" data-en="Video:">Video:</span>
+                <span data-es="¿Cómo usar un ATM de forma segura?" data-en="How to safely use an ATM?">¿Cómo usar un ATM de forma segura?</span>
+            </h3>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/AUheBiJLadc" title="Cómo usar un ATM de forma segura" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:info@vaultyplus.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="#" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="ATM.js"></script>
+</body>
+</html>

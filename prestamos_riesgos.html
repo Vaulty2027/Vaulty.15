@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prestamos_detalle.css">
+    <title>Vaulty+ - Riesgos sobreendeudamiento</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- ============================================
+         LINEA SCROLL
+         ============================================ -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER — idéntico al de finanzas.html / index.html
+         (sin botón de Registro)
+         ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+                <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">
+                        Finanzas Panamá
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" data-es="Aprende" data-en="Learn">Aprende</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html" data-es="ATM" data-en="ATM">ATM</a>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ============================================
+             HERO
+             ============================================ -->
+        <section class="detail-hero">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow" data-es="Prevención financiera" data-en="Financial prevention">Prevención financiera</p>
+                    <h1 data-es="Riesgos del sobreendeudamiento" data-en="Risks of over-indebtedness">Riesgos del sobreendeudamiento</h1>
+                    <p class="hero-lead"
+                       data-es="Ocurre cuando una persona asume más obligaciones financieras de las que puede pagar con sus ingresos disponibles."
+                       data-en="It happens when a person takes on more financial obligations than they can pay with their available income.">
+                        Ocurre cuando una persona asume más obligaciones financieras de las que puede pagar con sus ingresos disponibles.
+                    </p>
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-orbit"></div>
+                    <div class="hero-symbol"><img src="iconos/peligro.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             PRINCIPALES CONSECUENCIAS
+             ============================================ -->
+        <section class="page-shell" aria-labelledby="consecuencias-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker" data-es="Señales de alerta" data-en="Warning signs">Señales de alerta</p>
+                <h2 id="consecuencias-title" data-es="Principales consecuencias" data-en="Main consequences">Principales consecuencias</h2>
+                <p data-es="El problema no es usar crédito: es asumir pagos que tu presupuesto ya no puede sostener."
+                   data-en="The problem is not using credit; it is taking on payments your budget can no longer support.">
+                    El problema no es usar crédito: es asumir pagos que tu presupuesto ya no puede sostener.
+                </p>
+            </div>
+
+            <div class="consequence-grid">
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="iconos/reloj-de-pared.png" alt=""></div>
+                    <h3 data-es="Retrasos en los pagos" data-en="Late payments">Retrasos en los pagos</h3>
+                    <p data-es="La falta de liquidez puede provocar atrasos o incumplimientos en una o varias obligaciones."
+                       data-en="Lack of cash can cause delays or defaults on one or more financial obligations.">
+                        La falta de liquidez puede provocar atrasos o incumplimientos en una o varias obligaciones.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/historial-crediticio.png" alt=""></div>
+                    <h3 data-es="Historial crediticio afectado" data-en="Damaged credit history">Historial crediticio afectado</h3>
+                    <p data-es="Los incumplimientos pueden dificultar el acceso futuro a financiamiento o empeorar sus condiciones."
+                       data-en="Defaults may make future financing harder to obtain or lead to worse terms.">
+                        Los incumplimientos pueden dificultar el acceso futuro a financiamiento o empeorar sus condiciones.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/interes.png" alt=""></div>
+                    <h3 data-es="Intereses y recargos" data-en="Interest and fees">Intereses y recargos</h3>
+                    <p data-es="La mora puede añadir intereses moratorios, penalizaciones y otros cargos a una deuda ya difícil de pagar."
+                       data-en="Late payment can add default interest, penalties and other charges to debt that is already difficult to pay.">
+                        La mora puede añadir intereses moratorios, penalizaciones y otros cargos a una deuda ya difícil de pagar.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/credito.png" alt=""></div>
+                    <h3 data-es="Menor capacidad de crédito" data-en="Lower borrowing capacity">Menor capacidad de crédito</h3>
+                    <p data-es="Una alta carga de deudas reduce la posibilidad de obtener nuevos créditos cuando realmente los necesites."
+                       data-en="A high debt burden reduces your ability to obtain new credit when you truly need it.">
+                        Una alta carga de deudas reduce la posibilidad de obtener nuevos créditos cuando realmente los necesites.
+                    </p>
+                </article>
+
+                <article class="info-card featured reveal">
+                    <div class="card-icon danger" aria-hidden="true"><img src="img/glosario/ahorro.png" alt=""></div>
+                    <div>
+                        <h3 data-es="Menos ahorro y más estrés financiero" data-en="Less saving and more financial stress">Menos ahorro y más estrés financiero</h3>
+                        <p data-es="Cuando casi todo el ingreso se destina a cuotas, queda poco margen para ahorrar, cubrir emergencias o mantener el bienestar personal y familiar."
+                           data-en="When nearly all income goes to payments, little remains for saving, emergencies or personal and family well-being.">
+                            Cuando casi todo el ingreso se destina a cuotas, queda poco margen para ahorrar, cubrir emergencias o mantener el bienestar personal y familiar.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <!-- ============================================
+                 CÓMO EVITARLO
+                 ============================================ -->
+            <section class="subsection" aria-labelledby="evitar-title">
+                <div class="section-heading reveal">
+                    <p class="section-kicker" data-es="Actúa a tiempo" data-en="Act early">Actúa a tiempo</p>
+                    <h2 id="evitar-title" data-es="¿Cómo evitarlo?" data-en="How can you prevent it?">¿Cómo evitarlo?</h2>
+                </div>
+
+                <div class="content-grid">
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="iconos/contabilidad.png" alt=""></div>
+                        <h3 data-es="Organiza tu presupuesto" data-en="Organize your budget">Organiza tu presupuesto</h3>
+                        <p data-es="Registra ingresos, gastos esenciales y cuotas. Destina una parte del ingreso al ahorro antes de asumir una deuda nueva."
+                           data-en="Record income, essential expenses and payments. Set aside part of your income for savings before taking on new debt.">
+                            Registra ingresos, gastos esenciales y cuotas. Destina una parte del ingreso al ahorro antes de asumir una deuda nueva.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="img/glosario/financiamiento.png" alt=""></div>
+                        <h3 data-es="Solicita solo lo necesario" data-en="Borrow only what you need">Solicita solo lo necesario</h3>
+                        <p data-es="No aceptes un monto mayor solo porque fue aprobado. Pide lo que realmente necesitas y puedes devolver."
+                           data-en="Do not accept a larger amount simply because it was approved. Borrow only what you truly need and can repay.">
+                            No aceptes un monto mayor solo porque fue aprobado. Pide lo que realmente necesitas y puedes devolver.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="iconos/bancos.png" alt=""></div>
+                        <h3 data-es="Compara diferentes ofertas" data-en="Compare different offers">Compara diferentes ofertas</h3>
+                        <p data-es="Revisa tasas, comisiones, seguros, plazos y recargos de varias entidades antes de firmar."
+                           data-en="Review rates, fees, insurance, terms and penalties from several institutions before signing.">
+                            Revisa tasas, comisiones, seguros, plazos y recargos de varias entidades antes de firmar.
+                        </p>
+                    </article>
+
+                    <article class="info-card reveal">
+                        <div class="card-icon safe" aria-hidden="true"><img src="img/glosario/deuda.png" alt=""></div>
+                        <h3 data-es="No tapes una deuda sin analizar" data-en="Do not cover one debt without analysis">No tapes una deuda sin analizar</h3>
+                        <p data-es="Evita solicitar un préstamo para pagar otro sin calcular el costo total y confirmar que realmente mejora tu situación."
+                           data-en="Avoid taking a loan to pay another without calculating the total cost and confirming it truly improves your situation.">
+                            Evita solicitar un préstamo para pagar otro sin calcular el costo total y confirmar que realmente mejora tu situación.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <aside class="tip-panel reveal">
+                <div class="tip-icon" aria-hidden="true"><img src="iconos/escudo.png" alt=""></div>
+                <div>
+                    <h2 data-es="Si ya tienes dificultades" data-en="If you are already struggling">Si ya tienes dificultades</h2>
+                    <p data-es="Contacta a la entidad antes de atrasarte y pregunta por alternativas. No ignores avisos ni firmes acuerdos que no comprendas."
+                       data-en="Contact the institution before falling behind and ask about alternatives. Do not ignore notices or sign agreements you do not understand.">
+                        Contacta a la entidad antes de atrasarte y pregunta por alternativas. No ignores avisos ni firmes acuerdos que no comprendas.
+                    </p>
+                </div>
+                <a class="tip-link" href="finanzas_prestamos.html#temas-prestamos" data-es="Volver a préstamos" data-en="Back to loans">Volver a préstamos</a>
+            </aside>
+        </section>
+
+        <!-- ============================================
+             SIGUE APRENDIENDO
+             ============================================ -->
+        <section class="related-pages" aria-labelledby="relacionados-title">
+            <div class="related-inner">
+                <h2 id="relacionados-title" data-es="Sigue aprendiendo" data-en="Keep learning">Sigue aprendiendo</h2>
+                <div class="related-grid">
+                    <a class="related-card" href="prestamos_como_elegir.html">
+                        <span data-es="Explorar" data-en="Explore">Explorar</span>
+                        <strong data-es="Cómo elegir un préstamo" data-en="How to choose a loan">Cómo elegir un préstamo</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_riesgos.html" aria-current="page">
+                        <span data-es="Tema actual" data-en="Current topic">Tema actual</span>
+                        <strong data-es="Riesgos del sobreendeudamiento" data-en="Over-indebtedness risks">Riesgos del sobreendeudamiento</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_tipos.html">
+                        <span data-es="Siguiente tema" data-en="Next topic">Siguiente tema</span>
+                        <strong data-es="Tipos de préstamos personales" data-en="Types of personal loans">Tipos de préstamos personales</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE
+         ============================================ -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTÓN CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="prestamos_detalle.js"></script>
+</body>
+</html>

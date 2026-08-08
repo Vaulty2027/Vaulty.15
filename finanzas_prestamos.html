@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="finanzas_prestamos.css">
+    <title>Vaulty+ -Prestamos Personales</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+
+</head>
+<body>
+
+    <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+  
+    <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" class="active" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+    <main>
+        <section class="loans-hero">
+            <div class="loans-title">
+                <h1>
+                    <span data-es="PRÉSTAMOS" data-en="LOANS">PRÉSTAMOS</span>
+                    <span data-es="PERSONALES" data-en="PERSONAL">PERSONALES</span>
+                </h1>
+
+                <p data-es="TODO LO QUE NECESITAS SABER PARA TOMAR LA MEJOR DECISIÓN."
+                   data-en="EVERYTHING YOU NEED TO KNOW TO MAKE THE BEST DECISION">
+                    TODO LO QUE NECESITAS SABER PARA TOMAR LA MEJOR DECISIÓN.
+                </p>
+            </div>
+
+            <article class="loan-info-card">
+                <h2 data-es="QUÉ ES UN PRÉSTAMO PERSONAL?" data-en="WHAT IS A PERSONAL LOAN?">
+                    QUÉ ES UN PRÉSTAMO PERSONAL?
+                </h2>
+
+                <p data-es="Un préstamo personal es una operación financiera mediante la cual una entidad bancaria o financiera entrega una cantidad de dinero a una persona, quien se compromete a devolverlo en un plazo determinado junto con los intereses y cargos establecidos en el contrato."
+                   data-en="A personal loan is a financial operation where a bank or financial institution gives money to a person, who agrees to pay it back within a set term along with the interest and fees established in the contract.">
+                    Un préstamo personal es una operación financiera mediante la cual una entidad bancaria o financiera entrega una cantidad de dinero a una persona, quien se compromete a devolverlo en un plazo determinado junto con los intereses y cargos establecidos en el contrato.
+                </p>
+            </article>
+        </section>
+         
+                
+         <section class="prestamos-uso">
+    <div class="prestamos-hero">
+        <img src="img/mapa.png" alt="Fondo de mapa" class="imagen-fondo">
+        <h1>
+            <span data-es="¿Para qué puedo" data-en="What can I">¿Para qué puedo</span><br>
+            <span data-es="utilizarlos?" data-en="use them for?">utilizarlos?</span>
+        </h1>
+
+        <div class="prestamos-cuadro">
+            <h2 data-es="Los préstamos personales pueden utilizarse para:"
+                data-en="Personal loans can be used for:">
+                Los préstamos personales pueden utilizarse para:
+            </h2>
+            <ul>
+                <li data-es="Estudios y educación." data-en="Education and studies.">Estudios y educación.</li>
+                <li data-es="Gastos médicos." data-en="Medical expenses.">Gastos médicos.</li>
+                <li data-es="Remodelación del hogar." data-en="Home renovation.">Remodelación del hogar.</li>
+                <li data-es="Viajes." data-en="Travel.">Viajes.</li>
+                <li data-es="Consolidación de deudas." data-en="Debt consolidation.">Consolidación de deudas.</li>
+                <li data-es="Eventos especiales." data-en="Special events.">Eventos especiales.</li>
+                <li data-es="Emergencias financieras." data-en="Financial emergencies.">Emergencias financieras.</li>
+                <li data-es="Inversiones o emprendimientos." data-en="Investments or business ventures.">Inversiones o emprendimientos.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ==================================================
+         FRANJA DE BENEFICIOS
+    ================================================== -->
+    <div class="beneficios">
+        <div class="beneficios-titulo">
+            <img src="img/beneficios.png" alt="Imagen de beneficios" class="imagen-beneficios"
+            data-img-es="img/beneficios-es.png"
+            data-img-en="img/beneficios-en.png">
+        </div>
+
+        <ul class="beneficios-lista">
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2"/><path d="M9 2h6M12 2v3"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3 data-es="Aprobación rápida." data-en="Fast approval.">Aprobación rápida.</h3>
+                    <p data-es="Recibe una respuesta en poco tiempo." data-en="Get a response in no time.">Recibe una respuesta en poco tiempo.</p>
+                </div>
+            </li>
+
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2.5"/><path d="M2.5 10h19"/><circle cx="17" cy="14" r="1.4" fill="currentColor" stroke="none"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3 data-es="Desembolso en poco tiempo." data-en="Quick disbursement.">Desembolso en poco tiempo.</h3>
+                    <p data-es="El dinero disponible cuando más lo necesitas." data-en="The money available when you need it most.">El dinero disponible cuando más lo necesitas.</p>
+                </div>
+            </li>
+
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8 14h2M8 17h2M14 14h2M14 17h2"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3 data-es="Cuotas mensuales fijas." data-en="Fixed monthly payments.">Cuotas mensuales fijas.</h3>
+                    <p data-es="Pagos predecibles que te ayudan a organizar tus finanzas." data-en="Predictable payments that help you organize your finances.">Pagos predecibles que te ayudan a organizar tus finanzas.</p>
+                </div>
+            </li>
+
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c1-4 4-6 7.5-6s6.5 2 7.5 6"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3>
+                        <span data-es="Montos adaptados a las necesidades" data-en="Amounts tailored to the">Montos adaptados a las necesidades</span>
+                        <span data-es="del cliente." data-en="client's needs.">del cliente.</span>
+                    </h3>
+                    <p data-es="Elige el monto que se ajusta a tus planes." data-en="Choose the amount that fits your plans.">Elige el monto que se ajusta a tus planes.</p>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="beneficios-lista beneficios-derecha">
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M2.5 12.5l4-4 3 1 3-2 3 2 3-1 3 4"/><path d="M8 11l3.2 3.2a1.6 1.6 0 0 0 2.3 0l.2-.2a1.6 1.6 0 0 0 0-2.3L11 9"/><path d="M13.5 12.5l1.7 1.7a1.6 1.6 0 0 0 2.3 0 1.6 1.6 0 0 0 0-2.3"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3 data-es="No siempre requieren fiador." data-en="A co-signer is not always required.">No siempre requieren fiador.</h3>
+                    <p data-es="Obtén tu préstamo sin necesidad de un fiador." data-en="Get your loan without needing a co-signer.">Obtén tu préstamo sin necesidad de un fiador.</p>
+                </div>
+            </li>
+
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M6 2.5h8l4 4v15H6z"/><path d="M14 2.5v4h4"/><path d="M9 14l2 2 4-4.5"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3>
+                        <span data-es="Posibilidad de consolidar deudas en un solo" data-en="Possibility of consolidating debts into a">Posibilidad de consolidar deudas en un solo</span>
+                        <span data-es="pago." data-en="single payment.">pago.</span>
+                    </h3>
+                    <p data-es="Unifica tus deudas y simplifica tus pagos mensuales." data-en="Unify your debts and simplify your monthly payments.">Unifica tus deudas y simplifica tus pagos mensuales.</p>
+                </div>
+            </li>
+
+            <li class="beneficio-item">
+                <span class="beneficio-icono" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M8.5 15.5l2 2 4.5-5"/></svg>
+                </span>
+                <div class="beneficio-texto">
+                    <h3 data-es="Flexibilidad en los plazos de pago." data-en="Flexibility in payment terms.">Flexibilidad en los plazos de pago.</h3>
+                    <p data-es="Elige el plazo que mejor se adapte a tu capacidad de pago." data-en="Choose the term that best suits your ability to pay.">Elige el plazo que mejor se adapte a tu capacidad de pago.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </section>
+    
+
+<section class="loan-topics" aria-label="Temas de préstamos personales">
+
+    <a class="topic-card" tabindex="0" href="prestamos_como_elegir.html">
+        <img
+            src="img/Manejo-de-money.png"
+            alt=""
+            class="topic-card-image"
+        >
+
+        <h2
+            data-es="Cómo elegir el mejor préstamo"
+            data-en="How to choose the best loan"
+        >
+            Cómo elegir el mejor préstamo
+        </h2>
+    </a>
+
+    <a class="topic-card" tabindex="0" href="prestamos_riesgos.html">
+        <img
+            src="img/Frustracion.png"
+            alt=""
+            class="topic-card-image"
+        >
+
+        <h2
+            data-es="Riesgos del sobreendeudamiento"
+            data-en="Risks of over-indebtedness"
+        >
+            Riesgos del sobreendeudamiento
+        </h2>
+    </a>
+
+    <a class="topic-card" tabindex="0" href="prestamos_tipos.html">
+        <img
+            src="img/Money.png"
+            alt=""
+            class="topic-card-image"
+        >
+
+        <h2
+            data-es="Tipos de préstamos personales"
+            data-en="Types of personal loans"
+        >
+            Tipos de préstamos personales
+        </h2>
+    </a>
+
+</section>
+
+<!-- =========================================
+     SECCIÓN DE BANCOS
+========================================== -->
+<section class="bancos-section" id="bancos-aliados">
+
+  <img
+    class="bancos-fondo"
+    src="img/fondo-bancos.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <div class="bancos-contenedor">
+
+    <!-- GLOBAL BANK -->
+    <article class="banco-card">
+      <img src="img/global-bank.jpg" alt="Edificio de Global Bank">
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.globalbank.com.pa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="requisitos_globalbank.html"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+    <!-- BANISTMO -->
+    <article class="banco-card">
+      <img src="img/banistmo.jpg" alt="Edificio de Banistmo">
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.banistmo.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="requisitos_banistmo.html"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+    <!-- BANCO GENERAL -->
+    <article class="banco-card">
+      <img src="img/banco-general.jpg" alt="Edificio de Banco General">
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.bgeneral.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="#requisitos-banco-general"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+    <!-- CAJA DE AHORROS -->
+    <article class="banco-card">
+      <img
+        src="img/Cajadeahorros.png"
+        alt="Edificio de Caja de Ahorros"
+        loading="lazy"
+      >
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.cajadeahorros.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="#requisitos-caja-ahorros"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+    <!-- BAC CREDOMATIC -->
+    <article class="banco-card">
+      <img
+        src="img/bac-credomatic.png"
+        alt="Edificio de BAC Credomatic"
+        loading="lazy"
+      >
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.baccredomatic.com/es-pa"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="#requisitos-bac-credomatic"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+    <!-- BANCO NACIONAL -->
+    <article class="banco-card">
+      <img
+        src="img/banco-nacional.png"
+        alt="Edificio de Banco Nacional de Panamá"
+        loading="lazy"
+      >
+
+      <div class="banco-overlay">
+        <a
+          href="https://www.banconal.com.pa/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="banco-boton"
+        >
+          Más información
+        </a>
+
+        <a
+          href="#requisitos-banco-nacional"
+          class="banco-boton banco-boton--requisitos banco-requisitos-link"
+        >
+          Ver requisitos
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+
+
+<!-- =========================================
+     SECCIÓN: SOLICITAR UN PRÉSTAMO
+========================================= -->
+
+<section
+  class="solicitud-prestamo"
+  aria-labelledby="solicitud-titulo"
+>
+  <!-- Zona superior -->
+  <div class="solicitud-panel">
+
+    <!-- Imagen de fondo -->
+    <img
+      class="solicitud-fondo"
+      src="img/Fondo-solicitarprestamos.png"
+      alt=""
+      aria-hidden="true"
+    >
+
+    <!-- Título principal -->
+    <h2 id="solicitud-titulo">
+      Todo lo que Debes Saber Antes de Solicitar un Préstamo
+      Personal en Panamá
+    </h2>
+
+    <!-- Contenedor de preguntas -->
+    <div class="solicitud-preguntas">
+
+      <!-- Pregunta 1 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-1"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-1"
+        >
+          <span>1.</span>
+          ¿Realmente necesito el préstamo?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-1"
+          role="region"
+          aria-labelledby="solicitud-pregunta-1"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <p>
+              Debes evaluar si el dinero se usará para una inversión útil
+              (como reparar tu casa, consolidar deudas caras o educación)
+              o para un gasto pasajero (lujos, vacaciones o compras
+              impulsivas). Si no es una emergencia o algo que genere
+              valor a largo plazo, es mejor evitar la deuda.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pregunta 2 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-2"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-2"
+        >
+          <span>2.</span>
+          ¿Puedo ahorrar en lugar de endeudarme?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-2"
+          role="region"
+          aria-labelledby="solicitud-pregunta-2"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <p>
+              Si el objetivo del préstamo puede esperar unos meses,
+              la mejor opción financiera es abrir una cuenta de ahorros
+              dedicada y reunir el dinero poco a poco. De esta manera,
+              adquieres lo que deseas pagando su precio real, en lugar
+              de pagar el precio más los intereses y comisiones del banco.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pregunta 3 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-3"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-3"
+        >
+          <span>3.</span>
+          ¿Tengo ingresos suficientes para pagar las cuotas?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-3"
+          role="region"
+          aria-labelledby="solicitud-pregunta-3"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <p>
+              En Panamá, por ley, existe un tope máximo de descuento
+              de tu salario (capacidad de descuento legal). Debes calcular
+              si, tras restar tus gastos fijos (comida, alquiler y servicios)
+              y los préstamos actuales, te queda suficiente dinero libre
+              para cubrir la nueva cuota sin quedar “en números rojos”.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pregunta 4 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-4"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-4"
+        >
+          <span>4.</span>
+          ¿Mi presupuesto permite asumir una nueva deuda?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-4"
+          role="region"
+          aria-labelledby="solicitud-pregunta-4"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <p>
+              Antes de firmar, se recomienda hacer un presupuesto mensual
+              detallado. La cuota del nuevo préstamo no debería comprometer
+              tu estabilidad diaria. Los expertos sugieren que el total
+              de tus deudas mensuales no supere el 35% o 40% de tus
+              ingresos netos.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pregunta 5 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-5"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-5"
+        >
+          <span>5.</span>
+          ¿Qué pasaría si pierdo mi empleo o disminuyen mis ingresos?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-5"
+          role="region"
+          aria-labelledby="solicitud-pregunta-5"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <p>
+              Debes contar con un plan de respaldo, como un fondo de
+              emergencia que cubra al menos de 3 a 6 meses de tus gastos
+              básicos. Aunque los préstamos en Panamá incluyen seguros
+              de vida o desempleo bajo ciertas condiciones, tener ahorros
+              propios evitará que caigas en morosidad y afectes tu
+              historial en la APC.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pregunta 6 -->
+      <article class="solicitud-card esta-cerrada">
+        <button
+          id="solicitud-pregunta-6"
+          class="solicitud-pregunta"
+          type="button"
+          aria-expanded="false"
+          aria-controls="solicitud-respuesta-6"
+        >
+          <span>6.</span>
+          ¿Cuánto tiempo demora en aprobarse y desembolsarse un préstamo
+          personal en Panamá?
+        </button>
+
+        <div
+          class="solicitud-respuesta"
+          id="solicitud-respuesta-6"
+          role="region"
+          aria-labelledby="solicitud-pregunta-6"
+          aria-hidden="true"
+        >
+          <div class="solicitud-respuesta-interior">
+            <ul>
+              <li>
+                <strong>Gobierno y jubilados:</strong>
+                de 24 a 48 horas. Es el proceso más rápido por la
+                automatización de los sistemas del Estado.
+              </li>
+
+              <li>
+                <strong>Empresa privada (descuento directo):</strong>
+                de 3 a 5 días hábiles. El banco debe validar la empresa
+                y esperar la firma de Recursos Humanos.
+              </li>
+
+              <li>
+                <strong>Pago voluntario:</strong>
+                de 5 a 7 días hábiles. El análisis de la capacidad
+                de pago y del historial en la APC es más estricto.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- =====================================
+       FRANJA DE CONSEJOS
+  ====================================== -->
+
+  <div class="solicitud-consejos">
+
+    <h3>Consejos clave:</h3>
+
+    <div class="solicitud-consejos-contenido">
+
+      <!-- Bombillo decorativo -->
+      <svg
+        class="solicitud-bombillo"
+        viewBox="0 0 120 130"
+        role="img"
+        aria-label="Idea importante"
+      >
+        <g
+          fill="none"
+          stroke="#0c1118"
+          stroke-linecap="round"
+        >
+          <path
+            d="M60 5v18 M20 20l13 15 M100 20 87 35
+               M4 62h20 M116 62H96 M18 105l15-14
+               M102 105 87 91"
+            stroke-width="3"
+          />
+        </g>
+
+        <circle
+          cx="60"
+          cy="67"
+          r="43"
+          fill="#ffe58a"
+          opacity=".62"
+        />
+
+        <path
+          d="M60 28c-22 0-38 16-38 37
+             0 14 7 24 17 32
+             5 4 7 9 7 15h28
+             c0-6 2-11 7-15
+             10-8 17-18 17-32
+             0-21-16-37-38-37Z"
+          fill="#ffc400"
+          stroke="#0c1118"
+          stroke-width="5"
+        />
+
+        <path
+          d="M48 108h25 M49 116h23 M53 123h15"
+          stroke="#0c1118"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M45 67c8 0 7 20 13 20
+             s5-20 13-20 7 20 13 20"
+          fill="none"
+          stroke="#0c1118"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+      </svg>
+
+      <!-- Primera lista -->
+      <ul class="solicitud-lista-consejos">
+        <li>
+          Compara las tasas de interés y el costo total del préstamo
+          antes de tomar una decisión.
+        </li>
+
+        <li>
+          Solicita únicamente el monto que realmente necesitas
+          y puedes pagar.
+        </li>
+
+        <li>
+          Elabora un presupuesto mensual para asegurarte de que
+          podrás cumplir con las cuotas.
+        </li>
+      </ul>
+
+      <!-- Segunda lista -->
+      <ul class="solicitud-lista-consejos">
+        <li>
+          Lee cuidadosamente el contrato y comprende todas las
+          condiciones antes de firmarlo.
+        </li>
+
+        <li>
+          Mantén tus pagos al día para conservar un buen
+          historial crediticio.
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+</main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+    
+<script src="finanzas_prestamos.js"></script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudes_suplantacion.css">
+    <title>Vaulty+ - Suplantación</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- LINEA SCROLL -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero-suplantacion">
+        <img src="img/suplantacion.png" alt="Suplantación de identidad" class="hero-img">
+        <div class="hero-suplantacion-overlay"></div>
+        <div class="hero-suplantacion-content">
+            <a href="finanzas_fraudes.html" class="btn-volver">
+                <span>←</span>
+                <span data-es="Volver a Fraudes" data-en="Back to Frauds">Volver a Fraudes</span>
+            </a>
+            <h1>
+             <span data-es="Suplantación" data-en="Identity">Suplantación</span>
+             <span class="accent" data-es="de identidad" data-en="Theft">de identidad</span>
+            </h1>
+            <p data-es="Descubre cómo los estafadores pueden hacerse pasar por ti para obtener beneficios económicos o causar daños a tu reputación."
+              data-en="Discover how scammers can impersonate you to obtain financial benefits or damage your reputation.">
+              Descubre cómo los estafadores pueden hacerse pasar por ti para obtener beneficios económicos o causar daños a tu reputación.
+            </p>
+        </div>
+    </section>
+
+    <!-- QUÉ ES -->
+    <section class="que-es">
+        <h2 data-es="¿Qué es la suplantación de identidad?" data-en="What Is Identity Theft?">¿Qué es la suplantación de identidad?</h2>
+        <p data-es="Es un fraude en el que una persona utiliza tu información personal sin autorización para hacerse pasar por ti. Los delincuentes pueden abrir cuentas bancarias, solicitar préstamos, realizar compras o cometer otros delitos utilizando tus datos."
+           data-en="Identity theft is a type of fraud in which someone uses your personal information without your permission to impersonate you. Criminals may open bank accounts, apply for loans, make purchases, or commit other crimes using your personal data.">
+            Es un fraude en el que una persona utiliza tu información personal sin autorización para hacerse pasar por ti. Los delincuentes pueden abrir cuentas bancarias, solicitar préstamos, realizar compras o cometer otros delitos utilizando tus datos.
+        </p>
+    </section>
+
+    <!-- CÓMO LO HACEN -->
+    <section class="como-hacen">
+        <h2 data-es="¿Cómo lo hacen?" data-en="How Do They Do It?">¿Cómo lo hacen?</h2>
+        <ul>
+            <li data-es="Roban información personal mediante correos o mensajes falsos." data-en="They steal personal information through fake emails or messages.">Roban información personal mediante correos o mensajes falsos.</li>
+            <li data-es="Obtienen datos a través de filtraciones de información." data-en="They obtain data through information leaks.">Obtienen datos a través de filtraciones de información.</li>
+            <li data-es="Crean perfiles falsos con tu nombre e identidad." data-en="They create fake profiles using your name and identity.">Crean perfiles falsos con tu nombre e identidad.</li>
+            <li data-es="Utilizan documentos falsificados para solicitar créditos o servicios." data-en="They use forged documents to apply for credit or services.">Utilizan documentos falsificados para solicitar créditos o servicios.</li>
+        </ul>
+    </section>
+
+    <!-- ============================================
+         SEÑALES DE ALERTA + CÓMO PROTEGERTE
+         FIX: se quitaron los íconos ("peligro.png" / "escudo.png")
+         de los dos títulos — quedan solo el texto y la línea
+         dorada debajo, igual que pediste.
+         ============================================ -->
+    <section class="alertas-protegerte">
+        <img src="img/suplantacion_alerta.png" alt="" class="alertas-protegerte-img">
+        <div class="alertas-protegerte-overlay"></div>
+
+        <div class="alertas-protegerte-inner">
+            <div class="bloque-alerta">
+                <h2>
+                    <span data-es="Señales de alerta" data-en="Warning Signs">Señales de alerta</span>
+                </h2>
+                <div class="tarjeta-dorada">
+                    <ul>
+                        <li data-es="Cuentas o transacciones que no reconoces." data-en="Accounts or transactions you don't recognize.">Cuentas o transacciones que no reconoces.</li>
+                        <li data-es="Deudas o préstamos que nunca solicitaste." data-en="Debts or loans you never applied for.">Deudas o préstamos que nunca solicitaste.</li>
+                        <li data-es="Correos o llamadas sospechosas solicitando información personal." data-en="Suspicious emails or calls requesting personal information.">Correos o llamadas sospechosas solicitando información personal.</li>
+                        <li data-es="Cambios inesperados en tus reportes de crédito." data-en="Unexpected changes in your credit reports.">Cambios inesperados en tus reportes de crédito.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bloque-alerta">
+                <h2>
+                    <span data-es="Cómo protegerte" data-en="How to Protect Yourself">Cómo protegerte</span>
+                </h2>
+                <div class="tarjeta-dorada">
+                    <ul>
+                        <li data-es="No compartas datos personales en sitios no confiables." data-en="Don't share personal data on untrusted sites.">No compartas datos personales en sitios no confiables.</li>
+                        <li data-es="Utiliza contraseñas seguras y diferentes para cada cuenta." data-en="Use strong and unique passwords for each account.">Utiliza contraseñas seguras y diferentes para cada cuenta.</li>
+                        <li data-es="Activa la verificación en dos pasos." data-en="Enable two-step verification.">Activa la verificación en dos pasos.</li>
+                        <li data-es="Revisa regularmente tus movimientos bancarios y reportes de crédito." data-en="Regularly review your bank statements and credit reports.">Revisa regularmente tus movimientos bancarios y reportes de crédito.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================ -->
+    <!-- NUEVAS SECCIONES (CONSECUENCIAS, MODALIDADES, VÍCTIMA, DERECHOS)  -->
+    <!-- ================================================================ -->
+
+    <!-- 1. CONSECUENCIAS -->
+    <section class="info-section consecuencias-section">
+        <h2 data-es="Consecuencias de la suplantación de identidad" data-en="Consequences of Identity Theft">Consecuencias de la suplantación de identidad</h2>
+        <div class="grid-info">
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
+                <p data-es="Apertura de cuentas bancarias a tu nombre." data-en="Opening bank accounts in your name.">Apertura de cuentas bancarias a tu nombre.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <p data-es="Solicitud de préstamos o tarjetas de crédito." data-en="Applying for loans or credit cards.">Solicitud de préstamos o tarjetas de crédito.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <p data-es="Compras por internet utilizando tus datos." data-en="Online purchases using your data.">Compras por internet utilizando tus datos.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                <p data-es="Daños a tu historial crediticio." data-en="Damage to your credit history.">Daños a tu historial crediticio.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                <p data-es="Pérdida de dinero." data-en="Loss of money.">Pérdida de dinero.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 7h18M7 7l-4 8h8l-4-8zM17 7l-4 8h8l-4-8z"/></svg>
+                <p data-es="Problemas legales por actividades realizadas por otra persona." data-en="Legal problems for activities done by someone else.">Problemas legales por actividades realizadas por otra persona.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         2. MODALIDADES COMUNES
+         FIX: 5 tarjetas — con .grid-info como flexbox centrado, la
+         segunda fila (2 tarjetas: "Clonación de tarjetas" y "Robo de
+         cuentas") queda centrada en vez de pegada a la izquierda.
+         ============================================ -->
+    <section class="info-section modalidades-section">
+        <h2 data-es="Modalidades más comunes en Panamá" data-en="Most Common Types in Panama">Modalidades más comunes en Panamá</h2>
+        <div class="grid-info">
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <h3>Phishing</h3>
+                <p data-es="Correos electrónicos falsos de bancos." data-en="Fake bank emails.">Correos electrónicos falsos de bancos.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <h3>Smishing</h3>
+                <p data-es="Mensajes de texto con enlaces maliciosos." data-en="Text messages with malicious links.">Mensajes de texto con enlaces maliciosos.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <h3>Vishing</h3>
+                <p data-es="Llamadas telefónicas suplantando a tu banco." data-en="Phone calls impersonating your bank.">Llamadas telefónicas suplantando a tu banco.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><path d="M6 15h2M10 15h2"/></svg>
+                <h3 data-es="Clonación de tarjetas" data-en="Card Cloning">Clonación de tarjetas</h3>
+                <p data-es="Copian la información de tu tarjeta para realizar compras." data-en="They copy your card information to make purchases.">Copian la información de tu tarjeta para realizar compras.</p>
+            </div>
+            <div class="item-info">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <h3 data-es="Robo de cuentas" data-en="Account Theft">Robo de cuentas</h3>
+                <p data-es="Obtienen acceso a la banca en línea mediante contraseñas robadas." data-en="They access online banking using stolen passwords.">Obtienen acceso a la banca en línea mediante contraseñas robadas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         3. QUÉ HACER SI ERES VÍCTIMA
+         FIX: 4 tarjetas — con .grid-info como flexbox centrado, la
+         segunda fila (la última tarjeta que sobra) queda centrada
+         en vez de pegada a la izquierda.
+         ============================================ -->
+    <section class="info-section victima-section">
+        <h2 data-es="¿Qué hacer si eres víctima?" data-en="What to do if you are a victim?">¿Qué hacer si eres víctima?</h2>
+        <div class="grid-info">
+            <div class="item-victima">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <p data-es="Comunícate inmediatamente con el banco para bloquear tarjetas y cuentas." data-en="Contact the bank immediately to block cards and accounts.">Comunícate inmediatamente con el banco para bloquear tarjetas y cuentas.</p>
+            </div>
+            <div class="item-victima">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                <p data-es="Cambia todas tus contraseñas y activa la verificación en dos pasos." data-en="Change all your passwords and enable two-step verification.">Cambia todas tus contraseñas y activa la verificación en dos pasos.</p>
+            </div>
+            <div class="item-victima">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <p data-es="Presenta una denuncia ante las autoridades correspondientes." data-en="File a report with the relevant authorities.">Presenta una denuncia ante las autoridades correspondientes.</p>
+            </div>
+            <div class="item-victima">
+                <svg class="icono-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <p data-es="Solicita revisión de historial crediticio y monitorea movimientos sospechosos." data-en="Request a credit history review and monitor suspicious transactions.">Solicita revisión de historial crediticio y monitorea movimientos sospechosos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DERECHOS DEL USUARIO -->
+    <section class="info-section derechos-section">
+        <div class="derechos-card">
+            <h2 data-es="Derechos del usuario" data-en="User Rights">Derechos del usuario</h2>
+            <ul class="lista-derechos">
+                <li>
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p data-es="Tienes derecho a reportar operaciones no reconocidas." data-en="You have the right to report unrecognized operations.">Tienes derecho a reportar operaciones no reconocidas.</p>
+                </li>
+                <li>
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p data-es="Puedes solicitar investigaciones sobre movimientos sospechosos." data-en="You can request investigations on suspicious movements.">Puedes solicitar investigaciones sobre movimientos sospechosos.</p>
+                </li>
+                <li>
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p data-es="Tienes derecho a recibir atención y orientación del banco." data-en="You have the right to receive assistance and guidance from the bank.">Tienes derecho a recibir atención y orientación del banco.</p>
+                </li>
+                <li>
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    <p data-es="Puedes presentar reclamos formales si no estás de acuerdo con la respuesta." data-en="You can file formal claims if you disagree with the response.">Puedes presentar reclamos formales si no estás de acuerdo con la respuesta.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- IMAGEN FINAL (Se conserva) -->
+    <section class="image-fin">
+        <img src="img/suplantacion-2.png" alt="Suplantación de identidad" class="fin-img">
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE -->
+    <div id="asistente">
+        <div id="chat">
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+            <div id="preguntas"></div>
+        </div>
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+    </div>
+
+    <script src="fraudes_suplantacion.js"></script>
+</body>
+</html>

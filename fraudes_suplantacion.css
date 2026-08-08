@@ -1,0 +1,1476 @@
+:root {
+    --primary-dark: #1a2332;
+    --primary-accent: #d4a574;
+    --text-light: #ffffff;
+    --text-muted: #b8c5d6;
+    --border-color: #2d3e52;
+    --hover-accent: #e8b88d;
+    --primary-white:#a86c2b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-light);
+    background-color: var(--primary-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* ============================================
+   HEADER / NAV
+   ============================================ */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(26, 35, 50, 0.95) 0%, rgba(26, 35, 50, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    padding: 6px 24px;
+}
+
+header.scrolled {
+    background: linear-gradient(180deg, rgba(26, 35, 50, 0.98) 0%, rgba(26, 35, 50, 0.9) 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+}
+
+.logo-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #f7d59e;
+}
+
+nav a.active {
+    color: var(--primary-accent);
+    border-bottom: 2px solid var(--primary-accent);
+    padding-bottom: 6px;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-item > a {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-item.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: rgba(26, 35, 50, 0.97);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--primary-accent);
+    min-width: 170px;
+    list-style: none;
+    padding: 6px 0;
+    margin: 0;
+    z-index: 1001;
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 19px !important;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: none !important;
+}
+
+.dropdown-menu li a:hover {
+    color: var(--primary-accent);
+}
+
+.dropdown-menu li a.active {
+    color: var(--primary-accent);
+    text-decoration: underline;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-right: 40px;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--border-color);  /* píldora azul, sólida (no transparente) */
+  border-radius: 999px;             /* forma ovalada */
+  padding: 4px;
+}
+
+.language-switcher img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;      /* bandera circular, como en la imagen */
+  object-fit: cover;       /* recorta la imagen para llenar el círculo sin deformarla */
+  object-position: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.language-switcher img:hover {
+  opacity: 1;
+}
+
+.language-switcher img.active {
+  opacity: 1;
+}
+
+/* ================================================================
+   1. HEADER / NAV — MENÚ HAMBURGUESA
+================================================================ */
+
+/* --- Botón hamburguesa: cuadrado con borde dorado, 3 barritas --- */
+.nav-toggle {
+    display: none; /* oculto en escritorio */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1.5px solid var(--primary-accent);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1;
+    flex-shrink: 0;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--primary-accent);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación a "X" cuando el menú está abierto */
+.nav-toggle.is-active .nav-toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle.is-active .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle.is-active .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Fondo oscuro detrás del panel, para cerrar tocando afuera */
+.nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 15, 28, 0.6);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.nav-backdrop.visible {
+    display: block;
+    opacity: 1;
+}
+
+/* Evita que el fondo scrollee detrás del menú abierto */
+body.nav-no-scroll {
+    overflow: hidden;
+}
+
+/* --- Encabezado propio del panel (mini logo + botón "×") ---
+   Oculto en escritorio: ahí el <nav> nunca se convierte en panel. */
+.nav-panel-header {
+    display: none;
+}
+
+.nav-close {
+    display: none;
+}
+
+/* --- Íconos y flecha de cada link: solo tienen sentido dentro del
+   panel mobile, en escritorio el <nav> sigue siendo una fila de texto
+   simple, así que se ocultan por defecto y se muestran en el
+   @media de abajo. --- */
+.nav-icon,
+.nav-chevron {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    /* Se muestra el botón hamburguesa y se reordena el header:
+       [hamburguesa]  Vaulty+   …   [píldora de idioma] */
+    .nav-toggle {
+        display: flex;
+        order: -1;
+    }
+
+    .header-content {
+        flex-wrap: nowrap;
+        gap: 12px;
+    }
+
+    .logo {
+        gap: 8px;
+        font-size: 18px;
+        margin-left: 18px;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+    }
+
+    /* No aparece en la referencia: se oculta para no competir por
+       espacio en una pantalla angosta */
+    .btn-register {
+        display: none;
+    }
+
+    .nav-right {
+        margin-right: 0;
+    }
+
+    /* --- El <nav> se convierte en un panel lateral que entra desde
+       la IZQUIERDA --- */
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;               /* oculto fuera de pantalla */
+        width: min(300px, 82vw);
+        height: 100vh;
+        margin: 0;
+        padding: 20px 20px 28px;
+        background: var(--primary-dark);
+        box-shadow: 8px 0 30px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        z-index: 1001;
+    }
+
+    nav.nav-open {
+        left: 0;                  /* entra desde la izquierda */
+    }
+
+    /* Encabezado del panel: mini logo + botón cerrar */
+    .nav-panel-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 18px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-panel-logo {
+        font-size: 18px;
+        gap: 8px;
+    }
+
+    .nav-panel-logo .logo-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav-close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border: none;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-light);
+        font-size: 20px;
+        line-height: 1;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    /* Links de primer nivel: ícono + texto (+ flecha si tiene submenú) */
+    nav > a,
+    .nav-item > a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        padding: 13px 12px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        font-size: 15px;
+    }
+
+    nav > a:hover,
+    .nav-item > a:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-item {
+        display: block;
+        width: 100%;
+    }
+
+    .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    .nav-icon svg {
+        width: 20px;
+        height: 20px;
+        fill: currentColor;
+    }
+
+    .nav-label {
+        flex: 1;
+    }
+
+    .nav-chevron {
+        display: block;
+        font-size: 18px;
+        color: var(--text-muted);
+        transition: transform 0.25s ease;
+    }
+
+    /* Página activa: fondo + borde dorados, como "Iniciar sección"
+       en la referencia */
+    nav > a.active,
+    .nav-item > a.active {
+        background: rgba(212, 165, 116, 0.12);
+        border-color: var(--primary-accent);
+        color: var(--primary-accent);
+    }
+
+    nav > a.active {
+        border-bottom: none; /* pisa el subrayado que usa el estado activo en escritorio */
+        padding-bottom: 13px;
+    }
+
+    /* Dentro del panel, el submenú se abre como acordeón (empuja el
+       contenido hacia abajo) y la flecha rota 90° */
+    .nav-item.open > a .nav-chevron {
+        transform: rotate(90deg);
+    }
+
+    .dropdown-menu {
+        display: none;
+        position: static;
+        background: rgba(255, 255, 255, 0.04);
+        border-top: none;
+        border-left: 2px solid var(--primary-accent);
+        min-width: 0;
+        margin: 0 0 4px 20px;
+        padding: 4px 0 4px 16px;
+    }
+
+    .nav-item.open .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 10px 8px !important;
+    }
+
+    /* Separa el selector de idioma del panel del resto de los links */
+    .nav-lang-mobile {
+        margin-top: 12px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-color);
+    }
+}
+
+/* ================================================================
+   2. SELECTOR DE IDIOMA — píldora con bandera + código + flecha
+================================================================ */
+.nav-lang-topbar,
+.nav-lang-mobile {
+    display: none; /* ocultas en escritorio */
+}
+
+.lang-current {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text-light);
+}
+
+.lang-current-flag {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.lang-chevron {
+    font-size: 12px;
+    line-height: 1;
+    color: var(--text-muted);
+    transition: transform 0.2s ease;
+}
+
+/* Cuando la lista está abierta, la flecha se da vuelta */
+.lang-current[aria-expanded="true"] .lang-chevron {
+    transform: rotate(180deg);
+}
+
+.lang-dropdown {
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.lang-dropdown.open {
+    display: flex;
+}
+
+.lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-light);
+    font-family: inherit;
+    font-size: 14px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.lang-option img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.lang-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.lang-check {
+    margin-left: auto;
+    color: var(--primary-accent);
+    font-weight: 700;
+    opacity: 0; /* solo el idioma activo lo muestra (ver JS: clase is-active) */
+}
+
+.lang-option.is-active .lang-check {
+    opacity: 1;
+}
+
+@media (max-width: 900px) {
+
+    /* Píldora compacta de arriba a la derecha */
+    .nav-lang-topbar {
+        display: block;
+        position: relative;
+    }
+
+    .language-switcher {
+        display: none; /* en mobile no van las dos banderas sueltas */
+    }
+
+    .lang-current--topbar {
+        background: var(--border-color);
+        padding: 6px 12px 6px 6px;
+        border: 1px solid var(--primary-accent);
+    }
+
+    .lang-current-code {
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .lang-dropdown--topbar {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 160px;
+        background: rgba(26, 35, 50, 0.98);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+        z-index: 1003;
+    }
+
+    /* Píldora ancho-completo adentro del panel */
+    .nav-lang-mobile {
+        display: block;
+        position: relative;
+    }
+
+    .lang-current--panel {
+        width: 100%;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--border-color);
+        padding: 12px 14px;
+    }
+
+    .lang-current-label {
+        flex: 1;
+        text-align: left;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .lang-dropdown--panel {
+        margin-top: 6px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+    }
+}
+
+/* ============================================
+   HERO — imagen de fondo con botón de regreso
+============================================ */
+.hero-suplantacion {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 58px; /* altura del header fijo */
+}
+
+.hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-suplantacion-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 26, 46, 0.65);
+    z-index: 1;
+}
+
+.hero-suplantacion-content {
+    position: relative;
+    z-index: 2;
+    padding: 32px 48px 64px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* ============================================
+   BOTÓN DE REGRESO — dentro del hero
+============================================ */
+.volver-container {
+    margin-bottom: 24px;
+}
+
+.btn-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-volver:hover {
+    color: var(--hover-accent);
+    transform: translateX(-3px);
+}
+
+.flecha {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Título hero */
+.hero-suplantacion-content h1 {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0 0 20px;
+    max-width: 460px;
+}
+
+.hero-suplantacion-content h1 span:first-child {
+    display: block;
+    color: var(--text-light);
+}
+
+/* Línea en dorado */
+.hero-suplantacion-content h1 .accent {
+    color: var(--primary-accent);
+    display: block;
+}
+
+.hero-suplantacion-content p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0;
+}
+
+/* ============================================
+  QUÉ ES 
+============================================ */
+.que-es {
+    background: white;
+    padding: 48px 80px;
+    text-align: center;
+}
+
+.que-es h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--primary-white);
+    border-bottom: 3px solid var(--primary-white);
+    display: inline-block;
+    padding-bottom: 20px;
+    margin: 0 auto 20px;
+}
+
+.que-es p {
+    font-size: 20px;
+    color: var(--primary-dark);
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   CÓMO LO HACEN — fondo blanco, mismo arreglo
+============================================ */
+.como-hacen {
+    background: white;
+    padding: 40px 80px 56px;
+    text-align: center;
+}
+
+.como-hacen h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--primary-white);
+    border-bottom: 3px solid var(--primary-white);
+    display: inline-block;
+    padding-bottom: 8px;
+    margin: 0 auto 20px;
+}
+
+.como-hacen ul {
+    list-style: disc;
+    list-style-position: inside;
+    padding: 24px 0;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.como-hacen li {
+    color: var(--primary-dark);
+    font-size: 20px;
+    line-height: 2;
+    font-weight: 500;
+}
+
+/* ============================================
+   SEÑALES DE ALERTA + CÓMO PROTEGERTE
+   Una sola sección, un solo fondo, todo centrado
+   FIX: se quitó el ícono que iba junto al título (ya no hay
+   ".bloque-alerta .icono" en el HTML); el título queda solo con
+   la línea dorada debajo.
+============================================ */
+.alertas-protegerte {
+    position: relative;
+    padding: 56px 80px;
+    overflow: hidden;
+}
+
+.alertas-protegerte-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.alertas-protegerte-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 26, 46, 0.82);
+    z-index: 1;
+}
+
+.alertas-protegerte-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.bloque-alerta { margin-bottom: 40px; }
+.bloque-alerta:last-child { margin-bottom: 0; }
+
+.bloque-alerta h2 {
+    display: inline-block;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-light);
+    border-bottom: 3px solid var(--primary-accent);
+    padding-bottom: 8px;
+    margin: 0 auto 24px;
+}
+
+/* Tarjeta dorada compartida */
+.tarjeta-dorada {
+    background: linear-gradient(135deg, #c8883a 0%, #d4a574 60%, #e8c48a 100%);
+    border-radius: 18px;
+    padding: 28px 32px;
+    text-align: left;
+}
+
+.tarjeta-dorada ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.tarjeta-dorada li {
+    color: var(--text-light);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 2;
+}
+
+/* ============================================
+  FIN IMAGEN
+============================================ */
+.image-fin {
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.fin-img {
+  position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* ============================================
+   NUEVAS SECCIONES (CONSECUENCIAS, MODALIDADES, VÍCTIMA, DERECHOS)
+============================================ */
+.info-section {
+    padding: 56px 80px;
+    text-align: center;
+    position: relative;
+}
+
+.info-section h2 {
+    font-size: 30px; font-weight: 700;
+    margin-bottom: 40px;
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-accent);
+}
+
+/* FIX: ".grid-info" pasó de grid a flexbox centrado (mismo patrón
+   que ".tipos-grid" en fraudes_Phishing.css). Con un grid de columnas
+   fijas, la última fila incompleta (2 tarjetas en "Modalidades", 1
+   en "Qué hacer si eres víctima") quedaba pegada a la izquierda con
+   un hueco vacío al lado; con flexbox + justify-content:center esa
+   fila queda centrada sola, sin importar cuántas tarjetas sobren. */
+.grid-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.icono-svg {
+    width: 32px; height: 32px;
+    stroke-width: 1.8;
+    transition: transform 0.3s ease;
+}
+
+.consecuencias-section { background: white; }
+.consecuencias-section h2 { color: var(--primary-white); }
+.consecuencias-section .icono-svg { color: var(--primary-dark); }
+
+.item-info {
+    flex: 1 1 250px;
+    max-width: 300px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+.item-info:hover { transform: translateY(-5px); }
+.item-info:hover .icono-svg { transform: scale(1.1); color: var(--primary-accent); }
+
+.item-info p {
+    color: var(--primary-dark);
+    font-size: 16px; font-weight: 600;
+    margin: 0; line-height: 1.5;
+}
+
+.modalidades-section { background: var(--primary-dark); }
+.modalidades-section h2 { color: var(--primary-accent); }
+.modalidades-section .item-info {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border-color);
+}
+.modalidades-section .icono-svg { color: var(--primary-accent); }
+.modalidades-section .item-info p { color: var(--text-muted); }
+.modalidades-section .item-info h3 {
+    color: var(--text-light); margin: 0; font-size: 18px;
+}
+
+.victima-section { background: white; }
+.victima-section h2 { color: var(--primary-white); }
+.victima-section .icono-svg {
+    color: var(--primary-white);
+    background: var(--primary-dark);
+    padding: 10px; border-radius: 50%;
+    width: 44px; height: 44px;
+}
+
+.item-victima {
+    flex: 1 1 250px;
+    max-width: 300px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 16px;
+    padding: 20px;
+}
+.item-victima p {
+    color: var(--primary-dark);
+    font-size: 16px; font-weight: 600;
+    margin: 0; max-width: 200px;
+}
+
+.derechos-section {
+    background: linear-gradient(135deg, #0f172a 0%, #16213e 45%, #1e3a5f 100%);
+    padding-bottom: 80px;
+}
+.derechos-card {
+    background: white;
+    max-width: 700px; margin: 0 auto;
+    border-radius: 20px; padding: 40px;
+    text-align: left;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+.derechos-card h2 {
+    color: var(--primary-dark); text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid var(--primary-accent);
+}
+.lista-derechos { list-style: none; padding: 0; margin: 0; }
+.lista-derechos li {
+    display: flex; align-items: flex-start;
+    gap: 16px; margin-bottom: 20px;
+}
+.lista-derechos li:last-child { margin-bottom: 0; }
+.check-svg {
+    width: 18px; height: 18px;
+    color: #f0ad4e; flex-shrink: 0;
+    margin-top: 3px;
+}
+.lista-derechos p {
+    margin: 0; color: var(--primary-dark);
+    font-size: 17px; font-weight: 500;
+    line-height: 1.5;
+}
+
+/* ============================================
+  FOOTER
+============================================ */
+.footer-top {
+    background: linear-gradient(180deg, #0a0f1c 0%, #111827 100%);
+    padding: 56px 32px;
+}
+
+.footer-top-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-brand h2 {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0 0 20px;
+}
+
+.footer-brand h2 span { display: block; }
+.footer-brand h2 .accent { color: var(--primary-accent); }
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.footer-logo img { width: 60px; height: 60px; object-fit: contain; }
+
+.footer-contact h3 { font-size: 26px; margin: 0 0 20px; color: var(--text-light); }
+
+.contact-links { display: flex; gap: 16px; align-items: center; min-height: 44px; }
+
+.footer-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px; height: 64px;
+    transition: transform 0.3s ease;
+}
+
+.footer-icon img {
+    width: 50px; height: 50px;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.footer-icon:hover { transform: translateY(-3px); }
+.footer-icon:hover img { opacity: 1; }
+
+.footer-bottom { background: var(--border-color); padding: 24px 32px; }
+
+.copyright { max-width: 1400px; margin: 0 auto; color: #d0d0d0; font-size: 15px; }
+
+/* ================================================================
+   ================================================================
+   RESPONSIVE — organizado por sección, de mayor a menor pantalla.
+   Mismo criterio y mismos breakpoints que fraudes_Phishing.css.
+
+   ÍNDICE:
+     0. HEADER / NAV — menú hamburguesa
+     1. HERO SUPLANTACIÓN
+     2. QUÉ ES
+     3. CÓMO LO HACEN
+     4. SEÑALES DE ALERTA + CÓMO PROTEGERTE
+     5. SECCIONES NUEVAS (consecuencias / modalidades / víctima)
+     6. DERECHOS DEL USUARIO
+     7. IMAGEN FINAL
+     8. FOOTER
+     9. AJUSTES FINOS PARA CELULARES CHICOS (≤420px)
+   ================================================================ */
+
+/* ================================================================
+   0. HEADER / NAV — MENÚ HAMBURGUESA
+   ------------------------------------------------------------------
+   Copiado tal cual de index.css (sin las reglas de ".btn-register",
+   que esta página no usa) para que el comportamiento sea idéntico
+   en todo el sitio. Requiere en el HTML:
+     - <button class="nav-toggle" id="navToggle">...</button>
+     - <nav id="mainNav">...</nav>
+     - <div class="nav-backdrop" id="navBackdrop"></div>
+   y el bloque "MENÚ HAMBURGUESA" en el JS.
+   ================================================================ */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.nav-toggle-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text-light);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.is-active .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.is-active .nav-toggle-bar:nth-child(2) { opacity: 0; }
+.nav-toggle.is-active .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 15, 28, 0.6);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.nav-backdrop.visible { display: block; opacity: 1; }
+
+body.nav-no-scroll { overflow: hidden; }
+
+@media (max-width: 900px) {
+    .nav-toggle { display: flex; }
+
+    .header-content { flex-wrap: nowrap; gap: 12px; }
+
+    .logo { gap: 8px; font-size: 18px; }
+    .logo-icon { width: 38px; height: 38px; }
+
+    .nav-right { margin-right: 0; }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(320px, 85vw);
+        height: 100vh;
+        margin: 0;
+        padding: 90px 28px 28px;
+        background: #10192a;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        overflow-y: auto;
+        transition: right 0.3s ease;
+        z-index: 1001;
+    }
+
+    nav.nav-open { right: 0; }
+
+    nav > a, .nav-item { width: 100%; }
+
+    nav > a { padding: 14px 0; border-bottom: 1px solid var(--border-color); }
+
+    .nav-item > a { padding: 14px 0; border-bottom: 1px solid var(--border-color); justify-content: space-between; width: 100%; }
+
+    .dropdown-menu {
+        display: none;
+        position: static;
+        background: rgba(255, 255, 255, 0.04);
+        border-top: none;
+        border-left: 2px solid var(--primary-accent);
+        min-width: 0;
+        padding: 4px 0 4px 16px;
+    }
+
+    .nav-item.open .dropdown-menu { display: block; }
+    .dropdown-menu li a { padding: 10px 8px !important; }
+}
+
+/* ================================================================
+   1. HERO SUPLANTACIÓN
+   ================================================================ */
+@media (max-width: 1024px) {
+    .hero-suplantacion-content h1 { font-size: 42px; max-width: 100%; }
+}
+
+@media (max-width: 768px) {
+    .hero-suplantacion { min-height: 70vh; margin-top: 54px; }
+    .hero-suplantacion-content { padding: 24px 24px 48px; }
+    .hero-suplantacion-content h1 { font-size: 32px; }
+    .hero-suplantacion-content p { font-size: 14.5px; max-width: 100%; }
+}
+
+@media (max-width: 480px) {
+    .hero-suplantacion-content h1 { font-size: 27px; }
+}
+
+/* ================================================================
+   2. QUÉ ES
+   ================================================================ */
+@media (max-width: 768px) {
+    .que-es { padding: 40px 24px; }
+    .que-es h2 { font-size: 24px; padding-bottom: 12px; }
+    .que-es p { font-size: 16px; }
+}
+
+/* ================================================================
+   3. CÓMO LO HACEN
+   ================================================================ */
+@media (max-width: 768px) {
+    .como-hacen { padding: 32px 24px 40px; }
+    .como-hacen h2 { font-size: 24px; }
+    .como-hacen li { font-size: 16px; line-height: 1.7; }
+}
+
+/* ================================================================
+   4. SEÑALES DE ALERTA + CÓMO PROTEGERTE
+   ================================================================ */
+@media (max-width: 768px) {
+    .alertas-protegerte { padding: 40px 24px; }
+    .bloque-alerta h2 { font-size: 22px; }
+    .tarjeta-dorada { padding: 22px 22px; }
+    .tarjeta-dorada li { font-size: 14.5px; }
+}
+
+/* ================================================================
+   5. SECCIONES NUEVAS (consecuencias / modalidades / víctima)
+   ------------------------------------------------------------------
+   ".grid-info" ya es responsive por sí sola (flexbox + wrap), así
+   que solo hace falta achicar el padding de la sección, el ancho
+   de cada tarjeta y los títulos.
+   ================================================================ */
+@media (max-width: 768px) {
+    .info-section { padding: 40px 24px; }
+    .info-section h2 { font-size: 22px; margin-bottom: 28px; }
+    .grid-info { gap: 20px; }
+    .item-info, .item-victima { flex-basis: 220px; padding: 18px; }
+}
+
+@media (max-width: 480px) {
+    .item-info, .item-victima { flex-basis: 100%; max-width: 360px; }
+}
+
+/* ================================================================
+   6. DERECHOS DEL USUARIO
+   ================================================================ */
+@media (max-width: 768px) {
+    .derechos-section { padding-bottom: 56px; }
+    .derechos-card { padding: 28px 22px; border-radius: 16px; }
+    .derechos-card h2 { font-size: 22px; margin-bottom: 22px; }
+    .lista-derechos p { font-size: 15px; }
+}
+
+/* ================================================================
+   7. IMAGEN FINAL
+   ================================================================ */
+@media (max-width: 768px) {
+    .image-fin { min-height: 32vh; }
+}
+
+/* ================================================================
+   8. FOOTER
+   ================================================================ */
+@media (max-width: 900px) {
+    .footer-top-inner { flex-direction: column; align-items: center; text-align: center; }
+}
+
+/* ================================================================
+   9. AJUSTES FINOS PARA CELULARES CHICOS (≤420px)
+   ================================================================ */
+@media (max-width: 420px) {
+    .que-es h2, .como-hacen h2, .info-section h2, .derechos-card h2 {
+        font-size: 20px;
+    }
+    .bloque-alerta h2 { font-size: 19px; }
+}
+
+/* ============================================
+   ASISTENTE
+   ============================================ */
+
+
+:root {
+  --strix-primary: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===== CONTENEDOR FLOTANTE DEL ASISTENTE ===== */
+#asistente {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* Botón circular flotante (Strix) */
+#strix-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffffff, #eceff3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid var(--strix-primary);
+  position: relative;
+  animation: strix-flotar 3s ease-in-out infinite;
+  transition: transform .2s ease, box-shadow .2s ease;
+  pointer-events: auto;
+}
+
+#strix-btn:hover {
+  transform: scale(1.06);
+  animation-play-state: paused;
+}
+#strix-btn img {
+  width: 120%;
+  height: 120%;
+  object-fit: contain;
+  transform: translateY(6%);
+}
+#strix-btn .punto-activo {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 14px;
+  height: 14px;
+  background: #3ac569;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+@keyframes strix-flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== VENTANA DE CHAT ===== */
+#chat {
+  width: 320px;
+  max-width: 88vw;
+  height: 460px;
+  max-height: 72vh;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .22);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 14px;
+  transform: translateY(16px) scale(.92);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .28s cubic-bezier(.34, 1.56, .64, 1), opacity .22s ease;
+}
+#asistente.abierto #chat {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#chat-header {
+  background: var(--strix-primary);
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+#chat-header img {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+}
+#chat-header .titulo {
+  flex: 1;
+  font-weight: 600;
+  font-size: 15px;
+}
+#chat-header .titulo small {
+  display: block;
+  font-weight: 400;
+  font-size: 11px;
+  opacity: .75;
+}
+#cerrar-chat {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: .8;
+  padding: 4px;
+}
+#cerrar-chat:hover {
+  opacity: 1;
+}
+
+#mensajes {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #fbfbfa;
+}
+#mensajes::-webkit-scrollbar {
+  width: 6px;
+}
+#mensajes::-webkit-scrollbar-thumb {
+  background: #d7d4cc;
+  border-radius: 3px;
+}
+
+.respuesta {
+  background: #f3f2ee;
+  color: #2c2c2c;
+  padding: 10px 14px;
+  border-radius: 14px 14px 14px 4px;
+  font-size: 13.5px;
+  line-height: 1.45;
+  max-width: 85%;
+  align-self: flex-start;
+}
+.respuesta.bienvenida {
+  max-width: 100%;
+}
+
+.pregunta-usuario {
+  background: var(--strix-primary);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 14px 14px 4px 14px;
+  font-size: 13.5px;
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+#preguntas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 16px 16px;
+  border-top: 1px solid #eee;
+  flex-shrink: 0;
+  max-height: 42%;
+  overflow-y: auto;
+}
+#preguntas button {
+  background: #fff;
+  border: 1.5px solid var(--strix-primary);
+  color: var(--strix-primary);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12.5px;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s, color .15s;
+}
+#preguntas button:hover {
+  background: var(--strix-primary);
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  #asistente { bottom: 14px; right: 14px; }
+  #chat { width: 88vw; height: 62vh; }
+  #strix-btn { width: 64px; height: 64px; }
+}

@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fraudes_llamadas.css">
+    <title>Vaulty+ - Llamadas Fraudulentas</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+   <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+    
+<!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+    <!-- HERO — imagen de fondo con botón de regreso y título a la izquierda -->
+    <section class="hero-llamadas">
+       <img src="img/llamadas_es.jpeg" data-img-es="img/llamadas_es.jpeg" data-img-en="img/llamadas_en.jpeg" alt="Fondo llamadas fraudulentas" class="hero-img">
+       <div class="hero-overlay"></div>
+       <div class="hero-content">
+
+          <!-- BOTÓN DE REGRESO  -->
+          <div class="volver-container">
+            <a href="finanzas_fraudes.html" class="btn-volver">
+                <span class="flecha" aria-hidden="true">←</span>
+                <span data-es="Volver a fraudes" data-en="Back to frauds">Volver a fraudes</span>
+            </a>
+          </div>
+
+          <h1>
+             <span data-es="Llamadas" data-en="Fraudulent">Llamadas</span>
+             <span class="accent" data-es="Fraudulentas" data-en="Calls">Fraudulentas</span>
+          </h1>
+          <p data-es="Infórmate sobre cómo operan los estafadores por teléfono para obtener tu información personal o financiera y aprende a protegerte."
+             data-en="Learn how phone scammers operate to steal your personal or financial information, and discover how to protect yourself.">
+             Infórmate sobre cómo operan los estafadores por teléfono para obtener tu información personal o financiera y aprende a protegerte.
+          </p>
+      </div>
+  </section>
+
+   <!-- TARJETA - QUÉ SON LAS LLAMADAS FRAUDULENTAS -->
+    <section class="que_son-section">
+        <div class="cards-que-son">
+            <div class="card reveal">
+                <h3 data-es="¿Qué son las llamadas fraudulentas?" data-en="What Are Fraudulent Phone Calls?">¿Qué son las llamadas fraudulentas?</h3>
+                <p data-es="Son llamadas realizadas por delincuentes que se hacen pasar por bancos, instituciones gubernamentales, empresas de servicios u otras organizaciones confiables, con el objetivo de engañarte y obtener tu información personal, financiera o códigos de seguridad."
+                    data-en="They are phone calls made by scammers who impersonate banks, government agencies, utility providers, or other trusted organizations to deceive you into revealing your personal information, financial details, or security codes.">
+                    Son llamadas realizadas por delincuentes que se hacen pasar por bancos, instituciones gubernamentales, empresas de servicios u otras organizaciones confiables, con el objetivo de engañarte y obtener tu información personal, financiera o códigos de seguridad.
+                </p>
+            </div>
+            <div class="card reveal">
+                <h3 data-es="Objetivo principal" data-en="Main Objective">Objetivo principal</h3>
+                <p data-es="Robar tu dinero o tu identidad."
+                    data-en="Steal your money or your identity.">
+                    Robar tu dinero o tu identidad.
+                </p>
+                <div class="objetivo-icono">
+                  <img src="iconos/ID.png" alt="Cédula de identidad">
+               </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MÉTODOS COMUNES -->
+    <section class="metodos-section">
+     <h2 data-es="Métodos comunes" data-en="Common Methods">Métodos comunes</h2>
+       <div class="cards-metodos">
+         <!-- Tarjeta 1 -->
+         <div class="metodo-item">
+             <div class="card-metodo">
+                 <h3 data-es="Solicitan códigos de verificación" data-en="They Request Verification Codes">Solicitan códigos de verificación</h3>
+             </div>
+             <div class="card-info">
+                   <p data-es="Te piden códigos enviados a tu celular o correo para verificar tu cuenta."
+                     data-en="They ask you for verification codes sent to your phone or email to verify your account.">
+                     Te piden códigos enviados a tu celular o correo para "verificar" tu cuenta.
+                   </p>
+              </div>
+         </div>
+
+          <!-- Tarjeta 2 -->
+          <div class="metodo-item">
+                <div class="card-metodo">
+                    <h3 data-es="Se hacen pasar por tu banco" data-en="They Pretend to Be Your Bank">Se hacen pasar por tu banco</h3>
+                </div>
+             <div class="card-info">
+                  <p data-es="Dicen que hay problemas con tu cuenta o transacciones sospechosas."
+                     data-en="They claim there are issues with your account or suspicious transactions.">
+                     Dicen que hay problemas con tu cuenta o transacciones sospechosas.
+                 </p>
+             </div>
+          </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Ofrecen premios o beneficios" data-en="They Offer Prizes or Benefits">Ofrecen premios o beneficios</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Prometen premios, reembolsos o mejoras de servicios que no existen."
+                   data-en="They promise fake prizes, refunds, or service upgrades.">
+                  Prometen premios, reembolsos o mejoras de servicios que no existen.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Verificación de datos personales" data-en="Personal Information Verification">Verificación de datos personales</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Piden información personal para actualizar o confirmar datos."
+                   data-en="They ask for personal information to update or confirm your account details.">
+                  Piden información personal para "actualizar" o "confirmar" datos.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="metodo-item">
+            <div class="card-metodo">
+                <h3 data-es="Amenazan con consecuencias" data-en="They Threaten You with Consequences">Amenazan con consecuencias</h3>
+            </div>
+            <div class="card-info">
+                <p data-es="Te asustan diciendo que bloquearán tu cuenta o tomarán acciones legales."
+                   data-en="They try to scare you by claiming your account will be blocked or that legal action will be taken.">
+                   Te asustan diciendo que bloquearán tu cuenta o tomarán acciones legales.
+                </p>
+            </div>
+        </div>
+      </div>
+   </section>
+
+   <!-- SEÑALES DE ALERTA -->
+   <section class="alerta-section">
+      <h2 data-es="Señales de alerta " data-en="Warning Signs ">Señales de alerta</h2>
+      <div class="alerta-container">
+          <!-- Lista -->
+          <div class="alerta-lista reveal">
+               <ol>
+                   <li data-es="Te piden información confidencial o códigos de seguridad." data-en="They ask for confidential information or security codes.">Te piden información confidencial o códigos de seguridad.</li>
+                   <li data-es="Te presionan para tomar decisiones inmediatas." data-en="They pressure you to make immediate decisions.">Te presionan para tomar decisiones inmediatas.</li>
+                   <li data-es="Te dicen que no cuelgues la llamada." data-en="They tell you not to hang up the call.">Te dicen que no cuelgues la llamada.</li>
+                   <li data-es="El número que aparece en pantalla puede estar falsificado." data-en="The number displayed on screen may be spoofed.">El número que aparece en pantalla puede estar falsificado.</li>
+                   <li data-es="La llamada proviene de un número desconocido o internacional." data-en="The call comes from an unknown or international number.">La llamada proviene de un número desconocido o internacional.</li>
+              </ol>
+          </div>
+
+          <!-- Imagen -->
+          <div class="alerta-imagen reveal">
+              <img src="img/telefono_fraude.png" alt="Teléfono con llamada fraudulenta">
+          </div>
+
+          <!-- Mensaje -->
+          <div class="alerta-mensaje reveal">
+               <p>
+                  <strong data-es="Recuerda:" data-en="Remember:">Recuerda:</strong>
+                  <span data-es="Ninguna entidad financiera o institución seria te pedirá por teléfono tu contraseña, PIN o códigos de verificación."
+                        data-en="No financial institution or serious organization will ask for your password, PIN, or verification codes over the phone.">
+                    Ninguna entidad financiera o institución seria te pedirá por teléfono tu contraseña, PIN o códigos de verificación.
+                  </span>
+               </p>
+          </div>
+       </div>
+  </section>
+
+  <!-- ESCUCHA ANTES DE RESPONDER -->
+    <section class="escucha-section">
+        <div class="escucha-inner">
+            <div class="escucha-titulo">
+                <h2>
+                    <span data-es="ESCUCHA ANTES DE RESPONDER" data-en="LISTEN BEFORE YOU RESPOND">ESCUCHA ANTES DE RESPONDER</span>
+                </h2>
+                <p data-es="¿Cómo diferenciar una llamada legítima de una llamada fraudulenta?"
+                   data-en="How can you tell a legitimate call from a fraudulent one?">
+                    ¿Cómo diferenciar una llamada legítima de una llamada fraudulenta?
+                </p>
+            </div>
+
+            <div class="comparacion-llamadas reveal">
+                <article class="comparacion-columna llamada-confiable">
+                    <h3>
+                        <img src="iconos/escudo.png" alt="" aria-hidden="true">
+                        <span data-es="LLAMADA CONFIABLE" data-en="TRUSTWORTHY CALL">LLAMADA CONFIABLE</span>
+                    </h3>
+
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/imagen-de-perfil.png" alt=""><small>✓</small></span>
+                        <p data-es="Se identifica con el nombre de la empresa o institución."
+                           data-en="The caller identifies themselves with the name of the company or institution.">
+                            Se identifica con el nombre de la empresa o institución.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""><small>✓</small></span>
+                        <p data-es="Nunca solicita contraseñas, PIN o códigos de verificación."
+                           data-en="The caller never requests passwords, PINs or verification codes.">
+                            Nunca solicita contraseñas, PIN o códigos de verificación.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/reloj-de-pared.png" alt=""><small>✓</small></span>
+                        <p data-es="Te permite verificar la información antes de continuar."
+                           data-en="The caller lets you verify the information before continuing.">
+                            Te permite verificar la información antes de continuar.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/llamar.png" alt=""><small>✓</small></span>
+                        <p data-es="Puedes colgar y comunicarte al número oficial sin inconvenientes."
+                           data-en="You can hang up and call the official number without any objection.">
+                            Puedes colgar y comunicarte al número oficial sin inconvenientes.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/correo-electronico.png" alt=""><small>✓</small></span>
+                        <p data-es="Explica el motivo de la llamada con claridad y profesionalismo."
+                           data-en="The caller explains the reason for the call clearly and professionally.">
+                            Explica el motivo de la llamada con claridad y profesionalismo.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/social.png" alt=""><small>✓</small></span>
+                        <p data-es="Respeta tu decisión si prefieres comunicarte por otro medio."
+                           data-en="The caller respects your decision if you prefer to communicate another way.">
+                            Respeta tu decisión si prefieres comunicarte por otro medio.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="comparacion-columna llamada-fraudulenta">
+                    <h3>
+                        <img src="iconos/peligro.png" alt="" aria-hidden="true">
+                        <span data-es="LLAMADA FRAUDULENTA" data-en="FRAUDULENT CALL">LLAMADA FRAUDULENTA</span>
+                    </h3>
+
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/ID.png" alt=""><small>×</small></span>
+                        <p data-es="Evita identificarse o utiliza nombres poco claros."
+                           data-en="The caller avoids identifying themselves or uses unclear names.">
+                            Evita identificarse o utiliza nombres poco claros.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/tarjetas-de-credito.png" alt=""><small>×</small></span>
+                        <p data-es="Solicita contraseñas, PIN, códigos SMS o datos bancarios."
+                           data-en="The caller requests passwords, PINs, SMS codes or banking information.">
+                            Solicita contraseñas, PIN, códigos SMS o datos bancarios.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""><small>×</small></span>
+                        <p data-es="Te presiona para actuar de inmediato."
+                           data-en="The caller pressures you to act immediately.">
+                            Te presiona para actuar de inmediato.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/llamar.png" alt=""><small>×</small></span>
+                        <p data-es="Insiste en que no cuelgues la llamada."
+                           data-en="The caller insists that you do not hang up.">
+                            Insiste en que no cuelgues la llamada.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""><small>×</small></span>
+                        <p data-es="Utiliza amenazas, miedo o promesas para convencerte."
+                           data-en="The caller uses threats, fear or promises to convince you.">
+                            Utiliza amenazas, miedo o promesas para convencerte.
+                        </p>
+                    </div>
+                    <div class="comparacion-item">
+                        <span class="comparacion-icono" aria-hidden="true"><img src="iconos/hombre.png" alt=""><small>×</small></span>
+                        <p data-es="Intenta manipularte para obtener información rápidamente."
+                           data-en="The caller tries to manipulate you into quickly providing information.">
+                            Intenta manipularte para obtener información rápidamente.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUÉ HACER DURANTE UNA LLAMADA SOSPECHOSA -->
+    <section class="diagrama-llamada-section">
+        <div class="diagrama-llamada-inner">
+            <h2>
+                <span data-es="¿QUÉ HACER DURANTE UNA LLAMADA" data-en="WHAT SHOULD YOU DO DURING A">¿QUÉ HACER DURANTE UNA LLAMADA</span>
+                <strong data-es="SOSPECHOSA?" data-en="SUSPICIOUS CALL?">SOSPECHOSA?</strong>
+            </h2>
+            <div class="diagrama-imagen-wrap reveal">
+                <img src="img/llamada-sospechosa-es.png"
+                     data-img-es="img/llamada-sospechosa-es.png"
+                     data-img-en="img/llamada-sospechosa-en.png"
+                     alt="Diagrama: qué hacer durante una llamada sospechosa">
+            </div>
+        </div>
+    </section>
+
+    <!-- PALABRAS DE ALERTA -->
+    <section class="palabras-alerta-section">
+        <div class="palabras-alerta-inner">
+            <h2 data-es="Palabras que deben ponerte en alerta"
+                data-en="Words that should put you on alert">
+                Palabras que deben ponerte en alerta
+            </h2>
+
+            <div class="palabras-alerta-grid">
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/peligro.png" alt=""></div>
+                    <h3 data-es="Urgente" data-en="Urgent">Urgente</h3>
+                    <p data-es="Buscan presionarte para que actúes sin pensar."
+                       data-en="They try to pressure you into acting without thinking.">
+                        Buscan presionarte para que actúes sin pensar.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""><span class="palabra-marca">×</span></div>
+                    <h3 data-es="Bloqueo" data-en="Blocked">Bloqueo</h3>
+                    <p data-es="Amenazan con bloquear tu cuenta o acceso si no haces algo."
+                       data-en="They threaten to block your account or access unless you act.">
+                        Amenazan con bloquear tu cuenta o acceso si no haces algo.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/transferir.png" alt=""></div>
+                    <h3 data-es="Transferencia" data-en="Transfer">Transferencia</h3>
+                    <p data-es="Te piden enviar dinero a otra cuenta o a un lugar desconocido."
+                       data-en="They ask you to send money to another account or an unknown destination.">
+                        Te piden enviar dinero a otra cuenta o a un lugar desconocido.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/dinero.png" alt=""></div>
+                    <h3 data-es="Premio" data-en="Prize">Premio</h3>
+                    <p data-es="Prometen premios falsos para engañarte y obtener tus datos o dinero."
+                       data-en="They promise fake prizes to obtain your information or money.">
+                        Prometen premios falsos para engañarte y obtener tus datos o dinero.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/tarjetas-de-credito.png" alt=""></div>
+                    <h3 data-es="Código" data-en="Code">Código</h3>
+                    <p data-es="Piden códigos secretos o de verificación que les dan acceso a tus cuentas."
+                       data-en="They request secret or verification codes that give them access to your accounts.">
+                        Piden códigos secretos o de verificación que les dan acceso a tus cuentas.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/lista-de-verificacion.png" alt=""></div>
+                    <h3 data-es="Verificación" data-en="Verification">Verificación</h3>
+                    <p data-es="Solicitan datos personales para verificarte y luego usarlos en tu contra."
+                       data-en="They request personal data to verify you and then use it against you.">
+                        Solicitan datos personales para verificarte y luego usarlos en tu contra.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/escudo.png" alt=""></div>
+                    <h3 data-es="Seguridad" data-en="Security">Seguridad</h3>
+                    <p data-es="Usan el tema de seguridad para ganarse tu confianza y manipularte."
+                       data-en="They use security concerns to gain your trust and manipulate you.">
+                        Usan el tema de seguridad para ganarse tu confianza y manipularte.
+                    </p>
+                </article>
+                <article class="palabra-alerta reveal">
+                    <div class="palabra-icono" aria-hidden="true"><img src="iconos/imagen-de-perfil.png" alt=""><span class="palabra-marca">×</span></div>
+                    <h3 data-es="Cuenta suspendida" data-en="Account suspended">Cuenta suspendida</h3>
+                    <p data-es="Te alertan de una suspensión falsa para que hagas clic en enlaces maliciosos."
+                       data-en="They falsely claim your account is suspended so you will click malicious links.">
+                        Te alertan de una suspensión falsa para que hagas clic en enlaces maliciosos.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+      HERRAMIENTAS — Verifica una llamada antes de responder
+      (los <img src=""> de los logos se dejan vacíos a propósito)
+    ============================================ -->
+    <section class="herramientas-section">
+      <div class="herramientas-container">
+
+        <div class="herramientas-titulo reveal">
+          <div class="herramientas-titulo-fila">
+            <span class="herramientas-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </span>
+            <h2 data-es="Verifica una llamada antes de responder" data-en="Verify a call before answering">Verifica una llamada antes de responder</h2>
+            <span class="herramientas-dots" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+
+          <div class="herramientas-icono-central" aria-hidden="true">
+            <span class="herramientas-icono-circulo">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"/>
+              </svg>
+            </span>
+          </div>
+
+          <p data-es="Herramientas confiables para identificar números sospechosos, bloquear spam y detectar posibles fraudes."
+             data-en="Reliable tools to identify suspicious numbers, block spam, and detect possible fraud.">
+            Herramientas confiables para identificar números sospechosos, bloquear spam y detectar posibles fraudes.
+          </p>
+        </div>
+
+        <div class="herramientas-lista">
+
+          <!-- Truecaller -->
+          <div class="herramientas-card reveal">
+            <div class="herramientas-logo-slot">
+              <img src="img/logoTruecaller.jpg" alt="Truecaller">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Truecaller" data-en="Truecaller">Truecaller</h4>
+              <p data-es="Identifica números desconocidos y llamadas sospechosas."
+                 data-en="Identifies unknown numbers and suspicious calls.">
+                Identifica números desconocidos y llamadas sospechosas.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Detecta y bloquea llamadas de spam y posibles fraudes."
+                   data-en="Detects and blocks spam calls and possible fraud.">
+                  Detecta y bloquea llamadas de spam y posibles fraudes.
+                </p>
+              </div>
+            </div>
+            <a href="https://www.truecaller.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Truecaller">→</a>
+          </div>
+
+          <!-- Hiya -->
+          <div class="herramientas-card reveal">
+            <div class="herramientas-logo-slot">
+              <img src="img/logoHiya.png" alt="Hiya">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Hiya" data-en="Hiya">Hiya</h4>
+              <p data-es="Comprueba si una llamada puede ser spam o fraude."
+                 data-en="Checks whether a call could be spam or fraud.">
+                Comprueba si una llamada puede ser spam o fraude.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Identifica números sospechosos y ayuda a bloquear llamadas no deseadas."
+                   data-en="Identifies suspicious numbers and helps block unwanted calls.">
+                  Identifica números sospechosos y ayuda a bloquear llamadas no deseadas.
+                </p>
+              </div>
+            </div>
+            <a href="https://www.hiya.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Hiya">→</a>
+          </div>
+
+          <!-- Google Phone -->
+          <div class="herramientas-card reveal">
+            <div class="herramientas-logo-slot">
+              <img src="img/logoGooglePhone.jpg" alt="Google Phone">
+            </div>
+            <div class="herramientas-texto">
+              <h4 data-es="Google Phone" data-en="Google Phone">Google Phone</h4>
+              <p data-es="Protección integrada para llamadas sospechosas en Android compatibles."
+                 data-en="Built-in protection for suspicious calls on compatible Android devices.">
+                Protección integrada para llamadas sospechosas en Android compatibles.
+              </p>
+              <div class="herramientas-nota">
+                <span class="herramientas-nota-icono">✓</span>
+                <p data-es="Identifica llamadas de spam y muestra advertencias antes de responder."
+                   data-en="Identifies spam calls and shows warnings before you answer.">
+                  Identifica llamadas de spam y muestra advertencias antes de responder.
+                </p>
+              </div>
+            </div>
+            <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Google Phone">→</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+
+
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="fraudes_llamadas.js"></script>
+
+</body>
+</html>

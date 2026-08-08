@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fraudes_Phishing.css">
+  <title>Vaulty+ - Phishing</title>
+  <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+
+<body>
+  
+  <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+    <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+ <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"  data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" class="active" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+
+ <!-- HERO — sección principal de phishing (incluye botón de regreso) -->
+<section class="hero-fraudes-phishing">
+  <div class="hero-fraudes-phishing-content">
+
+    <!-- BOTÓN DE REGRESO dentro del hero -->
+    <div class="volver-container">
+      <a href="finanzas_fraudes.html" class="btn-volver">
+          <span class="flecha" aria-hidden="true">←</span>
+          <span data-es="Volver a fraudes" data-en="Back to frauds">Volver a fraudes</span>
+      </a>
+    </div>
+
+    <!-- CONTENIDO HERO -->
+    <div class="hero-body">
+
+      <div class="phishing-text">
+        <h1>
+             <span class="accent"
+                data-es="Phishing"
+                data-en="Phishing">Phishing
+            </span>
+            <span data-es="No muerdas el anzuelo" data-en="Don't take the bait">No muerdas el anzuelo</span>
+        </h1>
+
+        <p
+          data-es="El phishing es una técnica de fraude digital utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial, como contraseñas, datos bancarios, números de tarjetas de crédito o información personal."
+          data-en="Phishing is a digital fraud technique used by cybercriminals to trick individuals into revealing sensitive information, such as passwords, banking details, credit card numbers, or personal data.">
+          El phishing es una técnica de fraude digital utilizada por ciberdelincuentes para engañar a las personas y obtener información confidencial, como contraseñas, datos bancarios, números de tarjetas de crédito o información personal.
+        </p>
+
+        <p
+           data-es="Los atacantes suelen hacerse pasar por bancos, empresas reconocidas o instituciones confiables para generar confianza y lograr que las víctimas compartan sus datos."
+           data-en="Attackers often pose as banks, well-known companies, or trusted institutions to build trust and get victims to share their information.">
+          Los atacantes suelen hacerse pasar por bancos, empresas reconocidas o instituciones confiables para generar confianza y lograr que las víctimas compartan sus datos.
+        </p>
+      </div>
+
+      <div class="phishing-image">
+        <img src="img/phishing.png" alt="Alerta de phishing">
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- TARJETAS — tipos de phishing -->
+<section class="cards-section">
+  <div class="cards-grid">
+
+    <div class="card">
+      <h3 data-es="Suplantan identidades" data-en="They impersonate trusted identities">Suplantan identidades</h3>
+      <p
+        data-es="Los atacantes se hacen pasar por bancos, empresas, instituciones gubernamentales o plataformas conocidas para parecer legítimos."
+        data-en="Attackers impersonate banks, companies, government institutions, or well-known platforms to appear legitimate.">
+        Los atacantes se hacen pasar por bancos, empresas, instituciones gubernamentales o plataformas conocidas para parecer legítimos.
+     </p>
+    </div>
+
+    <div class="card">
+      <h3 data-es="Engañan y manipulan" data-en="Deceive and manipulate">Engañan y manipulan</h3>
+      <p
+        data-es="Utilizan mensajes alarmantes, promociones atractivas o solicitudes urgentes para que la víctima actúe rápidamente sin verificar la información."
+        data-en="Attackers use alarming messages, attractive offers, or urgent requests to pressure victims into acting quickly without verifying the information.">
+        Utilizan mensajes alarmantes, promociones atractivas o solicitudes urgentes para que la víctima actúe rápidamente sin verificar la información.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3 data-es="Buscan obtener dinero" data-en="They seek to obtain money">Buscan obtener dinero</h3>
+      <p
+        data-es="Con la información obtenida pueden realizar compras, transferencias, préstamos fraudulentos o incluso vender los datos robados."
+        data-en="With the information obtained, they can make purchases, transfers, fraudulent loans, or even sell the stolen data.">
+        Con la información obtenida pueden realizar compras, transferencias, préstamos fraudulentos o incluso vender los datos robados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!--ALERTAS — Señales de alerta-->
+  <section class="alertas-section">
+    <img src="img/señales_alerta.png" alt="Fondo señales de alerta" class="alerta-bg-img">
+    <div class="alerta-overlay"></div>
+    <div class="alerta-container">
+
+      <h2 data-es="Señales de alerta"
+          data-en="Warning Signs">
+         Señales de alerta
+      </h2>
+
+      <!-- Remitente sospechoso -->
+      <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Remitente sospechoso:" data-en="Suspicious Sender:">Remitente sospechoso:</h3>
+          <p data-es="Los ciberdelincuentes suelen utilizar direcciones de correo que parecen legítimas a primera vista, pero contienen pequeñas modificaciones difíciles de notar. Su objetivo es hacer creer a la víctima que el mensaje proviene de una empresa o institución confiable."
+             data-en="Cybercriminals often use email addresses that appear legitimate at first glance but contain small modifications that are difficult to notice. Their goal is to make the victim believe that the message comes from a trusted company or institution.">
+             Los ciberdelincuentes suelen utilizar direcciones de correo que parecen legítimas a primera vista, pero contienen pequeñas modificaciones difíciles de notar. Su objetivo es hacer creer a la víctima que el mensaje proviene de una empresa o institución confiable.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mensajes urgentes -->
+       <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Mensajes urgentes:" data-en="Urgent Messages:">Mensajes urgentes:</h3>
+          <p data-es="Los atacantes intentan generar miedo o presión para que actúes rápidamente sin pensar. Cuando una persona siente urgencia, es más probable que tome decisiones impulsivas."
+             data-en="Attackers try to create fear or pressure so that you act quickly without thinking. When a person feels a sense of urgency, they are more likely to make impulsive decisions.">
+             Los atacantes intentan generar miedo o presión para que actúes rápidamente sin pensar. Cuando una persona siente urgencia, es más probable que tome decisiones impulsivas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Enlaces extraños -->
+       <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Enlaces extraños:" data-en="Suspicious Links:">Enlaces extraños:</h3>
+          <p data-es="Muchos ataques de phishing utilizan enlaces que parecen reales, pero llevan a páginas falsas diseñadas para robar información."
+             data-en="Many phishing attacks use links that appear legitimate but lead to fake websites designed to steal information.">
+             Muchos ataques de phishing utilizan enlaces que parecen reales, pero llevan a páginas falsas diseñadas para robar información.
+          </p>
+        </div>
+      </div>
+
+      <!-- Solicitan información personal -->
+       <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Solicitan información personal:" data-en="Request Personal Information:">Solicitan información personal:</h3>
+          <p data-es="Las empresas legítimas generalmente no solicitan contraseñas, códigos de verificación o datos bancarios a través de correos electrónicos o mensajes."
+             data-en="Legitimate companies generally do not request passwords, verification codes, or banking information through emails or messages.">
+             Las empresas legítimas generalmente no solicitan contraseñas, códigos de verificación o datos bancarios a través de correos electrónicos o mensajes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Errores de ortografía y redacción -->
+       <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Errores de ortografía y redacción:" data-en="Spelling and Grammar Errors:">Errores de ortografía y redacción:</h3>
+          <p data-es="Muchos mensajes fraudulentos son creados rápidamente o traducidos automáticamente, por lo que suelen contener errores evidentes."
+             data-en="Many fraudulent messages are created quickly or translated automatically, which is why they often contain obvious spelling and grammar mistakes.">
+             Muchos mensajes fraudulentos son creados rápidamente o traducidos automáticamente, por lo que suelen contener errores evidentes.
+          </p>
+        </div>
+      </div>
+
+      <!-- Ofertas demasiado buenas para ser verdad -->
+       <div class="alerta-box">
+        <div class="alerta-titulo">
+          <h3 data-es="Ofertas demasiado buenas para ser verdad:" data-en="Offers Too Good to Be True:">Ofertas demasiado buenas para ser verdad:</h3>
+          <p data-es="Los estafadores saben que las personas se sienten atraídas por regalos y promociones extraordinarias."
+             data-en="Scammers know that people are attracted to extraordinary gifts and promotions.">
+             Los estafadores saben que las personas se sienten atraídas por regalos y promociones extraordinarias.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+ <!--EJEMPLOS MÁS COMUNES EN PANAMÁ-->
+ <section class="tipos-section">
+    <div class="tipos-container">
+
+      <h2 data-es="Ejemplos más comunes en Panamá" data-en="Most common examples in Panama">Ejemplos más comunes en Panamá</h2>
+      <div class="tipos-grid">
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/whatsapp.png" alt="Whatsapp">
+          </div>
+          <h3 data-es="Whatsapp" data-en="Whatsapp">Whatsapp</h3>
+          <p data-es="Enlaces que prometen bonos, subsidios, premios o ayudas económicas."
+             data-en="Links promising bonuses, subsidies, prizes, or financial aid.">
+            Enlaces que prometen bonos, subsidios, premios o ayudas económicas.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/bancos.png" alt="Bancos">
+          </div>
+          <h3 data-es="Bancos" data-en="Banks">Bancos</h3>
+          <p data-es="Mensajes falsos donde indican que tu cuenta será suspendida si no actualizas tus datos."
+             data-en="Fake messages stating that your account will be suspended if you do not update your details.">
+            Mensajes falsos donde indican que tu cuenta será suspendida si no actualizas tus datos.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/correo-electronico2.png" alt="Correo Electrónico">
+          </div>
+          <h3 data-es="Correo Electrónico" data-en="E-Mail">Correo Electrónico</h3>
+          <p data-es="Facturas falsas, supuestas compras o alertas de seguridad diseñadas para robar tus credenciales."
+             data-en="Fake invoices, alleged purchases, or security alerts designed to steal your credentials.">
+            Facturas falsas, supuestas compras o alertas de seguridad diseñadas para robar tus credenciales.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/sms.png" alt="Mensajes de Texto">
+          </div>
+          <h3 data-es="Mensajes de Texto" data-en="SMS">Mensajes de Texto</h3>
+          <p data-es="Mensajes indicando que tienes un paquete retenido o un pago pendiente."
+             data-en="Messages indicating that you have a package on hold or a pending payment.">
+            Mensajes indicando que tienes un paquete retenido o un pago pendiente.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/llamadas.png" alt="Llamadas">
+          </div>
+          <h3 data-es="Llamadas" data-en="Calls">Llamadas</h3>
+          <p data-es="Personas que dicen trabajar para tu banco y solicitan información confidencial."
+             data-en="People who claim to work for your bank and ask for confidential information.">
+            Personas que dicen trabajar para tu banco y solicitan información confidencial.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+  COMO PROTEGERTE
+  ============================================================ -->
+<section class="como-protegerte">
+  <div class="protegerte-container">
+
+    <h2 data-es="¿Cómo protegerte?" data-en="How to protect yourself?">
+       ¿Cómo protegerte?
+    </h2>
+
+    <!-- Columna central: ilustración + titular -->
+    <div class="protegerte-central reveal">
+        <img src="img/mapa-protegerte.jpeg"
+       data-img-es="img/mapa-protegerte.jpeg"
+       data-img-en="img/mapa-protegerte-en.png"
+        alt="Protege tu información en línea"
+        class="protegerte-central-img">
+    </div>
+  </div>
+</section>
+
+  <!-- ============================================================
+  QUÉ HACER SI ERES VÍCTIMA
+  ============================================================ -->
+  <section class="victima-section">
+    <div class="victima-container">
+
+      <div class="victima-texto reveal">
+        <h2 data-es="¿Qué hacer si eres víctima?" data-en="What to do if you're a victim?">
+          ¿Qué hacer si eres <span class="accent">víctima?</span>
+        </h2>
+
+        <div class="victima-globo">
+          <img src="iconos/idea.png" alt="Idea" class="victima-globo-icono">
+          <p data-es="Mientras más rápido actúes, mayores serán las posibilidades de evitar pérdidas económicas."
+             data-en="The faster you act, the greater your chances of avoiding financial losses.">
+            Mientras más rápido actúes, mayores serán las posibilidades de evitar pérdidas económicas.
+          </p>
+        </div>
+      </div>
+
+      <div class="victima-contenido reveal">
+
+        <img src="img/preocupación.jpeg" alt="Persona revisando su celular preocupada" class="victima-imagen">
+
+        <div class="victima-checklist">
+          <p class="victima-checklist-intro"
+             data-es="Si crees que compartiste información en un sitio fraudulento, sigue estos pasos:"
+             data-en="If you think you shared information on a fraudulent site, follow these steps:">
+            Si crees que compartiste información en un sitio fraudulento, sigue estos pasos:
+          </p>
+
+    
+          <ul class="victima-lista" id="listaVictima">
+            <li data-es="Cambia inmediatamente tus contraseñas." data-en="Change your passwords immediately.">Cambia inmediatamente tus contraseñas.</li>
+            <li data-es="Contacta a tu banco." data-en="Contact your bank.">Contacta a tu banco.</li>
+            <li data-es="Bloquea tus tarjetas si es necesario." data-en="Block your cards if necessary.">Bloquea tus tarjetas si es necesario.</li>
+            <li data-es="Revisa los movimientos de tus cuentas." data-en="Review your account activity.">Revisa los movimientos de tus cuentas.</li>
+            <li data-es="Reporta el incidente." data-en="Report the incident.">Reporta el incidente.</li>
+            <li data-es="Escanea tu dispositivo con un antivirus." data-en="Scan your device with an antivirus.">Escanea tu dispositivo con un antivirus.</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+ <!-- ============================================================
+     MITOS Y REALIDADES
+   ============================================================ -->
+<section class="mitos-section">
+  <div class="mitos-container reveal">
+
+    <div class="mitos-encabezado">
+        <h2 data-es="Mitos y Realidades" data-en="Myths and Facts">Mitos y Realidades</h2>
+      <p data-es="No todo lo que escuchas es cierto" data-en="Not everything you hear is true">No todo lo que escuchas es cierto</p>
+    </div>
+
+    <div class="mitos-tabla">
+
+      <!-- Encabezados -->
+      <div class="mitos-fila mitos-fila-header">
+        <div class="mitos-celda mitos-celda-header mito">
+          <span data-es="MITO" data-en="MYTH">MITO</span>
+        </div>
+        <div class="mitos-celda mitos-celda-header realidad">
+          <span data-es="REALIDAD" data-en="FACT">REALIDAD</span>
+        </div>
+      </div>
+
+      <!-- Fila 1 -->
+      <div class="mitos-fila">
+        <div class="mitos-celda mito">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/jubilado.png" alt="Jubilado" class="mitos-icono-img">
+            <span class="mitos-badge mitos-badge-x">✕</span>
+          </div>
+          <p data-es="Solo las personas mayores son víctimas." data-en="&quot;Only older adults are victims.&quot;">
+            "Solo las personas mayores son víctimas."
+          </p>
+        </div>
+        <div class="mitos-celda realidad">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/grupo.png" alt="Grupo" class="mitos-icono-img"> 
+            <span class="mitos-badge mitos-badge-check">✓</span>
+          </div>
+          <p data-es="Cualquier persona puede ser engañada." data-en="Anyone can be deceived.">
+            Cualquier persona puede ser engañada.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fila 2 -->
+      <div class="mitos-fila">
+        <div class="mitos-celda mito">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/antivirus.png" alt="Antivirus" class="mitos-icono-img"> 
+            <span class="mitos-badge mitos-badge-x">✕</span>
+          </div>
+          <p data-es="&quot;Mi antivirus me protege de todo.&quot;" data-en="&quot;My antivirus protects me from everything.&quot;">
+            "Mi antivirus me protege de todo."
+          </p>
+        </div>
+        <div class="mitos-celda realidad">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/escudo.png" alt="Escudo" class="mitos-icono-img"> 
+            <span class="mitos-badge mitos-badge-check">✓</span>
+          </div>
+          <p data-es="El antivirus ayuda, pero la mejor protección es reconocer un intento de fraude."
+             data-en="Antivirus software helps, but recognizing a fraud attempt is the best protection.">
+            El antivirus ayuda, pero la mejor protección es reconocer un intento de fraude.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fila 3 -->
+      <div class="mitos-fila">
+        <div class="mitos-celda mito">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/sobre-banco.png" alt="Sobre" class="mitos-icono-img">
+            <span class="mitos-badge mitos-badge-x">✕</span>
+          </div>
+          <p data-es="&quot;Si el correo tiene el logo del banco, es verdadero.&quot;" data-en="&quot;If the email has the bank's logo, it's real.&quot;">
+            "Si el correo tiene el logo del banco, es verdadero."
+          </p>
+        </div>
+        <div class="mitos-celda realidad">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/imagen.png" alt="Imagen" class="mitos-icono-img">
+            <span class="mitos-badge mitos-badge-check">✓</span>
+          </div>
+          <p data-es="Los delincuentes pueden copiar logotipos e imágenes oficiales."
+             data-en="Criminals can copy official logos and images.">
+            Los delincuentes pueden copiar logotipos e imágenes oficiales.
+          </p>
+        </div>
+      </div>
+
+      <!-- Fila 4 -->
+      <div class="mitos-fila">
+        <div class="mitos-celda mito">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/contraseña.png" alt="Contraseña" class="mitos-icono-img">
+            <span class="mitos-badge mitos-badge-x">✕</span>
+          </div>
+          <p data-es="&quot;Los bancos solicitan contraseñas por correo.&quot;" data-en="&quot;Banks ask for passwords by email.&quot;">
+            "Los bancos solicitan contraseñas por correo."
+          </p>
+        </div>
+        <div class="mitos-celda realidad">
+          <div class="mitos-icono-wrap">
+            <img src="iconos/prohibicion.png" alt="Phrohibición" class="mitos-icono-img">
+            <span class="mitos-badge mitos-badge-check">✓</span>
+          </div>
+          <p data-es="Ningún banco solicita contraseñas, PIN o códigos de verificación por estos medios."
+             data-en="No bank requests passwords, PINs, or verification codes through these channels.">
+            Ningún banco solicita contraseñas, PIN o códigos de verificación por estos medios.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+  CÓMO IDENTIFICAR UN SITIO WEB FALSO
+  ============================================================ -->
+ <section class="sitio-falso-section">
+  <div class="sitio-falso-container">
+
+    <!-- TÍTULO -->
+    <h2 class="sitio-falso-titulo"
+        data-es="¿Cómo identificar un sitio web falso?"
+        data-en="How to spot a fake website?">
+      ¿Cómo identificar un <span>sitio web falso?</span>
+    </h2>
+
+    <!-- CONTENIDO -->
+    <div class="sitio-falso-contenido">
+
+      <!-- IMAGEN -->
+      <div class="sitio-falso-imagen">
+        <img src="img/encuesta.jpeg" alt="Persona verificando un sitio web">
+      </div>
+
+      <!-- TEXTO -->
+      <div class="sitio-falso-texto">
+
+        <p class="sitio-falso-intro"
+           data-es="Antes de ingresar tus datos, verifica:"
+           data-en="Before entering your information, check:">
+          Antes de ingresar tus datos, verifica:
+        </p>
+
+        <ul class="sitio-falso-lista">
+          <li data-es="Que la dirección web sea correcta."
+              data-en="That the web address is correct.">
+            Que la dirección web sea correcta.
+          </li>
+
+          <li data-es="Que el sitio utilice HTTPS."
+              data-en="That the site uses HTTPS.">
+            Que el sitio utilice HTTPS.
+          </li>
+
+          <li data-es="Que aparezca el candado de seguridad."
+              data-en="That the security padlock icon appears.">
+            Que aparezca el candado de seguridad.
+          </li>
+
+          <li data-es="Que no existan errores ortográficos."
+              data-en="That there are no spelling errors.">
+            Que no existan errores ortográficos.
+          </li>
+
+          <li data-es="Que el diseño sea profesional y consistente."
+              data-en="That the design looks professional and consistent.">
+            Que el diseño sea profesional y consistente.
+          </li>
+        </ul>
+
+        <p class="sitio-falso-nota"
+           data-es="Si tienes dudas, cierra la página e ingresa escribiendo tú mismo la dirección oficial del sitio."
+           data-en="If in doubt, close the page and type the site's official address yourself.">
+          Si tienes dudas, cierra la página e ingresa escribiendo tú mismo la dirección oficial del sitio.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+  HERRAMIENTAS Y CONTACTOS DE INTERÉS
+============================================ -->
+  <section class="herramientas-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>
+        <span data-es="Verifica un sitio antes de hacer clic" data-en="Check a site before you click">
+          Verifica un sitio antes de hacer clic
+        </span>
+      </h2>
+
+      <h3 data-es="Herramientas confiables para detectar enlaces fraudulentos y proteger tu información"
+          data-en="Reliable tools to detect fraudulent links and protect your information">
+        Herramientas confiables para detectar enlaces fraudulentos y proteger tu información
+      </h3>
+
+      <div class="entidades-lista">
+
+        <!-- VirusTotal -->
+        <div class="herramientas-card">
+          <img src="img/logoVisualTotal.png" alt="VirusTotal" class="herramientas-logo">
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="VirusTotal" data-en="VirusTotal">VirusTotal</h4>
+            <p data-es="Analiza enlaces, archivos y dominios con más de 70 motores antivirus."
+               data-en="Analyzes links, files, and domains with more than 70 antivirus engines.">
+              Analiza enlaces, archivos y dominios con más de 70 motores antivirus.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/escudo-azul.png" alt="" class="herramientas-icono">
+              <p data-es="Detecta malware, phishing y amenazas." data-en="Detects malware, phishing, and threats.">
+                Detecta malware, phishing y amenazas.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.virustotal.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a VirusTotal">→</a>
+        </div>
+
+        <!-- Google Safe Browsing -->
+        <div class="herramientas-card">
+          <img src="img/logoGoogle.png" alt="Google Safe Browsing" class="herramientas-logo">
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="Google Safe Browsing" data-en="Google Safe Browsing">Google Safe Browsing</h4>
+            <p data-es="Comprueba si un sitio ha sido reportado por phishing o malware."
+               data-en="Checks if a site has been reported for phishing or malware.">
+              Comprueba si un sitio ha sido reportado por phishing o malware.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/globo-azul.png" alt="" class="herramientas-icono">
+              <p data-es="Tecnología usada por Google Chrome." data-en="Technology used by Google Chrome.">
+                Tecnología usada por Google Chrome.
+              </p>
+            </div>
+          </div>
+          <a href="https://transparencyreport.google.com/safe-browsing" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Google Safe Browsing">→</a>
+        </div>
+
+        <!-- PhishTank -->
+        <div class="herramientas-card">
+          <img src="img/logoPhishTank.png" alt="PhishTank" class="herramientas-logo"> 
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="PhishTank" data-en="PhishTank">PhishTank</h4>
+            <p data-es="Consulta una base de datos mundial de sitios de phishing reportados."
+               data-en="Checks a global database of reported phishing sites.">
+              Consulta una base de datos mundial de sitios de phishing reportados.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/personas-azul.png" alt="" class="herramientas-icono"> 
+              <p data-es="Reporta y busca sitios fraudulentos." data-en="Report and search fraudulent sites.">
+                Reporta y busca sitios fraudulentos.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.phishtank.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a PhishTank">→</a>
+        </div>
+
+        <!-- URLVoid -->
+        <div class="herramientas-card">
+          <img src="img/logoURLvoid.png" alt="URLVoid" class="herramientas-logo"> 
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="URLVoid" data-en="URLVoid">URLVoid</h4>
+            <p data-es="Revisa la reputación de un dominio utilizando múltiples listas de seguridad."
+               data-en="Checks a domain's reputation using multiple security blocklists.">
+              Revisa la reputación de un dominio utilizando múltiples listas de seguridad.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/escudo-azul.png" alt="" class="herramientas-icono"> 
+              <p data-es="Verifica si un sitio es seguro o riesgoso." data-en="Verifies whether a site is safe or risky.">
+                Verifica si un sitio es seguro o riesgoso.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.urlvoid.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a URLVoid">→</a>
+        </div>
+
+        <!-- Norton Safe Web -->
+        <div class="herramientas-card">
+          <img src="img/logoNorton.png" alt="Norton Safe Web" class="herramientas-logo"> 
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="Norton Safe Web" data-en="Norton Safe Web">Norton Safe Web</h4>
+            <p data-es="Evalúa la seguridad de un sitio antes de navegar o comprar en línea."
+               data-en="Assesses a site's safety before browsing or shopping online.">
+              Evalúa la seguridad de un sitio antes de navegar o comprar en línea.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/estrella-azul.png" alt="" class="herramientas-icono">
+              <p data-es="Información de reputación y amenazas." data-en="Reputation and threat information.">
+                Información de reputación y amenazas.
+              </p>
+            </div>
+          </div>
+          <a href="https://safeweb.norton.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a Norton Safe Web">→</a>
+        </div>
+
+        <!-- ScamAdviser -->
+        <div class="herramientas-card">
+          <img src="img/logoScamadviser.png" alt="ScamAdviser" class="herramientas-logo">
+          <div class="herramientas-divider"></div>
+          <div class="herramientas-texto">
+            <h4 data-es="ScamAdviser" data-en="ScamAdviser">ScamAdviser</h4>
+            <p data-es="Calcula el nivel de confianza de una página web mediante análisis de riesgo."
+               data-en="Calculates a website's trust score through risk analysis.">
+              Calcula el nivel de confianza de una página web mediante análisis de riesgo.
+            </p>
+            <div class="herramientas-contacto">
+              <img src="iconos/grafico-azul.png" alt="" class="herramientas-icono"> 
+              <p data-es="Revisa reseñas, datos y señales de riesgo." data-en="Reviews ratings, data, and risk signals.">
+                Revisa reseñas, datos y señales de riesgo.
+              </p>
+            </div>
+          </div>
+          <a href="https://www.scamadviser.com/" target="_blank" rel="noopener" class="herramientas-arrow" aria-label="Ir a ScamAdviser">→</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="#" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:info@vaultyplus.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="#" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+  </footer>
+
+
+
+  <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="fraudes_Phishing.js"></script>
+
+</body>
+</html>

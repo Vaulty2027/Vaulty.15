@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prestamos_detalle.css">
+    <title>Vaulty+ - Tipos de prestamos</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- ============================================
+         LINEA SCROLL
+         ============================================ -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER — idéntico al de finanzas.html / index.html
+         (sin botón de Registro)
+         ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+                <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">
+                        Finanzas Panamá
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" data-es="Aprende" data-en="Learn">Aprende</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html" data-es="ATM" data-en="ATM">ATM</a>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ============================================
+             HERO
+             ============================================ -->
+        <section class="detail-hero">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow" data-es="Opciones de financiamiento" data-en="Financing options">Opciones de financiamiento</p>
+                    <h1 data-es="Tipos de préstamos personales en Panamá" data-en="Types of personal loans in Panama">Tipos de préstamos personales en Panamá</h1>
+                    <p class="hero-lead"
+                       data-es="Cada préstamo responde a una necesidad diferente. Conoce su propósito antes de comparar tasas, plazos y requisitos."
+                       data-en="Each loan serves a different need. Understand its purpose before comparing rates, terms and requirements.">
+                        Cada préstamo responde a una necesidad diferente. Conoce su propósito antes de comparar tasas, plazos y requisitos.
+                    </p>
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-orbit"></div>
+                    <div class="hero-symbol"><img src="img/glosario/financiamiento.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SEIS TIPOS DE PRÉSTAMOS
+             ============================================ -->
+        <section class="page-shell" aria-labelledby="tipos-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker" data-es="Conoce las diferencias" data-en="Know the differences">Conoce las diferencias</p>
+                <h2 id="tipos-title" data-es="Seis opciones frecuentes" data-en="Six common options">Seis opciones frecuentes</h2>
+                <p data-es="Los nombres y condiciones pueden variar entre entidades. Confirma siempre el uso permitido y el costo total."
+                   data-en="Names and terms may vary between institutions. Always confirm the permitted use and total cost.">
+                    Los nombres y condiciones pueden variar entre entidades. Confirma siempre el uso permitido y el costo total.
+                </p>
+            </div>
+
+            <div class="loan-types-grid">
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="img/glosario/deuda.png" alt=""></div>
+                    <h3 data-es="Consolidación de deudas" data-en="Debt consolidation">Consolidación de deudas</h3>
+                    <p data-es="Reúne varias deudas en una sola cuota mensual. Puede facilitar la organización, pero debes comparar el nuevo costo total y el plazo."
+                       data-en="Combines several debts into one monthly payment. It may simplify organization, but compare the new total cost and term.">
+                        Reúne varias deudas en una sola cuota mensual. Puede facilitar la organización, pero debes comparar el nuevo costo total y el plazo.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="iconos/banco.png" alt=""></div>
+                    <h3 data-es="Préstamo personal tradicional" data-en="Traditional personal loan">Préstamo personal tradicional</h3>
+                    <p data-es="Financiamiento bancario para necesidades personales, emergencias, viajes o proyectos, normalmente sin justificar un uso específico."
+                       data-en="Bank financing for personal needs, emergencies, travel or projects, usually without requiring a specific stated purpose.">
+                        Financiamiento bancario para necesidades personales, emergencias, viajes o proyectos, normalmente sin justificar un uso específico.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="img/glosario/financiamiento.png" alt=""></div>
+                    <h3 data-es="Préstamo rápido o en línea" data-en="Fast or online loan">Préstamo rápido o en línea</h3>
+                    <p data-es="Suele ofrecer aprobación más rápida y requisitos simplificados. La rapidez puede venir acompañada de tasas o cargos más elevados."
+                       data-en="Often offers faster approval and simplified requirements. Speed may come with higher rates or fees.">
+                        Suele ofrecer aprobación más rápida y requisitos simplificados. La rapidez puede venir acompañada de tasas o cargos más elevados.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="iconos/carta-de-trabajo.png" alt=""></div>
+                    <h3 data-es="Descuento directo" data-en="Payroll deduction loan">Descuento directo</h3>
+                    <p data-es="La cuota se descuenta automáticamente del salario o de la pensión. Comprueba cuánto ingreso disponible te quedará cada mes."
+                       data-en="Payments are automatically deducted from salary or pension. Check how much disposable income will remain each month.">
+                        La cuota se descuenta automáticamente del salario o de la pensión. Comprueba cuánto ingreso disponible te quedará cada mes.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="img/glosario/jubilacion.png" alt=""></div>
+                    <h3 data-es="Préstamo para jubilados" data-en="Loan for retirees">Préstamo para jubilados</h3>
+                    <p data-es="Producto dirigido a pensionados y jubilados, con requisitos, límites de edad, plazos y condiciones que pueden ser específicos."
+                       data-en="A product for pensioners and retirees, with potentially specific requirements, age limits, terms and conditions.">
+                        Producto dirigido a pensionados y jubilados, con requisitos, límites de edad, plazos y condiciones que pueden ser específicos.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-icon" aria-hidden="true"><img src="img/glosario/inversion.png" alt=""></div>
+                    <h3 data-es="Libre inversión" data-en="Unrestricted-use loan">Libre inversión</h3>
+                    <p data-es="Permite usar los fondos para distintos propósitos personales. Esa flexibilidad no reemplaza la necesidad de evaluar tu capacidad de pago."
+                       data-en="Allows funds to be used for different personal purposes. That flexibility does not replace the need to assess repayment capacity.">
+                        Permite usar los fondos para distintos propósitos personales. Esa flexibilidad no reemplaza la necesidad de evaluar tu capacidad de pago.
+                    </p>
+                </article>
+            </div>
+
+            <aside class="tip-panel reveal">
+                <div class="tip-icon" aria-hidden="true"><img src="iconos/lista-de-verificacion.png" alt=""></div>
+                <div>
+                    <h2 data-es="El nombre no cuenta toda la historia" data-en="The name does not tell the whole story">El nombre no cuenta toda la historia</h2>
+                    <p data-es="Dos préstamos con nombres parecidos pueden tener tasas, seguros, comisiones y plazos muy distintos. Compara el contrato, no solo el anuncio."
+                       data-en="Two similarly named loans may have very different rates, insurance, fees and terms. Compare the contract, not only the advertisement.">
+                        Dos préstamos con nombres parecidos pueden tener tasas, seguros, comisiones y plazos muy distintos. Compara el contrato, no solo el anuncio.
+                    </p>
+                </div>
+                <a class="tip-link" href="prestamos_como_elegir.html" data-es="Cómo comparar" data-en="How to compare">Cómo comparar</a>
+            </aside>
+        </section>
+
+        <!-- ============================================
+             SIGUE APRENDIENDO
+             ============================================ -->
+        <section class="related-pages" aria-labelledby="relacionados-title">
+            <div class="related-inner">
+                <h2 id="relacionados-title" data-es="Sigue aprendiendo" data-en="Keep learning">Sigue aprendiendo</h2>
+                <div class="related-grid">
+                    <a class="related-card" href="prestamos_como_elegir.html">
+                        <span data-es="Explorar" data-en="Explore">Explorar</span>
+                        <strong data-es="Cómo elegir un préstamo" data-en="How to choose a loan">Cómo elegir un préstamo</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_riesgos.html">
+                        <span data-es="Explorar" data-en="Explore">Explorar</span>
+                        <strong data-es="Riesgos del sobreendeudamiento" data-en="Over-indebtedness risks">Riesgos del sobreendeudamiento</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_tipos.html" aria-current="page">
+                        <span data-es="Tema actual" data-en="Current topic">Tema actual</span>
+                        <strong data-es="Tipos de préstamos personales" data-en="Types of personal loans">Tipos de préstamos personales</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE
+         ============================================ -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTÓN CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="prestamos_detalle.js"></script>
+</body>
+</html>

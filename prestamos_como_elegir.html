@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prestamos_detalle.css">
+    <title>Vaulty+ - Mejor Prestamo</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- ============================================
+         LINEA SCROLL
+         ============================================ -->
+    <div class="vaulty-page-progress" aria-hidden="true">
+        <span class="vaulty-page-progress__bar"></span>
+    </div>
+
+    <!-- ============================================
+         HEADER — idéntico al de finanzas.html / index.html
+         (sin botón de Registro)
+         ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+                <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">
+                        Finanzas Panamá
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" class="active" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" data-es="Aprende" data-en="Learn">Aprende</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html" data-es="ATM" data-en="ATM">ATM</a>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+    <main id="contenido">
+
+        <!-- ============================================
+             HERO
+             ============================================ -->
+        <section class="detail-hero">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow" data-es="Decisión inteligente" data-en="Smart decision">Decisión inteligente</p>
+                    <h1 data-es="¿Cómo elegir el mejor préstamo?" data-en="How to choose the best loan?">¿Cómo elegir el mejor préstamo?</h1>
+                    <p class="hero-lead"
+                       data-es="Antes de solicitar un préstamo en Panamá, compara estos aspectos para tomar una decisión informada."
+                       data-en="Before applying for a loan in Panama, compare these factors to make an informed decision.">
+                        Antes de solicitar un préstamo en Panamá, compara estos aspectos para tomar una decisión informada.
+                    </p>
+                </div>
+
+                <div class="hero-art" aria-hidden="true">
+                    <div class="art-orbit"></div>
+                    <div class="hero-symbol"><img src="img/glosario/interes.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             CINCO COMPROBACIONES
+             ============================================ -->
+        <section class="page-shell" aria-labelledby="criterios-title">
+            <div class="section-heading reveal">
+                <p class="section-kicker" data-es="Cinco comprobaciones" data-en="Five checks">Cinco comprobaciones</p>
+                <h2 id="criterios-title" data-es="Compara antes de firmar" data-en="Compare before you sign">Compara antes de firmar</h2>
+                <p data-es="Una cuota baja no siempre significa un préstamo económico. Mira el panorama completo."
+                   data-en="A low monthly payment does not always mean a low-cost loan. Look at the whole picture.">
+                    Una cuota baja no siempre significa un préstamo económico. Mira el panorama completo.
+                </p>
+            </div>
+
+            <div class="content-grid">
+                <article class="info-card reveal">
+                    <div class="card-number">01</div>
+                    <h3 data-es="Tasa de interés" data-en="Interest rate">Tasa de interés</h3>
+                    <p data-es="No elijas únicamente el préstamo con la cuota más baja. Compara la tasa entre distintas entidades porque influye directamente en el costo total."
+                       data-en="Do not choose only by the lowest monthly payment. Compare rates between institutions because they directly affect the total cost.">
+                        No elijas únicamente el préstamo con la cuota más baja. Compara la tasa entre distintas entidades porque influye directamente en el costo total.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-number">02</div>
+                    <h3 data-es="Costo total del préstamo" data-en="Total loan cost">Costo total del préstamo</h3>
+                    <p data-es="Solicita por escrito todos los costos asociados antes de decidir."
+                       data-en="Request every associated cost in writing before deciding.">
+                        Solicita por escrito todos los costos asociados antes de decidir.
+                    </p>
+                    <ul class="clean-list">
+                        <li data-es="Intereses y comisiones" data-en="Interest and fees">Intereses y comisiones</li>
+                        <li data-es="Seguros, cuando apliquen" data-en="Insurance, when applicable">Seguros, cuando apliquen</li>
+                        <li data-es="Otros cargos del contrato" data-en="Other contract charges">Otros cargos del contrato</li>
+                    </ul>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-number">03</div>
+                    <h3 data-es="Plazo de pago" data-en="Repayment term">Plazo de pago</h3>
+                    <p data-es="Un plazo más largo reduce la cuota mensual, pero normalmente aumenta los intereses pagados. Elige un plazo que encaje con tu presupuesto."
+                       data-en="A longer term lowers the monthly payment but usually increases total interest. Choose a term that fits your budget.">
+                        Un plazo más largo reduce la cuota mensual, pero normalmente aumenta los intereses pagados. Elige un plazo que encaje con tu presupuesto.
+                    </p>
+                </article>
+
+                <article class="info-card reveal">
+                    <div class="card-number">04</div>
+                    <h3 data-es="Lee el contrato completo" data-en="Read the full contract">Lee el contrato completo</h3>
+                    <p data-es="Antes de firmar, verifica todas las condiciones y pregunta lo que no comprendas."
+                       data-en="Before signing, check every condition and ask about anything you do not understand.">
+                        Antes de firmar, verifica todas las condiciones y pregunta lo que no comprendas.
+                    </p>
+                    <ul class="clean-list">
+                        <li data-es="Fecha y método de pago" data-en="Payment date and method">Fecha y método de pago</li>
+                        <li data-es="Recargos por mora" data-en="Late-payment fees">Recargos por mora</li>
+                        <li data-es="Cancelación anticipada" data-en="Early repayment">Cancelación anticipada</li>
+                    </ul>
+                </article>
+
+                <article class="info-card featured reveal">
+                    <div class="card-number">05</div>
+                    <div>
+                        <h3 data-es="Consulta tu historial crediticio" data-en="Check your credit history">Consulta tu historial crediticio</h3>
+                        <p data-es="Conocer tu historial en APC te ayuda a entender cómo las entidades evalúan tu perfil y por qué podrías recibir determinadas tasas, montos o condiciones."
+                           data-en="Knowing your APC credit history helps you understand how institutions evaluate your profile and why you may receive certain rates, amounts or terms.">
+                            Conocer tu historial en APC te ayuda a entender cómo las entidades evalúan tu perfil y por qué podrías recibir determinadas tasas, montos o condiciones.
+                        </p>
+                    </div>
+                </article>
+            </div>
+
+            <aside class="tip-panel reveal">
+                <div class="tip-icon" aria-hidden="true"><img src="iconos/check.png" alt=""></div>
+                <div>
+                    <h2 data-es="Consejo financiero" data-en="Financial tip">Consejo financiero</h2>
+                    <p data-es="Nunca aceptes la primera oferta. Compara varias entidades antes de decidir."
+                       data-en="Never accept the first offer. Compare several institutions before deciding.">
+                        Nunca aceptes la primera oferta. Compara varias entidades antes de decidir.
+                    </p>
+                </div>
+                <a class="tip-link" href="finanzas_prestamos.html#temas-prestamos"
+                   data-es="Volver a préstamos" data-en="Back to loans">Volver a préstamos</a>
+            </aside>
+        </section>
+
+        <!-- ============================================
+             SIGUE APRENDIENDO
+             ============================================ -->
+        <section class="related-pages" aria-labelledby="relacionados-title">
+            <div class="related-inner">
+                <h2 id="relacionados-title" data-es="Sigue aprendiendo" data-en="Keep learning">Sigue aprendiendo</h2>
+                <div class="related-grid">
+                    <a class="related-card" href="prestamos_como_elegir.html" aria-current="page">
+                        <span data-es="Tema actual" data-en="Current topic">Tema actual</span>
+                        <strong data-es="Cómo elegir un préstamo" data-en="How to choose a loan">Cómo elegir un préstamo</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_riesgos.html">
+                        <span data-es="Siguiente tema" data-en="Next topic">Siguiente tema</span>
+                        <strong data-es="Riesgos del sobreendeudamiento" data-en="Over-indebtedness risks">Riesgos del sobreendeudamiento</strong>
+                    </a>
+                    <a class="related-card" href="prestamos_tipos.html">
+                        <span data-es="Explorar" data-en="Explore">Explorar</span>
+                        <strong data-es="Tipos de préstamos personales" data-en="Types of personal loans">Tipos de préstamos personales</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ASISTENTE
+         ============================================ -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTÓN CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="prestamos_detalle.js"></script>
+</body>
+</html>

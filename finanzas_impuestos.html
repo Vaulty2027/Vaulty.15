@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="finanzas_impuestos.css">
+  <title>Vaulty+ - Impuestos</title>
+  <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+  <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+  <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html" >
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"  class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html" data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" class="active" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+  <!-- HERO — pantalla completa con imagen de fondo -->
+  <section class="hero-impuestos">
+    <img src="img/impuestos.png" class="hero-img" alt="Impuestos en Panamá">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 data-es="Impuestos" data-en="Taxes">Impuestos</h1>
+      <p data-es="Aprende cómo funcionan los impuestos, quiénes deben pagarlos y cómo contribuyen al desarrollo del país."
+         data-en="Learn how taxes work, who must pay them and how they contribute to the country's development.">
+        Aprende cómo funcionan los impuestos, quiénes deben pagarlos y cómo contribuyen al desarrollo del país.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 1 — Tipos de impuestos
+  ============================================ -->
+  <section class="tipos-section">
+    <div class="tipos-container">
+
+      <h2 data-es="Tipos de impuestos" data-en="Types of taxes">Tipos de impuestos</h2>
+
+      <p class="tipos-desc"
+         data-es="Los impuestos son pagos obligatorios que realizan las personas y las empresas al Estado. Estos recursos se utilizan para financiar servicios públicos como la educación, la salud, la seguridad y la construcción de carreteras. En Panamá, la entidad encargada de administrar los impuestos es la Dirección General de Ingresos (DGI)."
+         data-en="Taxes are mandatory payments made by individuals and businesses to the State. These resources are used to finance public services such as education, health, security and road construction. In Panama, the entity in charge of managing taxes is the Dirección General de Ingresos (DGI).">
+        Los impuestos son pagos obligatorios que realizan las personas y las empresas al Estado. Estos recursos se utilizan para financiar servicios públicos como la educación, la salud, la seguridad y la construcción de carreteras. En Panamá, la entidad encargada de administrar los impuestos es
+        <strong data-es="la Dirección General de Ingresos (DGI)." data-en="the Dirección General de Ingresos (DGI).">la Dirección General de Ingresos (DGI).</strong>
+      </p>
+
+      <div class="tipos-grid">
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/carrito-de-compras.png" alt="ITBMS">
+          </div>
+          <h3 data-es="ITBMS" data-en="ITBMS">ITBMS</h3>
+          <p class="tipo-subtitulo" data-es="Impuesto de Transferencia de Bienes Muebles y Servicios"
+             data-en="Transfer Tax on Movable Goods and Services">
+            Impuesto de Transferencia de Bienes Muebles y Servicios
+          </p>
+          <p data-es="Se aplica a la compra de la mayoría de los bienes y servicios en Panamá. Es un impuesto al consumo que se paga en cada compra de productos o al contratar determinados servicios."
+             data-en="It applies to the purchase of most goods and services in Panama. It is a consumption tax paid on every purchase of products or when hiring certain services.">
+            Se aplica a la compra de la mayoría de los bienes y servicios en Panamá. Es un impuesto al consumo que se paga en cada compra de productos o al contratar determinados servicios.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/imagen-de-perfil.png" alt="ISR">
+          </div>
+          <h3 data-es="ISR" data-en="ISR">ISR</h3>
+          <p class="tipo-subtitulo" data-es="Impuesto Sobre la Renta" data-en="Income Tax">
+            Impuesto Sobre la Renta
+          </p>
+          <p data-es="Es un impuesto que pagan las personas naturales o jurídicas sobre los ingresos que obtienen. El monto depende del nivel de ingresos y de las disposiciones fiscales vigentes."
+             data-en="It is a tax paid by individuals or legal entities on the income they earn. The amount depends on the income level and current tax regulations.">
+            Es un impuesto que pagan las personas naturales o jurídicas sobre los ingresos que obtienen. El monto depende del nivel de ingresos y de las disposiciones fiscales vigentes.
+          </p>
+        </div>
+
+        <div class="tipo-card reveal">
+          <div class="tipo-icono">
+            <img src="iconos/casa.png" alt="Impuesto de Inmuebles">
+          </div>
+          <h3 data-es="Impuesto de Inmuebles" data-en="Real Estate Tax">Impuesto de Inmuebles</h3>
+          <p class="tipo-subtitulo" data-es="Impuesto sobre la propiedad de bienes inmuebles"
+             data-en="Tax on real estate ownership">
+            Impuesto sobre la propiedad de bienes inmuebles
+          </p>
+          <p data-es="Es un impuesto que grava bienes inmuebles como casas, apartamentos, edificios y terrenos. Los propietarios deben pagarlo de acuerdo con el valor de la propiedad y la normativa fiscal vigente."
+             data-en="It is a tax on real estate such as houses, apartments, buildings and land. Owners must pay it according to the value of the property and current tax regulations.">
+            Es un impuesto que grava bienes inmuebles como casas, apartamentos, edificios y terrenos. Los propietarios deben pagarlo de acuerdo con el valor de la propiedad y la normativa fiscal vigente.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 2 — Contribución al desarrollo de Panamá
+       ============================================ -->
+  <section class="contribucion-section">
+    <div class="contribucion-container">
+      <h2 data-es="Contribución al desarrollo de Panamá" data-en="Contribution to Panama's development">
+        Contribución al desarrollo de Panamá
+      </h2>
+
+      <!-- ESPACIO PARA IMAGEN: diagrama completo -->
+      <img src="img/contribucion-es.png"
+           data-img-es="img/contribucion-es.png"
+           data-img-en="img/contribucion-en.png"
+           alt="Diagrama de contribución de los impuestos al desarrollo de Panamá"
+           class="contribucion-img">
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 3 — Quién paga + imagen + dato curioso
+       ============================================ -->
+  <section class="quien-section">
+    <div class="quien-container">
+
+      <!-- Columna izquierda: quién paga -->
+      <div class="quien-texto">
+        <h2 data-es="¿Quién debe pagar impuestos?" data-en="Who must pay taxes?">
+          ¿Quién debe pagar impuestos?
+        </h2>
+
+        <div class="quien-lista">
+
+          <div class="quien-item">
+            <span class="quien-icono">
+              <img src="iconos/imagen-de-perfil.png" alt="Personas">
+            </span>
+            <div>
+              <h3 data-es="Personas" data-en="Individuals">Personas</h3>
+              <p data-es="Algunos ingresos de las personas naturales pueden estar sujetos al pago de impuestos según la ley."
+                 data-en="Some income of natural persons may be subject to tax payment according to the law.">
+                Algunos ingresos de las personas naturales pueden estar sujetos al pago de impuestos según la ley.
+              </p>
+            </div>
+          </div>
+
+          <div class="quien-item">
+            <span class="quien-icono">
+              <img src="iconos/edificios.png" alt="Empresas">
+            </span>
+            <div>
+              <h3 data-es="Empresas" data-en="Companies">Empresas</h3>
+              <p data-es="Las empresas deben declarar y cumplir con sus obligaciones fiscales."
+                 data-en="Companies must declare and comply with their tax obligations.">
+                Las empresas deben declarar y cumplir con sus obligaciones fiscales.
+              </p>
+            </div>
+          </div>
+
+          <div class="quien-item">
+            <span class="quien-icono">
+              <img src="iconos/maleta.png" alt="Trabajos independientes">
+            </span>
+            <div>
+              <h3 data-es="Trabajos independientes" data-en="Self-employed">Trabajos independientes</h3>
+              <p data-es="Los profesionales independientes también pueden tener responsabilidades tributarias."
+                 data-en="Self-employed professionals may also have tax responsibilities.">
+                Los profesionales independientes también pueden tener responsabilidades tributarias.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Columna derecha: imagen + dato curioso -->
+      <div class="quien-derecha">
+        <img src="img/impuestos2.png"
+             data-img-es="img/impuestos2.png"
+             data-img-en="img/impuestos-en.png"
+             alt="Declaración de impuestos"
+             class="quien-img">
+        <div class="sabias-que">
+          <h3 data-es="¿Sabías que?" data-en="Did you know?">¿Sabías que?</h3>
+          <p data-es="Los impuestos existen desde hace miles de años. Algunas de las primeras civilizaciones ya cobraban tributos para financiar obras públicas y mantener el funcionamiento de sus gobiernos."
+             data-en="Taxes have existed for thousands of years. Some of the earliest civilizations already collected tributes to finance public works and maintain the functioning of their governments.">
+            Los impuestos existen desde hace miles de años. Algunas de las primeras civilizaciones ya cobraban tributos para financiar obras públicas y mantener el funcionamiento de sus gobiernos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 — Del impuesto al ahorro-->
+  <section class="impuesto-ahorro-section">
+    <div class="impuesto-ahorro-container">
+      <h2 data-es="Del Impuesto al Ahorro" data-en="From Taxes to Savings">
+        Del Impuesto al Ahorro
+      </h2>
+
+      <p class="impuesto-ahorro-intro"
+         data-es="Pagar impuestos es una responsabilidad de todos los ciudadanos y contribuye al funcionamiento del país. Sin embargo, una buena administración financiera no termina cuando se cumplen las obligaciones tributarias. Después de conocer cuánto dinero se destina a impuestos y otros gastos, es importante planificar el uso del resto de los ingresos. Una de las mejores decisiones es ahorrar de forma constante para alcanzar metas personales y estar preparado ante cualquier imprevisto."
+         data-en="Paying taxes is the responsibility of every citizen and contributes to the functioning of the country. However, good financial management does not end once tax obligations are met. After understanding how much money goes to taxes and other expenses, it is important to plan how the rest of the income will be used. One of the best decisions is to save consistently to reach personal goals and be prepared for unexpected events.">
+        Pagar impuestos es una responsabilidad de todos los ciudadanos y contribuye al funcionamiento del país. Sin embargo, una buena administración financiera no termina cuando se cumplen las obligaciones tributarias. Después de conocer cuánto dinero se destina a impuestos y otros gastos, es importante planificar el uso del resto de los ingresos. Una de las mejores decisiones es ahorrar de forma constante para alcanzar metas personales y estar preparado ante cualquier imprevisto.
+      </p>
+
+      <div class="ruta-financiera" aria-label="Ruta del ingreso hacia las metas">
+        <div class="ruta-paso">
+          <div class="ruta-icono ruta-ingresos">
+            <img src="iconos/billetera-impu.png" alt="billetera"></div>
+          <h3 data-es="Ingresos" data-en="Income">Ingresos</h3>
+          <p data-es="Dinero que recibes." data-en="Money you receive.">Dinero que recibes.</p>
+        </div>
+
+        <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+        <div class="ruta-paso">
+          <div class="ruta-icono ruta-impuestos">
+            <img src="iconos/banco-impu.png" alt="Banco"></div>
+          <h3 data-es="Impuestos" data-en="Taxes">Impuestos</h3>
+          <p data-es="Contribución al país." data-en="Contribution to the country.">Contribución al país.</p>
+        </div>
+
+        <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+        <div class="ruta-paso">
+          <div class="ruta-icono ruta-gastos">
+            <img src="iconos/carrito-impu.png" alt="Carrito"></div>
+          <h3 data-es="Gastos" data-en="Expenses">Gastos</h3>
+          <p data-es="Necesidades y pagos diarios." data-en="Daily needs and payments.">Necesidades y pagos diarios.</p>
+        </div>
+
+        <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+        <div class="ruta-paso">
+          <div class="ruta-icono ruta-ahorros">
+            <img src="iconos/alcancia-impu.png" alt="Alcancia"></div>
+          <h3 data-es="Ahorros" data-en="Savings">Ahorros</h3>
+          <p data-es="Dinero reservado para el futuro." data-en="Money reserved for the future.">Dinero reservado para el futuro.</p>
+        </div>
+
+        <span class="ruta-flecha" aria-hidden="true">➜</span>
+
+        <div class="ruta-paso">
+          <div class="ruta-icono ruta-metas">
+            <img src="iconos/meta-impu.png" alt="Metas"></div>
+          <h3 data-es="Metas" data-en="Goals">Metas</h3>
+          <p data-es="Viajes, estudios, vivienda, emergencias." data-en="Travel, education, housing, emergencies.">Viajes, estudios, vivienda, emergencias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 — Ahorrar (hero) -->
+  <section class="ahorrar-hero">
+    <img src="img/ahorrar-hero.png" alt="Una persona deposita una moneda en una alcancía" class="ahorrar-hero-img">
+    <div class="ahorrar-hero-overlay"></div>
+    <div class="ahorrar-hero-content">
+      <h2 data-es="Ahorrar" data-en="Saving">Ahorrar</h2>
+      <p data-es="El ahorro consiste en reservar una parte de los ingresos para utilizarla en el futuro, en lugar de gastarla inmediatamente. En Panamá, las cuentas de ahorro son uno de los productos financieros más utilizados y permiten guardar dinero de forma segura mientras permanece disponible cuando el titular lo necesite."
+         data-en="Saving means setting aside a portion of income to use in the future instead of spending it immediately. In Panama, savings accounts are among the most widely used financial products and allow money to be kept safely while remaining available whenever the account holder needs it.">
+        El ahorro consiste en reservar una parte de los ingresos para utilizarla en el futuro, en lugar de gastarla inmediatamente. En Panamá, las cuentas de ahorro son uno de los productos financieros más utilizados y permiten guardar dinero de forma segura mientras permanece disponible cuando el titular lo necesite.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 6 — ¿Por qué es importante ahorrar?
+       ============================================ -->
+  <section class="importancia-ahorro-section">
+    <div class="importancia-ahorro-container">
+      <h2 data-es="¿Por qué es importante ahorrar?" data-en="Why is saving important?">
+        ¿Por qué es importante ahorrar?
+      </h2>
+
+      <ul class="importancia-lista">
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          <span data-es="Tener dinero disponible para " data-en="Have money available for ">Tener dinero disponible para </span><strong data-es="emergencias." data-en="emergencies.">emergencias.</strong>
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          <span data-es="Organizar mejor las " data-en="Better organize your ">Organizar mejor las </span><strong data-es="finanzas personales." data-en="personal finances.">finanzas personales.</strong>
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          <span data-es="Alcanzar " data-en="Reach ">Alcanzar </span><strong data-es="metas" data-en="goals">metas</strong>
+          <span data-es=" como estudiar, comprar una computadora o un automóvil." data-en=" such as studying, buying a computer or a car."> como estudiar, comprar una computadora o un automóvil.</span>
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          <span data-es="Tener mayor " data-en="Have greater ">Tener mayor </span><strong data-es="tranquilidad económica." data-en="financial peace of mind.">tranquilidad económica.</strong>
+        </li>
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          <strong data-es="Evitar endeudarse " data-en="Avoid going into debt ">Evitar endeudarse </strong>
+          <span data-es="cuando surgen gastos inesperados." data-en="when unexpected expenses arise.">cuando surgen gastos inesperados.</span>
+        </li>
+      </ul>
+
+      <!-- Recuadro: Superintendencia de Bancos -->
+      <div class="dato-destacado">
+        <span class="dato-destacado-icono" aria-hidden="true">
+          <img src="iconos/bancos.png" alt="Bancos">
+        </span>
+        <p>
+          <strong data-es="La Superintendencia de Bancos de Panamá " data-en="The Superintendency of Banks of Panama ">La Superintendencia de Bancos de Panamá </strong><span data-es="promueve el ahorro como parte de la educación financiera para que las personas puedan tomar mejores decisiones sobre el manejo de su dinero." data-en="promotes savings as part of financial education so people can make better decisions about managing their money.">promueve el ahorro como parte de la educación financiera para que las personas puedan tomar mejores decisiones sobre el manejo de su dinero.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 7 — Consejos para ahorrar
+       ============================================ -->
+  <section class="consejos-section">
+    <div class="consejos-container">
+      <h2 data-es="Consejos para ahorrar" data-en="Tips for saving">Consejos para ahorrar</h2>
+
+      <div class="consejos-grid">
+
+        <div class="consejo-card">
+          <span class="consejo-numero">1</span>
+          <h3 data-es="Elabora un presupuesto mensual" data-en="Make a monthly budget">Elabora un presupuesto mensual</h3>
+          <p data-es="Anota cuánto dinero recibes y cuánto gastas." data-en="Write down how much money you receive and how much you spend.">Anota cuánto dinero recibes y cuánto gastas.</p>
+          <div class="consejo-icono">
+            <img src="iconos/registros-financieros.png" alt="registros"></div>
+        </div>
+
+        <div class="consejo-card">
+          <span class="consejo-numero">2</span>
+          <h3 data-es="Ahorra antes de gastar" data-en="Save before you spend">Ahorra antes de gastar</h3>
+          <p data-es="Cuando recibas tu salario o ingreso, separa primero una parte para el ahorro."
+             data-en="When you receive your salary or income, set aside part of it for savings first.">
+            Cuando recibas tu salario o ingreso, separa primero una parte para el ahorro.
+          </p>
+          <div class="consejo-icono">
+            <img src="iconos/alcancia.png" alt="Alcancia"></div>
+        </div>
+
+        <div class="consejo-card">
+          <span class="consejo-numero">3</span>
+          <h3 data-es="Abre una cuenta de ahorro" data-en="Open a savings account">Abre una cuenta de ahorro</h3>
+          <p data-es="Los bancos panameños ofrecen cuentas de ahorro seguras y flexibles."
+             data-en="Panamanian banks offer safe and flexible savings accounts.">
+            Los bancos panameños ofrecen cuentas de ahorro seguras y flexibles.
+          </p>
+          <div class="consejo-icono">
+            <img src="iconos/banco-impu.png" alt="Banco"></div>
+        </div>
+
+        <div class="consejo-card">
+          <span class="consejo-numero">4</span>
+          <h3 data-es="Evita las compras impulsivas" data-en="Avoid impulse purchases">Evita las compras impulsivas</h3>
+          <p data-es="Antes de comprar algo, pregúntate: ¿Lo necesito realmente?"
+             data-en="Before buying something, ask yourself: Do I really need it?">
+            Antes de comprar algo, pregúntate: ¿Lo necesito realmente?
+          </p>
+          <div class="consejo-icono">
+            <img src="iconos/error-compras.png" alt="Carrito"></div>
+        </div>
+
+        <div class="consejo-card">
+          <span class="consejo-numero">5</span>
+          <h3 data-es="Establece metas" data-en="Set goals">Establece metas</h3>
+          <p class="consejo-ejemplos" data-es="Ejemplos:" data-en="Examples:">Ejemplos:</p>
+          <ul class="consejo-lista-ejemplos">
+            <li data-es="Universidad" data-en="University">Universidad</li>
+            <li data-es="Vivienda" data-en="Housing">Vivienda</li>
+            <li data-es="Computadora" data-en="Computer">Computadora</li>
+            <li data-es="Viaje" data-en="Trip">Viaje</li>
+            <li data-es="Auto" data-en="Car">Auto</li>
+          </ul>
+          <div class="consejo-icono">
+            <img src="iconos/metas-financieras.png" alt="Metas"></div>
+        </div>
+
+      </div>
+
+      <!-- Fondo de emergencia + Tipos de ahorros -->
+      <div class="ahorro-dos-columnas">
+
+        <div class="ahorro-caja">
+          <h3 data-es="Fondo de Emergencia" data-en="Emergency Fund">Fondo de Emergencia</h3>
+          <p data-es="El fondo de emergencia es un ahorro destinado exclusivamente a cubrir gastos inesperados, por ejemplo:"
+             data-en="The emergency fund is savings intended exclusively to cover unexpected expenses, for example:">
+            El fondo de emergencia es un ahorro destinado exclusivamente a cubrir gastos inesperados, por ejemplo:
+          </p>
+
+          <div class="fondo-grid">
+            <div class="fondo-item">
+              <div class="fondo-icono">
+                <img src="iconos/ambulancia.png" alt="Ambulancia"></div>
+              <span data-es="Enfermedades" data-en="Illness">Enfermedades</span>
+            </div>
+            <div class="fondo-item">
+              <div class="fondo-icono">
+                <img src="iconos/vehiculo.png" alt="automóvil"></div>
+              <span data-es="Reparación de autos" data-en="Cars repairs">Reparación de autos</span>
+            </div>
+            <div class="fondo-item">
+              <div class="fondo-icono">
+                <img src="iconos/casa-aho.png" alt="Vivienda"></div>
+              <span data-es="Techos en la vivienda" data-en="Home roofing">Techos en la vivienda</span>
+            </div>
+            <div class="fondo-item">
+              <div class="fondo-icono">
+                <img src="iconos/maletin.png" alt="maleta"></div>
+              <span data-es="Pérdida de empleo" data-en="Job loss">Pérdida de empleo</span>
+            </div>
+          </div>
+
+          <p class="fondo-advertencia">
+            <span aria-hidden="true">⚠️</span>
+            <span data-es="Lo recomendable es no utilizar este dinero para compras y entretenimiento."
+                  data-en="It is recommended not to use this money for shopping and entertainment.">
+              Lo recomendable es no utilizar este dinero para compras y entretenimiento.
+            </span>
+          </p>
+        </div>
+
+        <div class="ahorro-caja">
+          <h3 data-es="Tipos de ahorros" data-en="Types of savings">Tipos de ahorros</h3>
+
+          <div class="tipos-ahorro-grid">
+            <div class="tipo-ahorro-col">
+              <h4 data-es="Corto plazo" data-en="Short term">Corto plazo</h4>
+              <ul>
+                <li data-es="Comprar un celular." data-en="Buy a phone.">Comprar un celular.</li>
+                <li data-es="Vacaciones." data-en="Vacation.">Vacaciones.</li>
+                <li data-es="Uniformes escolares." data-en="School uniforms.">Uniformes escolares.</li>
+              </ul>
+            </div>
+            <div class="tipo-ahorro-col">
+              <h4 data-es="Mediano plazo" data-en="Medium term">Mediano plazo</h4>
+              <ul>
+                <li data-es="Universidad." data-en="University.">Universidad.</li>
+                <li data-es="Computadora." data-en="Computer.">Computadora.</li>
+                <li data-es="Emprendimiento." data-en="Starting a business.">Emprendimiento.</li>
+              </ul>
+            </div>
+            <div class="tipo-ahorro-col">
+              <h4 data-es="Largo plazo" data-en="Long term">Largo plazo</h4>
+              <ul>
+                <li data-es="Comprar una vivienda." data-en="Buy a home.">Comprar una vivienda.</li>
+                <li data-es="Jubilación." data-en="Retirement.">Jubilación.</li>
+                <li data-es="Iniciar un negocio." data-en="Start a business.">Iniciar un negocio.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECCIÓN 8 — ¿Dónde podemos ahorrar en Panamá?
+       ============================================ -->
+  <section class="donde-ahorrar-section">
+    <div class="donde-ahorrar-container">
+
+      <h2>
+        <span data-es="¿Donde podemos " data-en="Where can we ">¿Donde podemos </span><span class="accent" data-es="ahorrar" data-en="save">ahorrar</span><span data-es=" en Panamá?" data-en=" in Panama?"> en Panamá?</span>
+      </h2>
+      <p class="donde-ahorrar-intro"
+         data-es="En Panamá existen bancos seguros y regulados donde puedes abrir cuentas y productos de ahorro según tus necesidades y metas financieras."
+         data-en="In Panama there are safe, regulated banks where you can open accounts and savings products based on your needs and financial goals.">
+        En Panamá existen bancos seguros y regulados donde puedes abrir cuentas y productos de ahorro según tus necesidades y metas financieras.
+      </p>
+
+      <h3 class="donde-ahorrar-subtitulo" data-es="Formas de ahorrar" data-en="Ways to save">Formas de ahorrar</h3>
+
+      <div class="formas-ahorrar-grid">
+
+        <div class="forma-card">
+          <div class="forma-icono">
+            <img src="iconos/banco-blanco.png" alt="Bancos"></div>
+          <h4 data-es="Cuenta de ahorro bancaria" data-en="Bank savings account">Cuenta de ahorro bancaria</h4>
+          <p data-es="Es el producto de ahorro más común. Permite guardar dinero de forma segura, realizar depósitos y retiros cuando lo necesites, y en muchos casos generar intereses sobre el saldo disponible."
+             data-en="It is the most common savings product. It lets you keep your money safe, make deposits and withdrawals whenever you need to, and in many cases earn interest on the available balance.">
+            Es el producto de ahorro más común. Permite guardar dinero de forma segura, realizar depósitos y retiros cuando lo necesites, y en muchos casos generar intereses sobre el saldo disponible.
+          </p>
+        </div>
+
+        <div class="forma-card">
+          <div class="forma-icono">
+            <img src="iconos/celular.png" alt="celular"></div>
+          <h4 data-es="Cuenta de ahorro digital" data-en="Digital savings account">Cuenta de ahorro digital</h4>
+          <p data-es="Permite abrir y administrar una cuenta desde una aplicación móvil o página web, sin necesidad de acudir a una sucursal. Es una opción práctica para realizar transferencias, consultar saldos o ahorrar de manera cómoda."
+             data-en="It lets you open and manage an account from a mobile app or website, without needing to visit a branch. It is a practical option for transfers, checking balances or saving conveniently.">
+            Permite abrir y administrar una cuenta desde una aplicación móvil o página web, sin necesidad de acudir a una sucursal. Es una opción práctica para realizar transferencias, consultar saldos o ahorrar de manera cómoda.
+          </p>
+        </div>
+
+        <div class="forma-card">
+          <div class="forma-icono">
+            <img src="iconos/reloj-de-pared.png" alt="Reloj"></div>
+          <h4 data-es="Depósito a plazo fijo" data-en="Fixed-term deposit">Depósito a plazo fijo</h4>
+          <p data-es="Consiste en depositar una cantidad de dinero durante un período determinado. A cambio, el banco ofrece una tasa de interés generalmente mayor a la de una cuenta de ahorro tradicional. Es recomendable si no necesitas usar ese dinero durante el tiempo acordado."
+             data-en="It involves depositing a set amount of money for a fixed period. In exchange, the bank offers an interest rate usually higher than a traditional savings account. It is a good option if you don't need that money during the agreed period.">
+            Consiste en depositar una cantidad de dinero durante un período determinado. A cambio, el banco ofrece una tasa de interés generalmente mayor a la de una cuenta de ahorro tradicional. Es recomendable si no necesitas usar ese dinero durante el tiempo acordado.
+          </p>
+        </div>
+
+      </div>
+
+      <h3 class="donde-ahorrar-subtitulo" data-es="Entidades en Panamá" data-en="Institutions in Panama">Entidades en Panamá</h3>
+      <div class="entidades-bancos-grid">
+
+        <!-- Banco Nacional -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoBancoNacional.png" alt="Banco Nacional de Panamá"></div>
+          <h4 data-es="Banco Nacional de Panamá" data-en="Banco Nacional de Panamá">Banco Nacional de Panamá</h4>
+          <p data-es="Ofrece cuentas de ahorro con acceso a banca en línea y tarjeta de débito."
+             data-en="Offers savings accounts with online banking access and a debit card.">
+            Ofrece cuentas de ahorro con acceso a banca en línea y tarjeta de débito.
+          </p>
+          <a href="https://www.banconal.com.pa/productos/cuentas/cuenta-de-ahorro/?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- Caja de Ahorros -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoCajaAhorros.png" alt="Caja de Ahorros"></div>
+          <h4 data-es="Caja de Ahorros" data-en="Caja de Ahorros">Caja de Ahorros</h4>
+          <p data-es="Cuenta con opciones de ahorro accesibles para personas y familias."
+             data-en="Has accessible savings options for individuals and families.">
+            Cuenta con opciones de ahorro accesibles para personas y familias.
+          </p>
+          <a href="https://www.cajadeahorros.com.pa/cuentas-de-ahorro/?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- Banco General -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoBancoGeneral.png" alt="Banco General"></div>
+          <h4 data-es="Banco General" data-en="Banco General">Banco General</h4>
+          <p data-es="Brinda cuentas de ahorro con servicios digitales y banca en línea."
+             data-en="Provides savings accounts with digital services and online banking.">
+            Brinda cuentas de ahorro con servicios digitales y banca en línea.
+          </p>
+          <a href="https://www.bgeneral.com/cuentas/?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- Banismo -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoBanismo.jpg" alt="Banistmo"></div>
+          <h4 data-es="Banistmo" data-en="Banistmo">Banistmo</h4>
+          <p data-es="Ofrece productos de ahorro y administración digital del dinero."
+             data-en="Offers savings products and digital money management.">
+            Ofrece productos de ahorro y administración digital del dinero.
+          </p>
+          <a href="https://www.banistmo.com/wps/portal/banistmo/personas/productos-servicios/cuentas/cuentas-de-ahorro?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- BAC -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoBAC.png" alt="BAC"></div>
+          <h4 data-es="BAC" data-en="BAC">BAC</h4>
+          <p data-es="Cuenta con opciones de ahorro y servicios financieros digitales."
+             data-en="Has savings options and digital financial services.">
+            Cuenta con opciones de ahorro y servicios financieros digitales.
+          </p>
+          <a href="https://www.baccredomatic.com/es-pa/personas/cuentas/cuentas-de-ahorro?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- Banesco -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoBanesco.png" alt="Banesco"></div>
+          <h4 data-es="Banesco" data-en="Banesco">Banesco</h4>
+          <p data-es="Ofrece cuentas de ahorro con acceso a plataformas digitales."
+             data-en="Offers savings accounts with access to digital platforms.">
+            Ofrece cuentas de ahorro con acceso a plataformas digitales.
+          </p>
+          <a href="https://www.banesco.com.pa/personas/cuentas/cuentas-de-ahorro/?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+        <!-- Global Bank -->
+         <div class="entidad-banco-card">
+          <div class="entidad-banco-logo">
+            <img src="img/logoGlobalBank.png" alt="Global Bank"></div>
+          <h4 data-es="Global Bank" data-en="Global Bank">Global Bank</h4>
+          <p data-es="Brinda productos de ahorro para ayudar a alcanzar metas financieras."
+             data-en="Provides savings products to help reach financial goals.">
+            Brinda productos de ahorro para ayudar a alcanzar metas financieras.
+          </p>
+          <a href="https://www.globalbank.com.pa/personas/cuentas/cuentas-de-ahorro?utm_source=chatgpt.com" class="entidad-banco-btn" data-es="Sitio oficial" data-en="Official site">Sitio oficial</a>
+        </div>
+
+      </div>
+
+      <!-- Recuadro "Recuerda" -->
+      <div class="recuerda-caja">
+        <span class="recuerda-icono" aria-hidden="true">
+          <img src="iconos/bombilla.png" alt="Bombilla">
+        </span>
+        <div>
+          <h4 data-es="Recuerda" data-en="Remember">Recuerda</h4>
+          <p data-es="Compara las condiciones, intereses y requisitos de cada entidad antes de abrir tu cuenta. Elige la opción que mejor se adapte a tus metas y necesidades."
+             data-en="Compare the terms, interest rates and requirements of each institution before opening your account. Choose the option that best fits your goals and needs.">
+            Compara las condiciones, intereses y requisitos de cada entidad antes de abrir tu cuenta. Elige la opción que mejor se adapte a tus metas y necesidades.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-top-inner">
+
+        <div class="footer-brand">
+          <h2>
+            <span data-es="PROTEGE TU DINERO," data-en="SECURE YOUR MONEY,">PROTEGE TU DINERO,</span>
+            <span class="accent" data-es="ALCANZA TUS OBJETIVOS" data-en="UNLOCK YOUR GOALS">ALCANZA TUS OBJETIVOS</span>
+          </h2>
+          <div class="footer-logo">
+            <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+            <span>Vaulty+</span>
+          </div>
+        </div>
+
+        <div class="footer-contact">
+          <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+          <div class="contact-links">
+            <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+              <img src="iconos/github.png" alt="GitHub">
+            </a>
+            <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+              <img src="iconos/correo.png" alt="Correo">
+            </a>
+            <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+              <img src="iconos/facebook.png" alt="Facebook">
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+        © 2026 Vaulty+ - Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+ 
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="finanzas_impuestos.js"></script>
+
+</body>
+</html>

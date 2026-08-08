@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="aprende_monedas.css">
+    <title>Vaulty+ - Monedas</title>
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+
+    <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+    <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label"  data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html"  data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html" class="active">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" class="active" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+
+    <!-- ===== Hero ===== -->
+    <section class="hero-monedas">
+      <img src="img/monedas.png" alt="Monedas" class="hero-img">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1  data-es="Monedas" data-en="Coins">Monedas</h1>
+        <p data-es="Descubre las monedas de Panamá y aprende a reconocer sus valores, diseños y características. En esta sección conocerás las monedas que se utilizan en la vida diaria y cómo identificar cada una para realizar pagos y manejar mejor tu dinero."
+           data-en="Discover Panama's coins and learn to recognize their values, designs, and features. In this section, you will explore the coins used in everyday life and learn how to identify each one to make payments and manage your money with confidence.">
+            Descubre las monedas de Panamá y aprende a reconocer sus valores, diseños y características. En esta sección conocerás las monedas que se utilizan en la vida diaria y cómo identificar cada una para realizar pagos y manejar mejor tu dinero.
+        </p>
+     </div>
+   </section>
+
+   
+    <main class="contenido-monedas">
+
+        <!-- ===== BLOQUE 1: ¿Qué es una moneda? ===== -->
+        <section class="content-section">
+
+            <div class="section-header">
+                <div class="section-text">
+                    <h2 class="section-title" data-es="¿Qué es una moneda?" data-en="What is a coin?">¿Qué es una moneda?</h2>
+                    <p class="section-desc"
+                       data-es="Una moneda es una pieza metálica creada por un gobierno o institución autorizada que tiene un valor establecido y se utiliza como medio de pago para comprar bienes y servicios"
+                       data-en="A coin is a metal piece created by a government or authorized institution that has an established value and is used as a means of payment to buy goods and services">
+                        Una moneda es una pieza metálica creada por un gobierno o institución autorizada que tiene un valor establecido y se utiliza como medio de pago para comprar bienes y servicios
+                    </p>
+                </div>
+        
+            </div>
+
+            <hr class="section-divider">
+
+            <!-- Fila de 4 características, separadas por líneas verticales -->
+            <div class="features-row">
+
+                <div class="feature-item">
+                    <div class="icon-placeholder">
+                        <img src="iconos/escudo.png" alt="escudo"> 
+                    </div>
+                    <h3 data-es="Medio de pago" data-en="Payment method">Medio de pago</h3>
+                    <p data-es="Permite comprar y vender productos y servicios de forma rápida y sencilla."
+                       data-en="It lets you buy and sell products and services quickly and easily.">
+                        Permite comprar y vender productos y servicios de forma rápida y sencilla.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder">
+                        <img src="iconos/moneda-de-dolar.png" alt="moneda"> 
+                    </div>
+                    <h3 data-es="Valor garantizado" data-en="Guaranteed value">Valor garantizado</h3>
+                    <p data-es="Su valor es reconocido oficialmente dentro del sistema monetario del país."
+                       data-en="Its value is officially recognized within the country's monetary system.">
+                        Su valor es reconocido oficialmente dentro del sistema monetario del país.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder">
+                        <img src="iconos/martillo.png" alt="martillo">
+                    </div>
+                    <h3 data-es="Duraderas" data-en="Durable">Duraderas</h3>
+                    <p data-es="Están fabricadas con materiales resistentes para soportar el uso diario durante muchos años."
+                       data-en="They are made with resistant materials to withstand daily use for many years.">
+                        Están fabricadas con materiales resistentes para soportar el uso diario durante muchos años.
+                    </p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="icon-placeholder">
+                        <img src="iconos/banco.png" alt="Banco">
+                    </div>
+                    <h3 data-es="Respaldo oficial" data-en="Official backing">Respaldo oficial</h3>
+                    <p data-es="Son emitidas por autoridades competentes y forman parte del sistema monetario oficial"
+                       data-en="They are issued by competent authorities and are part of the official monetary system">
+                        Son emitidas por autoridades competentes y forman parte del sistema monetario oficial
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 2: ¿Por qué se dice "Cuara"? ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es='¿Por qué se dice "Cuara"?' data-en='Why is it called "Cuara"?'>¿Por qué se dice "Cuara"?</h2>
+
+            <div class="info-box">
+                <div class="info-box-text">
+                    <p data-es='En Panamá, "cuara" es el nombre popular que recibe la moneda de 25 centésimos de balboa (B/.0.25).'
+                       data-en='In Panama, "cuara" is the popular name given to the 25-cent balboa coin (B/.0.25).'>
+                        En Panamá, "cuara" es el nombre popular que recibe la moneda de 25 centésimos de balboa (B/.0.25).
+                    </p>
+                    <p data-es='Este término proviene de la adaptación de la palabra inglesa "quarter", utilizada para referirse a la moneda estadounidense de un cuarto de dólar.'
+                       data-en='The term comes from the adaptation of the English word "quarter", used to refer to the US quarter-dollar coin.'>
+                        Este término proviene de la adaptación de la palabra inglesa "quarter", utilizada para referirse a la moneda estadounidense de un cuarto de dólar.
+                    </p>
+                    <p data-es="La cuara es una de las monedas más utilizadas en la vida cotidiana de los panameños y forma parte de la cultura popular del país."
+                       data-en="The cuara is one of the most widely used coins in Panamanians' daily life and is part of the country's popular culture.">
+                        La cuara es una de las monedas más utilizadas en la vida cotidiana de los panameños y forma parte de la cultura popular del país.
+                    </p>
+                </div>
+
+                <div class="info-box-coin">
+                    <img src="img/cuara.png" alt="Moneda de 25 centésimos de balboa">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 3: Breve historia de la moneda (línea de tiempo) ===== -->
+        <section class="content-section">
+            <div class="history-box">
+                <h2 data-es="Breve historia de la moneda" data-en="A brief history of the coin">BREVE HISTORIA DE LA MONEDA</h2>
+
+                <div class="timeline">
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon">1904</div>
+                        <h4 data-es="Nace el Balboa" data-en="The Balboa is born">Nace el Balboa</h4>
+                        <p data-es="Tras la separación de Panamá de Colombia, el Balboa fue adoptado como moneda oficial de la República de Panamá."
+                           data-en="After Panama's separation from Colombia, the Balboa was adopted as the official currency of the Republic of Panama.">
+                            Tras la separación de Panamá de Colombia, el Balboa fue adoptado como moneda oficial de la República de Panamá.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon">$</div>
+                        <h4 data-es="Paridad con el dólar" data-en="Parity with the dollar">Paridad con el dólar</h4>
+                        <p data-es="Desde su creación, el Balboa mantiene el mismo valor que el dólar estadounidense: 1 Balboa = 1 Dólar estadounidense"
+                           data-en="Since its creation, the Balboa has kept the same value as the US dollar: 1 Balboa = 1 US Dollar">
+                            Desde su creación, el Balboa mantiene el mismo valor que el dólar estadounidense: 1 Balboa = 1 Dólar estadounidense
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon">25¢</div>
+                        <h4 data-es='La "Cuara"' data-en='The "Cuara"'>La "Cuara"</h4>
+                        <p data-es='Los panameños comenzaron a utilizar la palabra "cuara" para referirse al cuarto de balboa o cuarto de dólar.'
+                           data-en='Panamanians began using the word "cuara" to refer to the quarter balboa or quarter dollar.'>
+                            Los panameños comenzaron a utilizar la palabra "cuara" para referirse al cuarto de balboa o cuarto de dólar.
+                        </p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="timeline-icon"><img src="iconos/globo-azul.png" alt="Globo"></div>
+                        <h4 data-es="Actualidad" data-en="Today">Actualidad</h4>
+                        <p data-es="La cuara sigue siendo una de las monedas más utilizadas para compras y pagos cotidianos en todo el país."
+                           data-en="The cuara remains one of the most used coins for everyday purchases and payments across the country.">
+                            La cuara sigue siendo una de las monedas más utilizadas para compras y pagos cotidianos en todo el país.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== ¿Por qué son importantes las monedas? ===== -->
+            <h2 class="section-title accent-title" data-es="¿Por qué son importantes las monedas?" data-en="Why are coins important?">¿POR QUÉ SON IMPORTANTES LAS MONEDAS?</h2>
+
+            <div class="cards-grid">
+
+                <div class="info-card">
+                    <h4 data-es="Compras diarias" data-en="Daily purchases">Compras diarias</h4>
+                    <p data-es="Se utiliza frecuentemente para pequeños pagos y transacciones del día a día."
+                       data-en="It is frequently used for small everyday payments and transactions.">
+                        Se utiliza frecuentemente para pequeños pagos y transacciones del día a día.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Parte de la cultura" data-en="Part of the culture">Parte de la cultura</h4>
+                    <p data-es='La palabra "cuara" forma parte del vocabulario cotidiano de los panameños y de sus costumbres.'
+                       data-en='The word "cuara" is part of Panamanians\' everyday vocabulary and customs.'>
+                        La palabra "cuara" forma parte del vocabulario cotidiano de los panameños y de sus costumbres.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Equivale a B/.0.25" data-en="Equals B/.0.25">Equivale a B/.0.25</h4>
+                    <p data-es="Representa la cuarta parte de un balboa, manteniendo el mismo valor dentro del sistema monetario panameño."
+                       data-en="It represents a quarter of a balboa, keeping the same value within the Panamanian monetary system.">
+                        Representa la cuarta parte de un balboa, manteniendo el mismo valor dentro del sistema monetario panameño.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4 data-es="Circulación nacional" data-en="National circulation">Circulación nacional</h4>
+                    <p data-es="Forma parte del sistema monetario de Panamá y circula junto con otras monedas de balboa y el dólar estadounidense."
+                       data-en="It is part of Panama's monetary system and circulates alongside other balboa coins and the US dollar.">
+                        Forma parte del sistema monetario de Panamá y circula junto con otras monedas de balboa y el dólar estadounidense.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 4: Denominaciones actuales ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Denominaciones actuales" data-en="Current denominations">Denominaciones actuales</h2>
+            <p class="section-desc" data-es="Actualmente circulan las siguientes monedas panameñas:" data-en="The following Panamanian coins are currently in circulation:">
+                Actualmente circulan las siguientes monedas panameñas:
+            </p>
+
+            <div class="denominations-grid">
+
+                <div class="coin-card">
+                    <!-- 🔧 Reemplaza src por la foto real de cada moneda -->
+                    <img src="img/centavo.jpg" alt="Un centésimo de balboa">
+                    <h5 data-es="Un centésimo de balboa" data-en="One centesimo">Un centésimo de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un centavo" data-en="Nickname: A cent">Apodo: Un centavo</p>
+                    <p class="valor">B/. 0.01</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/real.jpg" alt="Cinco centésimos de balboa">
+                    <h5 data-es="Cinco centésimos de balboa" data-en="Five centesimos">Cinco centésimos de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un real" data-en="Nickname: A real">Apodo: Un real</p>
+                    <p class="valor">B/. 0.05</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/10-centavos.jpg" alt="Un décimo de balboa">
+                    <h5 data-es="Un décimo de balboa" data-en="One tenth of a balboa">Un décimo de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un dain" data-en="Nickname: A dain">Apodo: Un dain</p>
+                    <p class="valor">B/. 0.10</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/cuara.png" alt="Un cuarto de balboa">
+                    <h5 data-es="Un cuarto de balboa" data-en="One quarter of a balboa">Un cuarto de balboa</h5>
+                    <p class="apodo" data-es="Apodo: Cuara" data-en="Nickname: Cuara">Apodo: Cuara</p>
+                    <p class="valor">B/. 0.25</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/peso.jpg" alt="Medio balboa">
+                    <h5 data-es="Medio balboa" data-en="Half a balboa">Medio balboa</h5>
+                    <p class="apodo" data-es="Apodo: Un peso" data-en="Nickname: A peso">Apodo: Un peso</p>
+                    <p class="valor">B/. 0.50</p>
+                </div>
+
+                <div class="coin-card">
+                    <img src="img/Balboaa.png" alt="Un balboa">
+                    <h5 data-es="Un balboa" data-en="One balboa">Un balboa</h5>
+                    <p class="apodo" data-es="Apodo: Martinelli" data-en="Nickname: Martinelli">Apodo: Martinelli</p>
+                    <p class="valor">B/. 1.00</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 5: Materiales de fabricación ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Materiales de fabricación" data-en="Manufacturing materials">Materiales de fabricación</h2>
+
+            <div class="materials-section">
+
+                <div class="materials-text">
+                    <p class="section-desc"
+                       data-es="Las monedas de Panamá se han fabricado principalmente con plata, cobre-níquel y acero revestido a lo largo de su historia."
+                       data-en="Panamanian coins have historically been made mainly of silver, copper-nickel, and coated steel.">
+                        Las monedas de Panamá se han fabricado principalmente con plata, cobre-níquel y acero revestido a lo largo de su historia.
+                    </p>
+
+                    <ul class="materials-list">
+                        <li>
+                            <strong data-es="1 Balboa:" data-en="1 Balboa:">1 Balboa:</strong>
+                            <span data-es="Cobre bañado en cuproníquel o aleaciones bimetálicas en emisiones recientes (anillo gris y centro dorado)."
+                                  data-en="Copper plated in cupronickel, or bimetallic alloys in recent issues (grey ring and golden centre).">
+                                Cobre bañado en cuproníquel o aleaciones bimetálicas en emisiones recientes (anillo gris y centro dorado).
+                            </span>
+                        </li>
+                        <li>
+                            <strong data-es="50 y 25 Centésimos:" data-en="50 and 25 Cents:">50 y 25 Centésimos:</strong>
+                            <span data-es="Cuproníquel (aleación de 75% de cobre y 25% de níquel)."
+                                  data-en="Cupronickel (an alloy of 75% copper and 25% nickel).">
+                                Cuproníquel (aleación de 75% de cobre y 25% de níquel).
+                            </span>
+                        </li>
+                        <li>
+                            <strong data-es="10 y 5 Centésimos:" data-en="10 and 5 Cents:">10 y 5 Centésimos:</strong>
+                            <span data-es="Latón (aleación de cobre y zinc) o níquel-latón."
+                                  data-en="Brass (a copper and zinc alloy) or nickel-brass.">
+                                Latón (aleación de cobre y zinc) o níquel-latón.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Monedas decorativas apiladas a la derecha -->
+                <div class="materials-images">
+                    <!-- 🔧 Reemplaza cada src por la foto real de la moneda -->
+                    <img src="img/Balboaa.png" alt="Un balboa">
+                    <img src="img/cuara,atras.png" alt="Cuarto de balboa">
+                    <img src="img/real,atras.png" alt="Cinco centésimos">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BLOQUE 6: Diseño de la moneda ===== -->
+        <section class="content-section">
+            <h2 class="section-title accent-title" data-es="Diseño de la moneda" data-en="Coin design">Diseño de la moneda</h2>
+
+            <div class="design-section">
+
+                <div class="design-coin">
+                    <!-- 🔧 Reemplaza src por una foto grande y nítida de la moneda -->
+                    <img src="img/Balboaa.png" alt="Diseño de la moneda panameña">
+                </div>
+
+                <ul class="design-features">
+                    <li data-es="Escudo de la República de Panamá" data-en="Coat of arms of the Republic of Panama">Escudo de la República de Panamá</li>
+                    <li data-es='Nombre "República de Panamá"' data-en='Name "Republic of Panama"'>Nombre "República de Panamá"</li>
+                    <li data-es="Año de emisión" data-en="Year of issue">Año de emisión</li>
+                    <li data-es="Valor nominal" data-en="Face value">Valor nominal</li>
+                    <li data-es="Diseños conmemorativos en algunas emisiones especiales" data-en="Commemorative designs on some special issues">Diseños conmemorativos en algunas emisiones especiales</li>
+                </ul>
+            </div>
+
+            <!-- Fila final de 4 datos curiosos -->
+            <div class="cards-grid" style="margin-top: 32px;">
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/inversion.png" alt="ciclo"></div>
+                    <p data-es="Panamá es uno de los pocos países que comparte su sistema monetario con el dólar estadounidense."
+                       data-en="Panama is one of the few countries that shares its monetary system with the US dollar.">
+                        Panamá es uno de los pocos países que comparte su sistema monetario con el dólar estadounidense.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/monedas.png" alt="monedas"></div>
+                    <p data-es="Las monedas panameñas circulan junto a las monedas estadounidenses en la vida diaria."
+                       data-en="Panamanian coins circulate alongside US coins in everyday life.">
+                        Las monedas panameñas circulan junto a las monedas estadounidenses en la vida diaria.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm">
+                    <img src="iconos/insignia.png" alt="medalla">
+                    </div>
+                    <p data-es="Algunas monedas conmemorativas nunca llegan al comercio; son exclusivas para coleccionistas."
+                       data-en="Some commemorative coins never reach circulation; they are exclusive to collectors.">
+                        Algunas monedas conmemorativas nunca llegan al comercio; son exclusivas para coleccionistas.
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <div class="icon-placeholder icon-sm"><img src="iconos/subasta.png" alt="Subasta"></div>
+                    <p data-es="Las monedas antiguas de Panamá pueden alcanzar alto valor en subastas internacionales."
+                       data-en="Old Panamanian coins can reach high value at international auctions.">
+                        Las monedas antiguas de Panamá pueden alcanzar alto valor en subastas internacionales.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+
+                <div class="footer-brand">
+                    <h2>
+                        <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                        <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                    </h2>
+                    <div class="footer-logo">
+                        <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                        <span>Vaulty+</span>
+                    </div>
+                </div>
+
+                <div class="footer-contact">
+                    <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                    <div class="contact-links">
+                        <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                            <img src="iconos/github.png" alt="GitHub">
+                        </a>
+                        <a href="mailto:info@vaultyplus.com" class="footer-icon" aria-label="Correo">
+                            <img src="iconos/correo.png" alt="Correo">
+                        </a>
+                        <a href="#" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                            <img src="iconos/facebook.png" alt="Facebook">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+                © 2026 Vaulty+ - Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ASISTENTE (sin cambios) -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="aprende_monedas.js"></script>
+</body>
+</html>

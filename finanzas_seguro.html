@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaulty+ - Seguro Social</title>
+    <link rel="stylesheet" href="finanzas_seguro.css">
+    <link rel="icon" href="img/logo_vaulty+.png" type="image/png">
+</head>
+<body>
+    
+  <!-- LINEA SCROLL -->
+  <div class="vaulty-page-progress" aria-hidden="true">
+     <span class="vaulty-page-progress__bar"></span>
+  </div>
+
+ <!-- ============================================
+  HEADER  MOBILE (≤900px), 
+  ============================================ -->
+    <header id="header">
+        <div class="header-content">
+
+            <!-- Botón hamburguesa: SOLO visible en celular/tablet -->
+            <button class="nav-toggle" id="navToggle" type="button"
+                    aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <div class="logo">
+                <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                <span>Vaulty+</span>
+            </div>
+
+            <!-- Navegación -->
+            <nav id="mainNav">
+
+                <!-- Encabezado del panel: solo se ve en mobile, con botón "×" -->
+                <div class="nav-panel-header">
+                    <div class="logo nav-panel-logo">
+                        <div class="logo-icon"><img src="img/logo_vaulty+.png" alt="Logo Vaulty+"></div>
+                        <span>Vaulty+</span>
+                    </div>
+                    <button class="nav-close" id="navClose" type="button" aria-label="Cerrar menú">×</button>
+                </div>
+
+                <a href="index.html"  data-es="Inicio" data-en="Home">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24"><path d="M12 3.2 3 10.5V21h6v-6h6v6h6V10.5L12 3.2z"/></svg>
+                    </span>
+                    <span class="nav-label">Inicio</span>
+                </a>
+
+                <div class="nav-item dropdown">
+                    <a href="finanzas.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M4 20V10h3v10H4zm6.5 0V4h3v16h-3zM17 20v-7h3v7h-3z"/></svg>
+                        </span>
+                        <span class="nav-label" class="active" data-es="Finanzas Panamá" data-en="Panama's Finances">Finanzas Panamá</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="finanzas_fraudes.html"  data-es="Fraudes" data-en="Frauds">Fraudes</a></li>
+                        <li><a href="finanzas_impuestos.html" data-es="Impuestos" data-en="Taxes">Impuestos</a></li>
+                        <li><a href="finanzas_seguro.html" class="active" data-es="Seguro Social" data-en="Social Security">Seguro Social</a></li>
+                        <li><a href="finanzas_prestamos.html" data-es="Prestamos personales" data-en="Personal Loans">Prestamos</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-item dropdown">
+                    <a href="aprende.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M12 3 1 8.5l11 5.5 9-4.5V17h2V8.5L12 3zM5 12.7v4.1c0 2.1 3.1 3.7 7 3.7s7-1.6 7-3.7v-4.1l-7 3.5-7-3.5z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="Aprende" data-en="Learn">Aprende</span>
+                        <span class="nav-chevron" aria-hidden="true">›</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="aprende_glosario.html" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+                        <li><a href="aprende_podcast.html" data-es="Podcast" data-en="Podcast">Podcast</a></li>
+                        <li><a href="aprende_juegos.html" data-es="Juegos" data-en="Games">Juegos</a></li>
+                        <li><a href="aprende_monedas.html" data-es="Monedas" data-en="Coins">Monedas</a></li>
+                    </ul>
+                </div>
+
+                <!-- ATM no tiene submenú, por eso NO lleva la clase "dropdown" -->
+                <div class="nav-item">
+                    <a href="ATM.html">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18v12H3V6zm2 2v8h14V8H5zm2 2h4v2H7v-2zm0 3h7v1.4H7V13z"/></svg>
+                        </span>
+                        <span class="nav-label" data-es="ATM" data-en="ATM">ATM</span>
+                    </a>
+                </div>
+
+                <!-- Selector de idioma DENTRO del panel: solo visible en mobile -->
+                <div class="nav-lang-mobile">
+                    <button class="lang-current lang-current--panel" id="langTogglePanel" type="button" aria-expanded="false" aria-controls="langDropdownPanel">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-label" data-lang-label>Español</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--panel" id="langDropdownPanel">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Selector de idioma -->
+            <div class="nav-right">
+
+                <!-- Escritorio: las dos banderas, como siempre -->
+                <div class="language-switcher">
+                    <img src="img/spain.png" alt="ES" title="Español" onclick="setLang('es')">
+                    <img src="img/ingles.png" alt="EN" title="English" onclick="setLang('en')">
+                </div>
+
+                <!-- Mobile: píldora compacta bandera + código + flecha -->
+                <div class="nav-lang-topbar">
+                    <button class="lang-current lang-current--topbar" id="langToggleTop" type="button" aria-expanded="false" aria-controls="langDropdownTop">
+                        <img src="img/spain.png" alt="" class="lang-current-flag" data-lang-flag>
+                        <span class="lang-current-code" data-lang-code>ES</span>
+                        <span class="lang-chevron" aria-hidden="true">⌄</span>
+                    </button>
+                    <ul class="lang-dropdown lang-dropdown--topbar" id="langDropdownTop">
+                        <li><button type="button" class="lang-option" data-lang="es"><img src="img/spain.png" alt="">Español<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                        <li><button type="button" class="lang-option" data-lang="en"><img src="img/ingles.png" alt="">English<span class="lang-check" aria-hidden="true">✓</span></button></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Fondo oscuro detrás del menú móvil, para cerrar tocando afuera -->
+        <div class="nav-backdrop" id="navBackdrop"></div>
+    </header>
+
+
+<!-- HERO -->
+<section class="hero-seguros">
+    <img src="img/seguro-social.png" alt="Seguro Social Panamá" class="hero-img">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>
+            <span data-es="SEGURO" data-en="SOCIAL">SEGURO</span>
+            <span data-es="SOCIAL" data-en="SECURITY">SOCIAL</span>
+        </h1>
+        <p data-es="Aprende sobre información clara sobre requisitos, aportes, beneficios y la situación financiera del sistema de seguridad financiera en Panamá"
+           data-en="Learn about clear information on eligibility requirements, contributions, benefits, and the financial status of Panama's Social Security system">
+            Aprende sobre información clara sobre requisitos, aportes, beneficios y la situación financiera del sistema de seguridad financiera en Panamá
+        </p>
+    </div>
+</section>
+
+<!-- SECCIONES 1 y 2 -->
+<section class="info-section bg-dark">
+    <div class="info-grid">
+
+        <!-- BLOQUE 1: Requisitos de jubilación -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">1</span>
+                <h2 data-es="Requisitos de jubilación Normal" data-en="Normal Retirement Requirements">Requisitos de jubilación Normal</h2>
+            </div>
+            <div class="iconos-fila">
+                <div class="icono-item">
+                    <img src="iconos/hombre.png" alt="Hombres">
+                    <p class="icono-label" data-es="Hombres" data-en="Men">Hombres</p>
+                    <p class="icono-valor accent" data-es="62 AÑOS" data-en="62 YEARS">62 AÑOS</p>
+                </div>
+                <div class="icono-item">
+                    <img src="iconos/mujer.png" alt="Mujeres">
+                    <p class="icono-label" data-es="Mujeres" data-en="Women">Mujeres</p>
+                    <p class="icono-valor accent" data-es="57 AÑOS" data-en="57 YEARS">57 AÑOS</p>
+                </div>
+                <div class="icono-item">
+                    <img src="iconos/calendario.png" alt="Cuotas">
+                    <p class="icono-label" data-es="Cuotas necesarias" data-en="Required Contributions">Cuotas necesarias</p>
+                    <p class="icono-valor accent" data-es="240 CUOTAS" data-en="240 CONTRIBUTIONS">240 CUOTAS</p>
+                </div>
+                <div class="icono-item">
+                    <img src="iconos/reloj-de-pared.png" alt="Mínimo">
+                    <p class="icono-label" data-es="Mínimo Necesario" data-en="Minimum Required">Mínimo Necesario</p>
+                    <p class="icono-valor accent" data-es="20 AÑOS" data-en="20 YEARS">20 AÑOS</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 2: Cómo se calcula la pensión -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">2</span>
+                <h2 data-es="¿Cómo se calcula la pensión?" data-en="How is the pension calculated?">¿Cómo se calcula la pensión?</h2>
+            </div>
+            <div class="calculo-fila">
+                <div class="calculo-item">
+                    <img src="iconos/barra-grafica.png" alt="Promedio">
+                    <p data-es="Promedio de los mejores 10 años cotizados" data-en="Average of the best 10 years contributed">Promedio de los mejores 10 años cotizados</p>
+                </div>
+                <span class="flecha-calculo">→</span>
+                <div class="calculo-item calculo-destacado">
+                    <img src="iconos/billetera.png" alt="salario">
+                    <p data-es="60% del salario" data-en="60% of salary">60% del salario</p>
+                </div>
+                <span class="flecha-calculo">→</span>
+                <div class="calculo-item">
+                    <img src="iconos/grafica.png" alt="Extra">
+                    <p data-es="+1.25% por cada 12 cuotas extra sobre el mínimo" data-en="+1.25% for every 12 extra contributions above the minimum">+1.25% por cada 12 cuotas extra sobre el mínimo</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECCIONES 3 y 4 -->
+<section class="info-section bg-darker">
+    <div class="info-grid">
+
+        <!-- BLOQUE 3: Jubilación proporcional -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">3</span>
+                <h2 data-es="Jubilación proporcional" data-en="Proportional Retirement">Jubilación proporcional</h2>
+            </div>
+            <p class="bloque-sub" data-es="¿No llegaste a 240 cuotas?" data-en="Didn't reach 240 contributions?">¿No llegaste a 240 cuotas?</p>
+            <p class="bloque-desc" data-es="Si tienes al menos:" data-en="If you have at least:">Si tienes al menos:</p>
+            <div class="cuotas-badge">
+                <img src="iconos/contabilidad.png" alt="Cuotas">
+                <div class="cuotas-info">
+                    <span class="cuotas-num">180 <span data-es="cuotas" data-en="contributions">cuotas</span></span>
+                    <span class="cuotas-check">✔</span>
+                </div>
+            </div>
+            <p class="bloque-desc" data-es="Puedes optar por una pensión proporcional basada en tus aportes acumulados"
+               data-en="You may opt for a proportional pension based on your accumulated contributions">
+                Puedes optar por una pensión proporcional basada en tus aportes acumulados
+            </p>
+        </div>
+
+        <!-- BLOQUE 4: Condiciones para el 60% -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">4</span>
+                <h2 data-es="Condiciones para obtener el 60% de reemplazo" data-en="Conditions to obtain 60% replacement">Condiciones para obtener el 60% de reemplazo</h2>
+            </div>
+            <ul class="condiciones-lista">
+                <li>
+                    <img src="iconos/check.png" alt="check">
+                    <span data-es="Cotizar al menos 5 veces al año" data-en="Contribute at least 5 times per year">Cotizar al menos 5 veces al año</span>
+                </li>
+                <li>
+                    <img src="iconos/check.png" alt="check">
+                    <span data-es="No exceder 6 años sin cotizar" data-en="Not exceed 6 years without contributing">No exceder 6 años sin cotizar</span>
+                </li>
+                <li>
+                    <img src="iconos/check.png" alt="check">
+                    <span data-es="Tener 5 años consecutivos de aportes" data-en="Have 5 consecutive years of contributions">Tener 5 años consecutivos de aportes</span>
+                </li>
+                <li>
+                    <img src="iconos/check.png" alt="check">
+                    <span data-es="Que al menos el 50% de las cuotas hayan sido aportadas en los primeros 20 años laborales"
+                          data-en="At least 50% of contributions made in the first 20 working years">
+                        Que al menos el 50% de las cuotas hayan sido aportadas en los primeros 20 años laborales
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- SECCIONES 5 y 6 -->
+<section class="info-section bg-dark">
+    <div class="info-grid">
+
+        <!-- BLOQUE 5: Recaudación conjunta -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">5</span>
+                <h2 data-es="Recaudación conjunta" data-en="Joint Collection">Recaudación conjunta</h2>
+            </div>
+            <p class="bloque-desc" data-es="La CSS y la Dirección General de Ingresos (DGI) trabajan conjuntamente en la recaudación de tributos y cuotas"
+               data-en="The CSS and the General Directorate of Revenue (DGI) work together in the collection of taxes and contributions">
+                La CSS y la Dirección General de Ingresos (DGI) trabajan conjuntamente en la recaudación de tributos y cuotas
+            </p>
+            <div class="recaudacion-grid">
+                <!-- Trabajador -->
+                <div class="recaudacion-card">
+                    <div class="recaudacion-header">
+                        <span data-es="Trabajador" data-en="Worker">Trabajador</span>
+                    </div>
+                    <img src="iconos/imagen-de-perfil.png" alt="Trabajador">
+                    <div class="recaudacion-fila">
+                        <span data-es="CSS" data-en="CSS">CSS</span>
+                        <span class="accent">9.75%</span>
+                    </div>
+                    <div class="recaudacion-fila">
+                        <span data-es="Seguro Educativo" data-en="Educational Insurance">Seguro Educativo</span>
+                        <span class="accent">1.25%</span>
+                    </div>
+                    <div class="recaudacion-total">
+                        <span data-es="TOTAL" data-en="TOTAL">TOTAL</span>
+                        <span class="accent">11.00%</span>
+                    </div>
+                    <p class="recaudacion-pie" data-es="Del salario bruto" data-en="Of gross salary">Del salario bruto</p>
+                </div>
+
+                <!-- Empleador -->
+                <div class="recaudacion-card">
+                    <div class="recaudacion-header">
+                        <span data-es="Empleador" data-en="Employer">Empleador</span>
+                    </div>
+                    <img src="iconos/edificios.png" alt="Empleador">
+                    <div class="recaudacion-fila">
+                        <span data-es="CSS" data-en="CSS">CSS</span>
+                        <span class="accent">13.25%</span>
+                    </div>
+                    <div class="recaudacion-fila">
+                        <span data-es="Seguro Educativo" data-en="Educational Insurance">Seguro Educativo</span>
+                        <span class="accent">1.50%</span>
+                    </div>
+                    <div class="recaudacion-total">
+                        <span data-es="TOTAL" data-en="TOTAL">TOTAL</span>
+                        <span class="accent">14.75%</span>
+                    </div>
+                    <p class="recaudacion-pie" data-es="Del salario bruto" data-en="Of gross salary">Del salario bruto</p>
+                </div>
+
+                <!-- Estado DGI -->
+                <div class="recaudacion-card">
+                    <div class="recaudacion-header">
+                        <span data-es="Estado DGI" data-en="State DGI">Estado DGI</span>
+                    </div>
+                    <p class="recaudacion-desc" data-es="ISR (IMPUESTO SOBRE LA RENTA)" data-en="ISR (INCOME TAX)">ISR (IMPUESTO SOBRE LA RENTA)</p>
+                    <p class="recaudacion-desc" data-es="Retenido de los salarios de los empleados, gestionado por la CSS pero perteneciente al Tesoro Nacional (DGI)."
+                       data-en="Withheld from employee salaries, managed by the CSS but belonging to the National Treasury (DGI).">
+                        Retenido de los salarios de los empleados, gestionado por la CSS pero perteneciente al Tesoro Nacional (DGI).
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE 6: Plazo de prescripción -->
+        <div class="bloque">
+            <div class="bloque-titulo">
+                <span class="num-badge">6</span>
+                <h2 data-es="Plazo de prescripción de deudas" data-en="Debt Prescription Period">Plazo de prescripción de deudas</h2>
+            </div>
+            <div class="prescripcion-lista">
+                <div class="prescripcion-item">
+                    <div class="prescripcion-barra barra-larga"></div>
+                    <span class="prescripcion-label" data-es="Cuotas Seguro Social (CSS)" data-en="Social Security Contributions (CSS)">Cuotas Seguro Social (CSS)</span>
+                    <span class="prescripcion-años accent" data-es="20 AÑOS" data-en="20 YEARS">20 AÑOS</span>
+                </div>
+                <div class="prescripcion-item">
+                    <div class="prescripcion-barra barra-media"></div>
+                    <span class="prescripcion-label" data-es="Impuestos sobre la renta (ISR)" data-en="Income Tax (ISR)">Impuestos sobre la renta (ISR)</span>
+                    <span class="prescripcion-años accent" data-es="7 AÑOS" data-en="7 YEARS">7 AÑOS</span>
+                </div>
+                <div class="prescripcion-item">
+                    <div class="prescripcion-barra barra-corta"></div>
+                    <span class="prescripcion-label">ITBMS</span>
+                    <span class="prescripcion-años accent" data-es="5 AÑOS" data-en="5 YEARS">5 AÑOS</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- PREGUNTAS FRECUENTES SOBRE PENSIONES -->
+<section class="faq-section" aria-labelledby="pension-faq-title">
+    <div class="faq-content">
+        <h2 id="pension-faq-title">
+            <span class="icon-placeholder" aria-hidden="true"></span>
+            <span data-es="Preguntas frecuentes (FAQ)" data-en="Frequently Asked Questions (FAQ)">Preguntas frecuentes (FAQ)</span>
+        </h2>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-1" aria-expanded="false" aria-controls="faq-answer-1" data-es="¿Puedo solicitar la pensión antes de cumplir la edad?" data-en="Can I apply for a pension before reaching retirement age?">¿Puedo solicitar la pensión antes de cumplir la edad?</button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
+                <p data-es="Sí. La solicitud puede presentarse hasta tres meses antes de cumplir la edad de jubilación." data-en="Yes. You may submit your application up to three months before reaching retirement age.">Sí. La solicitud puede presentarse hasta tres meses antes de cumplir la edad de jubilación.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-2" aria-expanded="false" aria-controls="faq-answer-2" data-es="¿Qué documentos necesito para solicitar mi pensión?" data-en="What documents do I need to apply for my pension?">¿Qué documentos necesito para solicitar mi pensión?</button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-question-2">
+                <p data-es="Debes presentar el formulario de solicitud, copia de la cédula vigente y los documentos requeridos por la CSS según tu caso." data-en="You must submit the application form, a copy of your valid ID, and the documents required by the CSS for your specific case.">Debes presentar el formulario de solicitud, copia de la cédula vigente y los documentos requeridos por la CSS según tu caso.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-3" aria-expanded="false" aria-controls="faq-answer-3" data-es="¿Existe una pensión proporcional?" data-en="Is there a proportional pension?">¿Existe una pensión proporcional?</button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-question-3">
+                <p data-es="Sí. La CSS contempla la Pensión por Vejez Proporcional para quienes cumplen las condiciones establecidas por la ley." data-en="Yes. The CSS offers a Proportional Old-Age Pension for people who meet the conditions established by law.">Sí. La CSS contempla la Pensión por Vejez Proporcional para quienes cumplen las condiciones establecidas por la ley.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-4" aria-expanded="false" aria-controls="faq-answer-4" data-es="¿Cómo puedo consultar mis cuotas acumuladas?" data-en="How can I check my accumulated contributions?">¿Cómo puedo consultar mis cuotas acumuladas?</button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-question-4">
+                <p data-es="Puedes revisar tus cuotas mediante los servicios digitales de la Caja de Seguro Social." data-en="You can review your contributions through the Caja de Seguro Social digital services.">Puedes revisar tus cuotas mediante los servicios digitales de la Caja de Seguro Social.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-5" aria-expanded="false" aria-controls="faq-answer-5" data-es="¿Dónde puedo descargar el formulario para solicitar mi pensión?" data-en="Where can I download the pension application form?">¿Dónde puedo descargar el formulario para solicitar mi pensión?</button>
+            <div class="faq-answer" id="faq-answer-5" role="region" aria-labelledby="faq-question-5">
+                <p data-es="El formulario está disponible en la sección de pensiones del sitio oficial de la CSS." data-en="The form is available in the pensions section of the official CSS website.">El formulario está disponible en la sección de pensiones del sitio oficial de la CSS.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-6" aria-expanded="false" aria-controls="faq-answer-6" data-es="¿Dónde puedo realizar trámites relacionados con mi pensión?" data-en="Where can I complete pension-related procedures?">¿Dónde puedo realizar trámites relacionados con mi pensión?</button>
+            <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+                <p data-es="Puedes hacerlo mediante la plataforma oficial de trámites de la Caja de Seguro Social." data-en="You can do so through the official Caja de Seguro Social procedures platform.">Puedes hacerlo mediante la plataforma oficial de trámites de la Caja de Seguro Social.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-7" aria-expanded="false" aria-controls="faq-answer-7" data-es="¿Qué tipos de pensión ofrece la Caja de Seguro Social?" data-en="What types of pensions does the Caja de Seguro Social offer?">¿Qué tipos de pensión ofrece la Caja de Seguro Social?</button>
+            <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+                <ul>
+                    <li data-es="Pensión por vejez." data-en="Old-age pension.">Pensión por vejez.</li>
+                    <li data-es="Pensión por vejez proporcional." data-en="Proportional old-age pension.">Pensión por vejez proporcional.</li>
+                    <li data-es="Pensión por invalidez." data-en="Disability pension.">Pensión por invalidez.</li>
+                    <li data-es="Pensión de sobrevivientes para beneficiarios." data-en="Survivors' pension for beneficiaries.">Pensión de sobrevivientes para beneficiarios.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-8" aria-expanded="false" aria-controls="faq-answer-8" data-es="¿Qué es Pensión por Vejez?" data-en="What is an Old-Age Pension?">¿Qué es Pensión por Vejez?</button>
+            <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
+                <p data-es="Ingreso mensual para quienes cumplen la edad y las cuotas requeridas para jubilarse." data-en="A monthly income for people who meet the age and contribution requirements for retirement.">Ingreso mensual para quienes cumplen la edad y las cuotas requeridas para jubilarse.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-9" aria-expanded="false" aria-controls="faq-answer-9" data-es="¿Qué es Pensión por Invalidez?" data-en="What is a Disability Pension?">¿Qué es Pensión por Invalidez?</button>
+            <div class="faq-answer" id="faq-answer-9" role="region" aria-labelledby="faq-question-9">
+                <p data-es="Beneficio para asegurados que pierden su capacidad de trabajar por enfermedad o accidente no laboral." data-en="A benefit for insured people who lose their ability to work because of illness or a non-work-related accident.">Beneficio para asegurados que pierden su capacidad de trabajar por enfermedad o accidente no laboral.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-10" aria-expanded="false" aria-controls="faq-answer-10" data-es="¿Qué es Pensión por Sobreviviente?" data-en="What is a Survivors' Pension?">¿Qué es Pensión por Sobreviviente?</button>
+            <div class="faq-answer" id="faq-answer-10" role="region" aria-labelledby="faq-question-10">
+                <p data-es="Apoyo económico para los familiares de un asegurado o pensionado fallecido." data-en="Financial support for the relatives of a deceased insured person or pensioner.">Apoyo económico para los familiares de un asegurado o pensionado fallecido.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-11" aria-expanded="false" aria-controls="faq-answer-11" data-es="¿Qué es Pensión por Vejez Proporcional?" data-en="What is a Proportional Old-Age Pension?">¿Qué es Pensión por Vejez Proporcional?</button>
+            <div class="faq-answer" id="faq-answer-11" role="region" aria-labelledby="faq-question-11">
+                <p data-es="Beneficio para quienes cumplen la edad de jubilación, pero no las cuotas de una pensión normal." data-en="A benefit for people who reach retirement age but do not have the contributions required for a standard pension.">Beneficio para quienes cumplen la edad de jubilación, pero no las cuotas de una pensión normal.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-12" aria-expanded="false" aria-controls="faq-answer-12" data-es="¿Qué es Pensión por Vejez Anticipada?" data-en="What is an Early Old-Age Pension?">¿Qué es Pensión por Vejez Anticipada?</button>
+            <div class="faq-answer" id="faq-answer-12" role="region" aria-labelledby="faq-question-12">
+                <p data-es="Permite jubilarse antes de la edad ordinaria, si se cumplen los requisitos establecidos." data-en="It allows retirement before the standard age when the established requirements are met.">Permite jubilarse antes de la edad ordinaria, si se cumplen los requisitos establecidos.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-13" aria-expanded="false" aria-controls="faq-answer-13" data-es="¿Qué es Pensión por Vejez Proporcional Anticipada?" data-en="What is an Early Proportional Old-Age Pension?">¿Qué es Pensión por Vejez Proporcional Anticipada?</button>
+            <div class="faq-answer" id="faq-answer-13" role="region" aria-labelledby="faq-question-13">
+                <p data-es="Beneficio para quienes solicitan una jubilación anticipada con una pensión calculada de forma proporcional." data-en="A benefit for people who request early retirement with a pension calculated proportionally.">Beneficio para quienes solicitan una jubilación anticipada con una pensión calculada de forma proporcional.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button type="button" class="faq-question" id="faq-question-14" aria-expanded="false" aria-controls="faq-answer-14" data-es="¿Qué es Pensión por Vejez para los Trabajadores Estacionales Agrícolas y de la Construcción?" data-en="What is the Old-Age Pension for Seasonal Agricultural and Construction Workers?">¿Qué es Pensión por Vejez para los Trabajadores Estacionales Agrícolas y de la Construcción?</button>
+            <div class="faq-answer" id="faq-answer-14" role="region" aria-labelledby="faq-question-14">
+                <p data-es="Pensión especial para trabajadores de estos sectores, con requisitos adaptados a su actividad laboral." data-en="A special pension for workers in these sectors, with requirements adapted to their employment activity.">Pensión especial para trabajadores de estos sectores, con requisitos adaptados a su actividad laboral.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ERRORES Y CONSEJOS -->
+<section class="retirement-tools-section" aria-label="Planificación de la jubilación">
+    <div class="pension-shell">
+        <div class="planning-grid">
+            <article class="planning-card planning-card-errors">
+                <h2><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Errores Comunes" data-en="Common Mistakes">Errores Comunes</span></h2>
+                <ul>
+                    <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Esperar hasta el último momento para planificar la jubilación." data-en="Waiting until the last minute to plan for retirement.">Esperar hasta el último momento para planificar la jubilación.</span></li>
+                    <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="No verificar regularmente las cuotas acumuladas." data-en="Not regularly checking your accumulated contributions.">No verificar regularmente las cuotas acumuladas.</span></li>
+                    <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Confiar únicamente en la pensión de la CSS." data-en="Relying only on the CSS pension.">Confiar únicamente en la pensión de la CSS.</span></li>
+                    <li><span class="status-icon status-icon-error" aria-hidden="true">×</span><span data-es="Desconocer los requisitos para acceder a la jubilación." data-en="Not knowing the requirements for retirement.">Desconocer los requisitos para acceder a la jubilación.</span></li>
+                </ul>
+            </article>
+
+            <article class="planning-card planning-card-tips">
+                <h2><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Consejos Financieros" data-en="Financial Tips">Consejos Financieros</span></h2>
+                <ul>
+                    <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Empieza a ahorrar para tu retiro desde temprano." data-en="Start saving for retirement early.">Empieza a ahorrar para tu retiro desde temprano.</span></li>
+                    <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Lleva un control de tus aportes a la CSS." data-en="Keep track of your CSS contributions.">Lleva un control de tus aportes a la CSS.</span></li>
+                    <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Crea un fondo de emergencia." data-en="Build an emergency fund.">Crea un fondo de emergencia.</span></li>
+                    <li><span class="status-icon status-icon-check" aria-hidden="true">✓</span><span data-es="Diversifica tus fuentes de ingresos para el futuro." data-en="Diversify your sources of income for the future.">Diversifica tus fuentes de ingresos para el futuro.</span></li>
+                </ul>
+            </article>
+        </div>
+
+        <div class="retirement-path" aria-labelledby="retirement-path-title">
+            <h2 id="retirement-path-title" data-es="Tu camino hacia la jubilación" data-en="Your path to retirement">Tu camino hacia la jubilación</h2>
+            <ol class="retirement-steps">
+                <li>
+                    <div class="step-icon"><img src="iconos/imagen-de-perfil.png" alt=""></div>
+                    <strong data-es="18 años" data-en="Age 18">18 años</strong>
+                    <span data-es="Primer empleo" data-en="First job">Primer empleo</span>
+                </li>
+                <li>
+                    <div class="step-icon"><img src="iconos/lista-de-verificacion.png" alt=""></div>
+                    <strong data-es="Empiezas a cotizar" data-en="You start contributing">Empiezas a cotizar</strong>
+                    <span data-es="Inicias tus aportes" data-en="You begin your contributions">Inicias tus aportes</span>
+                </li>
+                <li>
+                    <div class="step-icon"><img src="iconos/escudo.png" alt=""></div>
+                    <strong data-es="240 cuotas" data-en="240 contributions">240 cuotas</strong>
+                    <span data-es="Mínimo requerido" data-en="Minimum required">Mínimo requerido</span>
+                </li>
+                <li>
+                    <div class="step-icon"><img src="iconos/social.png" alt=""></div>
+                    <strong data-es="57 / 62 años" data-en="Ages 57 / 62">57 / 62 años</strong>
+                    <span data-es="Edad de jubilación · Mujeres / Hombres" data-en="Retirement age · Women / Men">Edad de jubilación · Mujeres / Hombres</span>
+                </li>
+                <li>
+                    <div class="step-icon"><img src="iconos/documento.png" alt=""></div>
+                    <strong data-es="Solicitud" data-en="Application">Solicitud</strong>
+                    <span data-es="Presentas tu trámite" data-en="You submit your application">Presentas tu trámite</span>
+                </li>
+                <li>
+                    <div class="step-icon"><img src="iconos/billetera.png" alt=""></div>
+                    <strong data-es="Pensión" data-en="Pension">Pensión</strong>
+                    <span data-es="Recibes tu pago mensual" data-en="You receive your monthly payment">Recibes tu pago mensual</span>
+                </li>
+            </ol>
+        </div>
+
+        <a class="css-pension-link" href="https://www.css.gob.pa/pension/" target="_blank" rel="noopener noreferrer" data-es="Pensión CSS" data-en="CSS Pensions">Pensión CSS</a>
+    </div>
+</section>
+
+<!-- MITOS Y REALIDADES -->
+<section class="myths-section" aria-labelledby="myths-title">
+    <div class="pension-shell">
+        <h2 class="myths-title"  data-es="MITOS Y REALIDADES" data-en="MYTHS AND FACTS">MITOS Y REALIDADES</h2>
+
+        <div class="myths-board">
+            <div class="myths-board-header">
+                <span><i class="status-icon status-icon-error" aria-hidden="true">×</i><b data-es="MITO" data-en="MYTH">MITO</b></span>
+                <span><i class="status-icon status-icon-check blue-check" aria-hidden="true">✓</i><b data-es="REALIDAD" data-en="FACT">REALIDAD</b></span>
+            </div>
+
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/calendario.png" alt=""><p data-es="Solo necesito cumplir la edad para jubilarme." data-en="I only need to reach retirement age to retire.">Solo necesito cumplir la edad para jubilarme.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/ID.png" alt=""><p data-es="También debes cumplir con las cuotas requeridas y otros requisitos que establece la CSS." data-en="You must also meet the required contributions and other requirements established by the CSS.">También debes cumplir con las cuotas requeridas y otros requisitos que establece la CSS.</p></div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/barra-grafica.png" alt=""><p data-es="Mientras más gane al final de mi carrera, mayor será mi pensión." data-en="The more I earn at the end of my career, the higher my pension will be.">Mientras más gane al final de mi carrera, mayor será mi pensión.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/contabilidad.png" alt=""><p data-es="La pensión se calcula con base en el salario promedio y otros requisitos establecidos por la ley." data-en="The pension is calculated using average salary and other requirements established by law.">La pensión se calcula con base en el salario promedio y otros requisitos establecidos por la ley.</p></div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/billetera.png" alt=""><p data-es="Si dejo de cotizar, pierdo todas mis cuotas." data-en="If I stop contributing, I lose all my contributions.">Si dejo de cotizar, pierdo todas mis cuotas.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/documento.png" alt=""><p data-es="Las cuotas permanecen registradas en tu historial y puedes retomarlas cuando vuelvas a cotizar." data-en="Your contributions remain in your record and you can continue them when you start contributing again.">Las cuotas permanecen registradas en tu historial y puedes retomarlas cuando vuelvas a cotizar.</p></div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/dinero.png" alt=""><p data-es="La pensión de la CSS será suficiente para todos mis gastos." data-en="My CSS pension will be enough for all my expenses.">La pensión de la CSS será suficiente para todos mis gastos.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/escudo.png" alt=""><p data-es="Es recomendable complementarla con un ahorro personal o planificar otras fuentes de ingreso." data-en="It is advisable to supplement it with personal savings or plan other sources of income.">Es recomendable complementarla con un ahorro personal o planificar otras fuentes de ingreso.</p></div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/reloj-de-pared.png" alt=""><p data-es="No es necesario revisar mi historial de cuotas." data-en="I do not need to review my contribution history.">No es necesario revisar mi historial de cuotas.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/lista-de-verificacion.png" alt=""><p data-es="Consultar tus cuotas periódicamente ayuda a detectar errores y mantener tu información actualizada." data-en="Checking your contributions regularly helps detect errors and keep your information up to date.">Consultar tus cuotas periódicamente ayuda a detectar errores y mantener tu información actualizada.</p></div>
+            </div>
+            <div class="myth-row">
+                <div class="myth-cell"><img src="iconos/social.png" alt=""><p data-es="Todos reciben el mismo monto de pensión." data-en="Everyone receives the same pension amount.">Todos reciben el mismo monto de pensión.</p></div>
+                <span class="myth-arrow" aria-hidden="true">→</span>
+                <div class="fact-cell"><img src="iconos/grafica.png" alt=""><p data-es="El monto de la pensión depende del historial de cotizaciones y de los requisitos legales." data-en="The pension amount depends on the contribution history and legal requirements.">El monto de la pensión depende del historial de cotizaciones y de los requisitos legales.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-top">
+        <div class="footer-top-inner">
+            <div class="footer-brand">
+                <h2>
+                    <span data-es="SECURE YOUR MONEY," data-en="SECURE YOUR MONEY,">SECURE YOUR MONEY,</span>
+                    <span class="accent" data-es="UNLOCK YOUR GOALS" data-en="UNLOCK YOUR GOALS">UNLOCK YOUR GOALS</span>
+                </h2>
+                <div class="footer-logo">
+                    <img src="img/logo_vaulty+.png" alt="Logo Vaulty+">
+                    <span>Vaulty+</span>
+                </div>
+            </div>
+            <div class="footer-contact">
+                <h3 data-es="Contáctanos" data-en="Contact us">Contáctanos</h3>
+                <div class="contact-links">
+                    <a href="https://github.com/Vaulty2027" class="footer-icon" aria-label="GitHub" target="_blank" rel="noopener">
+                        <img src="iconos/github.png" alt="GitHub">
+                    </a>
+                    <a href="mailto:vaultypty@gmail.com" class="footer-icon" aria-label="Correo">
+                        <img src="iconos/correo.png" alt="Correo">
+                    </a>
+                    <a href="https://www.facebook.com/share/1E4h8KaVst/?mibextid=wwXIfr" class="footer-icon" aria-label="Facebook" target="_blank" rel="noopener">
+                        <img src="iconos/facebook.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="copyright" data-es="© 2026 Vaulty+ - Todos los derechos reservados." data-en="© 2026 Vaulty+ - All rights reserved.">
+            © 2026 Vaulty+ - Todos los derechos reservados.
+        </p>
+    </div>
+</footer>
+
+
+    <!-- ASISTENTE -->
+    <div id="asistente">
+
+        <!-- CHAT -->
+        <div id="chat">
+
+            <div id="chat-header">
+                <img src="img/Aguilita.png" alt="Strix">
+                <div class="titulo">Strix<small>Asistente financiero</small></div>
+                <button id="cerrar-chat" aria-label="Cerrar">&times;</button>
+            </div>
+
+            <div id="mensajes">
+                <div class="respuesta bienvenida">
+                    ¡Hola! <br>
+                    Soy Strix. Selecciona una pregunta.
+                </div>
+            </div>
+
+            <div id="preguntas"></div>
+
+        </div>
+
+        <!-- BOTON CIRCULAR FLOTANTE -->
+        <div id="strix-btn">
+            <span class="punto-activo"></span>
+            <img src="img/Aguilita.png" alt="Strix" id="strix">
+        </div>
+
+    </div>
+
+    <script src="finanzas_seguro.js?v=20260804-faq"></script>
+
+
+</body>
+</html>
